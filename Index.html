@@ -1,1 +1,481 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AU GYM & FITNESS | Start Strong. Finish Stronger.</title>
+  <meta name="description" content="AU Gym & Fitness Club at Anant Heights, Nashik. State-of-the-art bio-mechanical equipment, 75-Hard transformation coaching, cardio studio, and elite personal training." />
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Google Fonts: Bebas Neue for bold gym impact + Plus Jakarta Sans for clean reading -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              yellow: '#FACC15', // Matches their bright yellow machines
+              gold: '#D4AF37',   // Matches the metallic emblem
+              dark: '#080808',   // Deep matte gym floor black
+              card: '#121212',
+              border: '#242424'
+            }
+          },
+          fontFamily: {
+            heading: ['"Bebas Neue"', 'sans-serif'],
+            sans: ['"Plus Jakarta Sans"', 'sans-serif']
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    .glow-gold {
+      box-shadow: 0 0 35px -5px rgba(250, 204, 21, 0.3);
+    }
+    .glow-gold-sm {
+      box-shadow: 0 0 15px -3px rgba(250, 204, 21, 0.4);
+    }
+  </style>
+</head>
+<body class="bg-brand-dark text-gray-100 font-sans antialiased selection:bg-brand-yellow selection:text-black">
+
+  <!-- TOP RUNNING NOTIFICATION -->
+  <div class="bg-brand-yellow text-black font-extrabold text-xs md:text-sm py-2 px-4 text-center tracking-wide flex items-center justify-center gap-2">
+    <i data-lucide="flame" class="w-4 h-4 fill-black"></i>
+    <span>LIMITED PASSES: Claim Your Free 1-Day VIP Workout Pass at Anant Heights!</span>
+  </div>
+
+  <!-- NAVIGATION BAR -->
+  <nav class="sticky top-0 z-50 bg-black/90 backdrop-blur-md border-b border-brand-border px-4 lg:px-8 py-3.5">
+    <div class="max-w-6xl mx-auto flex items-center justify-between">
+      <a href="#" class="flex items-center gap-3">
+        <img 
+          src="https://i.ibb.co/GfNKdkNh/657920997-17859829779680967-8719283677993680582-n.jpg" 
+          alt="AU Gym & Fitness Logo" 
+          class="w-11 h-11 rounded-full border border-brand-gold object-cover shadow-sm"
+        />
+        <div>
+          <span class="font-heading text-2xl tracking-wider text-white block leading-none">AU GYM &amp; FITNESS</span>
+          <span class="text-[10px] text-brand-yellow font-bold tracking-widest uppercase">Start Strong &bull; Finish Stronger</span>
+        </div>
+      </a>
+      
+      <div class="flex items-center gap-3">
+        <a href="tel:7776088807" class="hidden sm:flex items-center gap-2 text-sm font-semibold text-gray-300 hover:text-white px-3 py-2">
+          <i data-lucide="phone" class="w-4 h-4 text-brand-yellow"></i> 7776088807
+        </a>
+        <a href="#trial" class="bg-brand-yellow hover:bg-yellow-400 text-black font-extrabold text-xs sm:text-sm px-4 sm:px-5 py-2.5 rounded-xl transition-all shadow-md">
+          Claim Free Pass
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO SECTION WITH ARCH PHOTO -->
+  <header class="relative pt-12 pb-24 px-4 overflow-hidden border-b border-brand-border">
+    <div class="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+      
+      <div class="lg:col-span-7 text-center lg:text-left">
+        <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-brand-card border border-brand-border text-brand-yellow text-xs font-bold mb-6">
+          <span class="w-2 h-2 rounded-full bg-brand-yellow animate-pulse"></span> Anant Heights &bull; Nashik
+        </div>
+        <h1 class="font-heading text-5xl sm:text-7xl md:text-8xl tracking-wider leading-none text-white mb-6">
+          TRANSFORM YOUR BODY.<br/>
+          <span class="text-brand-yellow">ELEVATE YOUR MIND.</span>
+        </h1>
+        <p class="text-gray-400 text-base sm:text-lg max-w-xl mx-auto lg:mx-0 mb-8 leading-relaxed">
+          Train on elite bio-mechanical yellow machinery, functional cross-training arches, and high-energy cardio suites. Built for serious lifters and daily fitness enthusiasts.
+        </p>
+
+        <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">
+          <a href="#trial" class="w-full sm:w-auto flex items-center justify-center gap-2 bg-brand-yellow hover:bg-yellow-400 text-black font-extrabold px-8 py-4 rounded-xl text-base transition-all glow-gold">
+            <i data-lucide="zap" class="w-5 h-5 fill-black"></i> Get Free 1-Day Trial Pass
+          </a>
+          <a href="https://wa.me/917776088807?text=Hi%20AU%20Fitness,%20I%20want%20membership%20details%20and%20plans" target="_blank" class="w-full sm:w-auto flex items-center justify-center gap-2 bg-brand-card hover:bg-neutral-800 border border-brand-border text-white font-bold px-7 py-4 rounded-xl text-base transition-all">
+            <i data-lucide="message-circle" class="w-5 h-5 text-green-500"></i> WhatsApp Us
+          </a>
+        </div>
+
+        <!-- Metrics -->
+        <div class="grid grid-cols-3 gap-4 max-w-md mx-auto lg:mx-0 mt-12 pt-8 border-t border-brand-border text-center lg:text-left">
+          <div>
+            <div class="font-heading text-3xl sm:text-4xl text-brand-yellow">100%</div>
+            <div class="text-[11px] uppercase tracking-wider text-gray-400 font-semibold mt-1">Ergonomic Gear</div>
+          </div>
+          <div>
+            <div class="font-heading text-3xl sm:text-4xl text-brand-yellow">75 HARD</div>
+            <div class="text-[11px] uppercase tracking-wider text-gray-400 font-semibold mt-1">Coaching Ready</div>
+          </div>
+          <div>
+            <div class="font-heading text-3xl sm:text-4xl text-brand-yellow">ANANT</div>
+            <div class="text-[11px] uppercase tracking-wider text-gray-400 font-semibold mt-1">Heights, Nashik</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Hero Visual (Golden Arch Squat Rack) -->
+      <div class="lg:col-span-5">
+        <div class="relative rounded-3xl overflow-hidden border border-brand-border glow-gold">
+          <img 
+            src="https://i.ibb.co/Xfpz3Xt6/unnamed-7.webp" 
+            alt="AU Fitness Yellow Arch Rack" 
+            class="w-full h-[460px] object-cover object-center"
+          />
+          <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent"></div>
+          <div class="absolute bottom-4 left-4 right-4 bg-black/80 backdrop-blur-md p-4 rounded-2xl border border-brand-border flex items-center justify-between">
+            <div>
+              <span class="text-xs text-brand-yellow font-bold uppercase tracking-wider block">Signature Facility</span>
+              <h4 class="text-white font-bold text-sm">LED Ambient Squat & Power Station</h4>
+            </div>
+            <span class="bg-brand-yellow text-black text-xs font-extrabold px-2.5 py-1 rounded-md">PRO TIER</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- INTERIOR PHOTO TOUR GALLERY -->
+  <section class="py-16 px-4 max-w-6xl mx-auto">
+    <div class="text-center mb-12">
+      <span class="text-xs uppercase font-extrabold tracking-widest text-brand-yellow">World-Class Setup</span>
+      <h2 class="font-heading text-4xl sm:text-5xl text-white tracking-wider mt-1">FACILITY &amp; MACHINERY SHOWCASE</h2>
+      <p class="text-gray-400 text-sm sm:text-base mt-2">Engineered with bio-mechanics to isolate target muscles safely and effectively.</p>
+    </div>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      
+      <!-- Photo 1: Leg & Preacher Zone -->
+      <div class="group bg-brand-card border border-brand-border rounded-2xl overflow-hidden hover:border-brand-yellow transition-all duration-300">
+        <div class="h-64 overflow-hidden">
+          <img 
+            src="https://i.ibb.co/8DZq6hZg/unnamed-8.webp" 
+            alt="AU Fitness Leg & Preacher Curl Station" 
+            class="w-full h-full object-cover group-hover:scale-105 transition-all duration-500"
+          />
+        </div>
+        <div class="p-5">
+          <h3 class="font-bold text-lg text-white mb-1">Leg Extension &amp; Preacher Bench</h3>
+          <p class="text-gray-400 text-xs leading-relaxed">Precision pivot alignment ensures targeted quad and bicep contraction without strain.</p>
+        </div>
+      </div>
+
+      <!-- Photo 2: Cardio & Aerobics Studio -->
+      <div class="group bg-brand-card border border-brand-border rounded-2xl overflow-hidden hover:border-brand-yellow transition-all duration-300">
+        <div class="h-64 overflow-hidden">
+          <img 
+            src="https://i.ibb.co/pj218xgH/unnamed-4.webp" 
+            alt="Cardio Studio & Treadmills" 
+            class="w-full h-full object-cover group-hover:scale-105 transition-all duration-500"
+          />
+        </div>
+        <div class="p-5">
+          <h3 class="font-bold text-lg text-white mb-1">Cardio &amp; Endurance Suite</h3>
+          <p class="text-gray-400 text-xs leading-relaxed">Wide open wooden-deck floor equipped with heavy-duty commercial treadmills and ellipticals.</p>
+        </div>
+      </div>
+
+      <!-- Photo 3: Cable Pulley Station -->
+      <div class="group bg-brand-card border border-brand-border rounded-2xl overflow-hidden hover:border-brand-yellow transition-all duration-300">
+        <div class="h-64 overflow-hidden">
+          <img 
+            src="https://i.ibb.co/WWVFc8fH/unnamed-5.webp" 
+            alt="Commercial Cable Crossover & Lat Pulldown" 
+            class="w-full h-full object-cover group-hover:scale-105 transition-all duration-500"
+          />
+        </div>
+        <div class="p-5">
+          <h3 class="font-bold text-lg text-white mb-1">Lat Pulldown &amp; Cable Station</h3>
+          <p class="text-gray-400 text-xs leading-relaxed">Multi-stack cable crossovers for deep back width, tricep pushdowns, and shoulder flies.</p>
+        </div>
+      </div>
+
+      <!-- Photo 4: Ambient Ring Architecture -->
+      <div class="group bg-brand-card border border-brand-border rounded-2xl overflow-hidden hover:border-brand-yellow transition-all duration-300">
+        <div class="h-64 overflow-hidden">
+          <img 
+            src="https://i.ibb.co/zhPGpLdL/unnamed-6.webp" 
+            alt="Ambient Yellow Lighting Arches" 
+            class="w-full h-full object-cover group-hover:scale-105 transition-all duration-500"
+          />
+        </div>
+        <div class="p-5">
+          <h3 class="font-bold text-lg text-white mb-1">Luxury Lighting Architecture</h3>
+          <p class="text-gray-400 text-xs leading-relaxed">Modern curved ambient lighting creates a motivating, photo-ready workout vibe.</p>
+        </div>
+      </div>
+
+      <!-- Photo 5: Free Weights & Dumbbells -->
+      <div class="group bg-brand-card border border-brand-border rounded-2xl overflow-hidden hover:border-brand-yellow transition-all duration-300">
+        <div class="h-64 overflow-hidden">
+          <img 
+            src="https://i.ibb.co/ycNpNbzh/unnamed-3.webp" 
+            alt="Multi-Rack and Cable Towers" 
+            class="w-full h-full object-cover group-hover:scale-105 transition-all duration-500"
+          />
+        </div>
+        <div class="p-5">
+          <h3 class="font-bold text-lg text-white mb-1">Plate Loaded Power Centers</h3>
+          <p class="text-gray-400 text-xs leading-relaxed">Heavy-gauge racks ready for heavy deadlifts, shrugs, and bench press progression.</p>
+        </div>
+      </div>
+
+      <!-- Photo 6: Signature Golden Rack Station -->
+      <div class="group bg-brand-card border border-brand-border rounded-2xl overflow-hidden hover:border-brand-yellow transition-all duration-300">
+        <div class="h-64 overflow-hidden">
+          <img 
+            src="https://i.ibb.co/Xfpz3Xt6/unnamed-7.webp" 
+            alt="AU Power Squat Center" 
+            class="w-full h-full object-cover group-hover:scale-105 transition-all duration-500"
+          />
+        </div>
+        <div class="p-5">
+          <h3 class="font-bold text-lg text-white mb-1">Olympic Power Squat Cage</h3>
+          <p class="text-gray-400 text-xs leading-relaxed">High-safety drop catches and pull-up bars suited for intense lower-body strength days.</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- LEAD GENERATION PASS GENERATOR (WHATSAPP) -->
+  <section id="trial" class="py-20 px-4 bg-brand-card border-y border-brand-border relative">
+    <div class="max-w-xl mx-auto text-center">
+      <div class="w-16 h-16 rounded-full border-2 border-brand-yellow mx-auto mb-4 overflow-hidden glow-gold-sm">
+        <img 
+          src="https://i.ibb.co/GfNKdkNh/657920997-17859829779680967-8719283677993680582-n.jpg" 
+          alt="AU Emblem" 
+          class="w-full h-full object-cover"
+        />
+      </div>
+      <span class="text-xs uppercase font-extrabold tracking-widest text-brand-yellow">Zero Cost Workout</span>
+      <h2 class="font-heading text-4xl sm:text-5xl text-white tracking-wider mt-1 mb-3">CLAIM YOUR FREE 1-DAY PASS</h2>
+      <p class="text-gray-400 text-sm mb-8">Fill your details below. Your customized invitation will open directly on our WhatsApp management line.</p>
+
+      <form onsubmit="generateVipPass(event)" class="space-y-4 text-left">
+        <div>
+          <label class="block text-xs font-bold text-gray-300 mb-1 uppercase tracking-wider">Your Full Name</label>
+          <input 
+            type="text" 
+            id="clientName" 
+            required 
+            placeholder="e.g. Akshay Patil" 
+            class="w-full bg-black border border-brand-border rounded-xl px-4 py-3.5 text-white text-sm focus:outline-none focus:border-brand-yellow transition-all" 
+          />
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div>
+            <label class="block text-xs font-bold text-gray-300 mb-1 uppercase tracking-wider">Primary Fitness Goal</label>
+            <select 
+              id="clientGoal" 
+              class="w-full bg-black border border-brand-border rounded-xl px-4 py-3.5 text-white text-sm focus:outline-none focus:border-brand-yellow transition-all"
+            >
+              <option value="Fat Loss & Transformation">Fat Loss &amp; Toning</option>
+              <option value="Muscle Building / Hypertrophy">Muscle Hypertrophy</option>
+              <option value="75-Hard Challenge Prep">75-Hard Prep</option>
+              <option value="General Strength & Cardio">General Strength</option>
+            </select>
+          </div>
+          <div>
+            <label class="block text-xs font-bold text-gray-300 mb-1 uppercase tracking-wider">Workout Timing</label>
+            <select 
+              id="clientSlot" 
+              class="w-full bg-black border border-brand-border rounded-xl px-4 py-3.5 text-white text-sm focus:outline-none focus:border-brand-yellow transition-all"
+            >
+              <option value="Morning Batch (6:00 AM - 10:00 AM)">Morning (6 AM - 10 AM)</option>
+              <option value="Evening Batch (5:00 PM - 10:00 PM)">Evening (5 PM - 10 PM)</option>
+              <option value="Afternoon Slot">Afternoon Slot</option>
+            </select>
+          </div>
+        </div>
+
+        <button 
+          type="submit" 
+          class="w-full flex items-center justify-center gap-2 bg-brand-yellow hover:bg-yellow-400 text-black font-extrabold py-4 rounded-xl text-base transition-all glow-gold mt-6"
+        >
+          <i data-lucide="send" class="w-5 h-5"></i> Generate Pass on WhatsApp
+        </button>
+      </form>
+    </div>
+  </section>
+
+  <!-- MEMBERSHIP TIERS -->
+  <section class="py-20 px-4 max-w-6xl mx-auto">
+    <div class="text-center mb-14">
+      <span class="text-xs uppercase font-extrabold tracking-widest text-brand-yellow">Commit to Greatness</span>
+      <h2 class="font-heading text-4xl sm:text-5xl text-white tracking-wider mt-1">MEMBERSHIP PROGRAMS</h2>
+      <p class="text-gray-400 text-sm sm:text-base mt-2">Transparent programs designed for sustainable physique transformations.</p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      
+      <!-- 3 Months -->
+      <div class="bg-brand-card border border-brand-border rounded-2xl p-7 flex flex-col justify-between">
+        <div>
+          <span class="text-xs uppercase tracking-widest text-gray-400 font-bold">Starter Commitment</span>
+          <h3 class="font-heading text-3xl text-white mt-1 mb-4">3 MONTHS ACCESS</h3>
+          <p class="text-gray-400 text-xs mb-6 leading-relaxed">Perfect for jump-starting workout consistency and conditioning your body.</p>
+          <ul class="space-y-3 text-xs text-gray-300 mb-8">
+            <li class="flex items-center gap-2"><i data-lucide="check-circle" class="w-4 h-4 text-brand-yellow"></i> Full gym floor access</li>
+            <li class="flex items-center gap-2"><i data-lucide="check-circle" class="w-4 h-4 text-brand-yellow"></i> Cardio &amp; functional floor</li>
+            <li class="flex items-center gap-2"><i data-lucide="check-circle" class="w-4 h-4 text-brand-yellow"></i> Locker &amp; changing access</li>
+            <li class="flex items-center gap-2"><i data-lucide="check-circle" class="w-4 h-4 text-brand-yellow"></i> General floor trainer support</li>
+          </ul>
+        </div>
+        <a href="https://wa.me/917776088807?text=Hi%20AU%20Fitness,%20I%20want%20rates%20for%203-Months%20Membership" target="_blank" class="w-full text-center border border-brand-border hover:border-brand-yellow text-white font-bold text-xs py-3 rounded-xl transition-all">
+          Enquire Pricing
+        </a>
+      </div>
+
+      <!-- 6 Months - Featured -->
+      <div class="bg-black border-2 border-brand-yellow rounded-2xl p-7 flex flex-col justify-between relative glow-gold-sm">
+        <div class="absolute -top-3.5 left-1/2 -translate-x-1/2 bg-brand-yellow text-black text-[10px] font-extrabold uppercase px-3 py-1 rounded-full">
+          Most Popular Choice
+        </div>
+        <div>
+          <span class="text-xs uppercase tracking-widest text-brand-yellow font-bold">Transformation Phase</span>
+          <h3 class="font-heading text-3xl text-white mt-1 mb-4">6 MONTHS PRO</h3>
+          <p class="text-gray-400 text-xs mb-6 leading-relaxed">Ideal duration to run the 75-Hard routine or achieve significant body recomposition.</p>
+          <ul class="space-y-3 text-xs text-gray-200 mb-8">
+            <li class="flex items-center gap-2"><i data-lucide="check-circle" class="w-4 h-4 text-brand-yellow"></i> All 3-Month inclusions</li>
+            <li class="flex items-center gap-2"><i data-lucide="check-circle" class="w-4 h-4 text-brand-yellow"></i> Monthly body fat composition check</li>
+            <li class="flex items-center gap-2"><i data-lucide="check-circle" class="w-4 h-4 text-brand-yellow"></i> Workout routine progression card</li>
+            <li class="flex items-center gap-2"><i data-lucide="check-circle" class="w-4 h-4 text-brand-yellow"></i> Free pass for 1 friend visit</li>
+          </ul>
+        </div>
+        <a href="https://wa.me/917776088807?text=Hi%20AU%20Fitness,%20I%20want%20rates%20for%206-Months%20Membership" target="_blank" class="w-full text-center bg-brand-yellow hover:bg-yellow-400 text-black font-extrabold text-xs py-3 rounded-xl transition-all">
+          Enquire 6-Month Plan
+        </a>
+      </div>
+
+      <!-- 12 Months -->
+      <div class="bg-brand-card border border-brand-border rounded-2xl p-7 flex flex-col justify-between">
+        <div>
+          <span class="text-xs uppercase tracking-widest text-gray-400 font-bold">Lifestyle Athlete</span>
+          <h3 class="font-heading text-3xl text-white mt-1 mb-4">12 MONTHS VIP</h3>
+          <p class="text-gray-400 text-xs mb-6 leading-relaxed">The best value per month for dedicated fitness enthusiasts.</p>
+          <ul class="space-y-3 text-xs text-gray-300 mb-8">
+            <li class="flex items-center gap-2"><i data-lucide="check-circle" class="w-4 h-4 text-brand-yellow"></i> 365 days priority access</li>
+            <li class="flex items-center gap-2"><i data-lucide="check-circle" class="w-4 h-4 text-brand-yellow"></i> Full dance &amp; aerobic studio sessions</li>
+            <li class="flex items-center gap-2"><i data-lucide="check-circle" class="w-4 h-4 text-brand-yellow"></i> Membership freeze options</li>
+            <li class="flex items-center gap-2"><i data-lucide="check-circle" class="w-4 h-4 text-brand-yellow"></i> Priority machine guidance</li>
+          </ul>
+        </div>
+        <a href="https://wa.me/917776088807?text=Hi%20AU%20Fitness,%20I%20want%20rates%20for%2012-Months%20Membership" target="_blank" class="w-full text-center border border-brand-border hover:border-brand-yellow text-white font-bold text-xs py-3 rounded-xl transition-all">
+          Enquire Annual Pass
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- LOCATION & DESK HOURS -->
+  <section class="py-16 px-4 max-w-6xl mx-auto border-t border-brand-border">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
+      <div>
+        <span class="text-xs uppercase font-extrabold tracking-widest text-brand-yellow">Visit Our Floor</span>
+        <h2 class="font-heading text-4xl sm:text-5xl text-white tracking-wider mt-1 mb-6">LOCATION &amp; CONTACT</h2>
+        
+        <div class="space-y-5 text-sm text-gray-300">
+          <div class="flex items-start gap-3.5">
+            <div class="w-9 h-9 rounded-xl bg-brand-card border border-brand-border flex items-center justify-center text-brand-yellow shrink-0 mt-0.5">
+              <i data-lucide="map-pin" class="w-5 h-5"></i>
+            </div>
+            <div>
+              <strong class="text-white block font-semibold text-base">AU Gym &amp; Fitness Club</strong>
+              Anant Heights, Nashik, Maharashtra
+            </div>
+          </div>
+
+          <div class="flex items-start gap-3.5">
+            <div class="w-9 h-9 rounded-xl bg-brand-card border border-brand-border flex items-center justify-center text-brand-yellow shrink-0 mt-0.5">
+              <i data-lucide="clock" class="w-5 h-5"></i>
+            </div>
+            <div>
+              <strong class="text-white block font-semibold text-base">Club Hours</strong>
+              Monday &ndash; Saturday: 6:00 AM &ndash; 10:00 PM<br/>
+              Sunday: Morning Sessions
+            </div>
+          </div>
+
+          <div class="flex items-start gap-3.5">
+            <div class="w-9 h-9 rounded-xl bg-brand-card border border-brand-border flex items-center justify-center text-brand-yellow shrink-0 mt-0.5">
+              <i data-lucide="phone-call" class="w-5 h-5"></i>
+            </div>
+            <div>
+              <strong class="text-white block font-semibold text-base">Direct Reception Hotline</strong>
+              <a href="tel:7776088807" class="text-brand-yellow hover:underline font-bold text-lg">7776088807</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="mt-8 flex flex-wrap gap-4">
+          <a href="https://maps.app.goo.gl/Eri4vpx2Ezx5Y4jX9?g_st=ac" target="_blank" class="flex items-center gap-2 bg-brand-card hover:bg-neutral-800 border border-brand-border text-white text-sm font-bold px-5 py-3 rounded-xl transition-all">
+            <i data-lucide="navigation" class="w-4 h-4 text-brand-yellow"></i> Google Maps Directions
+          </a>
+          <a href="https://instagram.com/au_fitness_" target="_blank" class="flex items-center gap-2 bg-brand-card hover:bg-neutral-800 border border-brand-border text-white text-sm font-bold px-5 py-3 rounded-xl transition-all">
+            <i data-lucide="instagram" class="w-4 h-4 text-pink-500"></i> Follow @au_fitness_
+          </a>
+        </div>
+      </div>
+
+      <!-- Quick Call-out Card -->
+      <div class="bg-black border border-brand-border p-8 rounded-3xl text-center glow-gold">
+        <img 
+          src="https://i.ibb.co/GfNKdkNh/657920997-17859829779680967-8719283677993680582-n.jpg" 
+          alt="AU Logo" 
+          class="w-20 h-20 rounded-full border-2 border-brand-gold mx-auto mb-4 object-cover"
+        />
+        <h3 class="text-2xl font-bold text-white mb-2 font-heading tracking-wide">START YOUR 75-HARD JOURNEY</h3>
+        <p class="text-gray-400 text-xs sm:text-sm mb-6 max-w-sm mx-auto">
+          Walk in today for an in-person tour of our yellow bio-mechanical strength stations and free weight arena.
+        </p>
+        <a href="tel:7776088807" class="w-full inline-flex items-center justify-center gap-2 bg-brand-yellow hover:bg-yellow-400 text-black font-extrabold py-3.5 rounded-xl transition-all">
+          <i data-lucide="phone" class="w-4 h-4"></i> Call Desk (7776088807)
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="border-t border-brand-border py-8 text-center text-xs text-gray-500">
+    <p>&copy; AU Gym &amp; Fitness Club, Anant Heights, Nashik. All Rights Reserved.</p>
+  </footer>
+
+  <!-- SCRIPT LOGIC -->
+  <script>
+    // Initialize icons
+    lucide.createIcons();
+
+    // Generate WhatsApp VIP Pass Link
+    function generateVipPass(e) {
+      e.preventDefault();
+      const name = document.getElementById('clientName').value.trim();
+      const goal = document.getElementById('clientGoal').value;
+      const slot = document.getElementById('clientSlot').value;
+
+      const text = `*AU FITNESS CLUB - 1-DAY VIP PASS REQUEST*%0A%0A` +
+                   `*Name:* ${encodeURIComponent(name)}%0A` +
+                   `*Fitness Goal:* ${encodeURIComponent(goal)}%0A` +
+                   `*Preferred Batch:* ${encodeURIComponent(slot)}%0A%0A` +
+                   `Please confirm my free 1-day pass at Anant Heights!`;
+
+      const waUrl = `https://wa.me/917776088807?text=${text}`;
+      window.open(waUrl, '_blank');
+    }
+  </script>
+</body>
+</html>
 
