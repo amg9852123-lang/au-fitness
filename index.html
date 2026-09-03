@@ -3,14 +3,14 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>AU Fitness | College Road, Nashik</title>
-  <meta name="description" content="AU Fitness at College Road, Nashik. Premier training floor, certified mentorship, fat loss, muscle building, and high-energy workout culture." />
+  <title>AU FITNESS | Luxury Strength & Transformation Club • College Road, Nashik</title>
+  <meta name="description" content="AU Fitness at College Road, Nashik. An elite fitness private club featuring bespoke biomechanics, architectural ambient design, and tailored personal coaching." />
 
   <script src="https://cdn.tailwindcss.com"></script>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&family=Syne:wght@600;700;800&display=swap" rel="stylesheet">
 
   <script src="https://unpkg.com/lucide@latest"></script>
 
@@ -19,16 +19,22 @@
       theme: {
         extend: {
           colors: {
-            brand: {
-              yellow: '#FACC15',
-              gold: '#D4AF37',
-              dark: '#080808',
-              card: '#121212',
-              border: '#242424'
+            gold: {
+              300: '#FDE047',
+              400: '#EAB308',
+              500: '#CA8A04',
+              metallic: '#D4AF37'
+            },
+            noir: {
+              950: '#050505',
+              900: '#0B0B0C',
+              850: '#111114',
+              800: '#17171C',
+              border: '#24242B'
             }
           },
           fontFamily: {
-            heading: ['"Bebas Neue"', 'sans-serif'],
+            display: ['"Syne"', 'sans-serif'],
             sans: ['"Plus Jakarta Sans"', 'sans-serif']
           }
         }
@@ -37,165 +43,196 @@
   </script>
 
   <style>
-    .glow-gold {
-      box-shadow: 0 0 35px -5px rgba(250, 204, 21, 0.25);
+    /* Subtle radial gold aura */
+    .gold-aura {
+      background: radial-gradient(circle at 50% 0%, rgba(212, 175, 55, 0.12) 0%, transparent 70%);
     }
-    .glow-gold-sm {
-      box-shadow: 0 0 15px -3px rgba(250, 204, 21, 0.35);
+    .gold-border-gradient {
+      border-image: linear-gradient(135deg, rgba(212, 175, 55, 0.6), rgba(212, 175, 55, 0.1), rgba(212, 175, 55, 0.4)) 1;
+    }
+    .glass-card {
+      background: rgba(17, 17, 20, 0.7);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
     }
   </style>
 </head>
-<body class="bg-brand-dark text-gray-100 font-sans antialiased selection:bg-brand-yellow selection:text-black">
+<body class="bg-noir-950 text-neutral-300 font-sans antialiased selection:bg-gold-metallic selection:text-black">
 
-  <div class="bg-brand-yellow text-black font-extrabold text-xs md:text-sm py-2 px-4 text-center tracking-wide flex items-center justify-center gap-2">
-    <i data-lucide="flame" class="w-4 h-4 fill-black"></i>
-    <span>LIMITED PASSES: Claim Your Free 1-Day VIP Workout Pass at AU Fitness Today!</span>
-  </div>
+  <aside aria-label="VIP Pass Notification" class="border-b border-noir-border bg-noir-900/80 backdrop-blur-sm text-xs font-semibold tracking-wider text-neutral-300 py-2.5 px-4 text-center">
+    <div class="max-w-6xl mx-auto flex items-center justify-center gap-2">
+      <span class="w-1.5 h-1.5 rounded-full bg-gold-400 animate-ping"></span>
+      <span>PRIVATE CLUB PREVIEW: Complimentary 1-Day Guest Pass Available for College Road</span>
+    </div>
+  </aside>
 
-  <nav class="sticky top-0 z-50 bg-black/95 backdrop-blur-md border-b border-brand-border px-4 lg:px-8 py-3">
-    <div class="max-w-6xl mx-auto flex items-center justify-between">
-      <a href="#" class="flex items-center gap-3">
-        <img 
-          src="https://i.ibb.co/GfNKdkNh/657920997-17859829779680967-8719283677993680582-n.jpg" 
-          alt="AU Fitness Logo" 
-          class="w-11 h-11 rounded-full border border-brand-gold object-cover shadow-sm"
-        />
+  <nav class="sticky top-0 z-50 bg-noir-950/90 backdrop-blur-xl border-b border-noir-border px-4 lg:px-10 py-4 transition-all">
+    <div class="max-w-7xl mx-auto flex items-center justify-between">
+      <a href="#" class="flex items-center gap-3.5 group">
+        <div class="relative">
+          <img 
+            src="https://i.ibb.co/GfNKdkNh/657920997-17859829779680967-8719283677993680582-n.jpg" 
+            alt="AU Fitness Club Emblem" 
+            class="w-11 h-11 rounded-full border border-gold-metallic/50 object-cover shadow-[0_0_20px_rgba(212,175,55,0.25)] group-hover:border-gold-metallic transition-all"
+          />
+        </div>
         <div>
-          <span class="font-heading text-2xl tracking-wider text-white block leading-none">AU FITNESS</span>
-          <span class="text-[10px] text-brand-yellow font-bold tracking-widest uppercase">Start Strong • Finish Stronger</span>
+          <span class="font-display font-extrabold text-2xl tracking-wider text-white block leading-none">AU FITNESS</span>
+          <span class="text-[9px] uppercase tracking-[0.25em] text-gold-400 font-bold mt-1 block">Private Training Club</span>
         </div>
       </a>
-      
-      <div class="flex items-center gap-3">
-        <a href="tel:7776088807" class="hidden sm:flex items-center gap-2 text-sm font-semibold text-gray-300 hover:text-white px-3 py-2">
-          <i data-lucide="phone" class="w-4 h-4 text-brand-yellow"></i> 7776088807
+
+      <div class="flex items-center gap-4">
+        <a href="tel:7776088807" class="hidden md:flex items-center gap-2 text-xs font-bold tracking-widest text-neutral-400 hover:text-white px-3 py-2 transition-all uppercase">
+          <i data-lucide="phone" class="w-3.5 h-3.5 text-gold-400"></i> +91 7776088807
         </a>
-        <a href="#trial" class="bg-brand-yellow hover:bg-yellow-400 text-black font-extrabold text-xs sm:text-sm px-4 sm:px-5 py-2.5 rounded-xl transition-all shadow-md">
-          Claim Free Pass
+        <a href="#vip-pass" class="bg-gradient-to-r from-gold-500 via-gold-400 to-gold-500 hover:opacity-95 text-black font-extrabold text-xs uppercase tracking-widest px-5 py-3 rounded-full transition-all shadow-[0_4px_25px_rgba(212,175,55,0.25)]">
+          Claim Guest Pass
         </a>
       </div>
     </div>
   </nav>
 
-  <header class="relative min-h-[560px] lg:min-h-[620px] flex items-center px-4 overflow-hidden border-b border-brand-border">
+  <header class="relative min-h-[640px] lg:min-h-[720px] flex items-center px-4 sm:px-6 lg:px-8 border-b border-noir-border overflow-hidden gold-aura">
     <div class="absolute inset-0 -z-20">
       <img 
         src="https://i.ibb.co/pj218xgH/unnamed-4.webp" 
-        alt="AU Fitness Training Floor" 
-        class="w-full h-full object-cover object-center filter brightness-[0.35]"
+        alt="AU Fitness Private Club Studio" 
+        class="w-full h-full object-cover object-center filter brightness-[0.25] contrast-[1.1]"
       />
     </div>
-    <div class="absolute inset-0 bg-gradient-to-r from-black via-black/85 to-transparent -z-10"></div>
+    <div class="absolute inset-0 bg-gradient-to-t from-noir-950 via-noir-950/80 to-transparent -z-10"></div>
 
-    <div class="max-w-6xl mx-auto w-full py-16">
-      <div class="max-w-2xl">
-        <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-brand-card/90 border border-brand-border text-brand-yellow text-xs font-bold mb-6">
-          <span class="w-2 h-2 rounded-full bg-brand-yellow animate-pulse"></span> College Road • Nashik
+    <div class="max-w-7xl mx-auto w-full py-20">
+      <div class="max-w-3xl">
+        <div class="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-noir-900 border border-gold-metallic/30 text-gold-300 text-[11px] font-bold uppercase tracking-[0.2em] mb-8">
+          <span class="w-1.5 h-1.5 rounded-full bg-gold-400"></span> College Road • Nashik
         </div>
-        <h1 class="font-heading text-5xl sm:text-7xl md:text-8xl tracking-wider leading-[0.95] text-white mb-6">
-          TRANSFORM YOUR BODY.<br/>
-          <span class="text-brand-yellow">ELEVATE YOUR MIND.</span>
+        
+        <h1 class="font-display text-4xl sm:text-6xl md:text-7xl font-extrabold text-white tracking-tight leading-[1.05] mb-6">
+          DISCIPLINE REDEFINED.<br/>
+          <span class="bg-gradient-to-r from-gold-300 via-gold-400 to-amber-200 bg-clip-text text-transparent">ELEVATE YOUR STANDARD.</span>
         </h1>
-        <p class="text-gray-300 text-base sm:text-lg mb-8 leading-relaxed">
-          Welcome to Nashik's premier training club. Where discipline meets modern fitness culture, certified mentorship, and an energetic community built to elevate your daily routine.
+
+        <p class="text-neutral-400 text-base sm:text-lg max-w-xl font-normal leading-relaxed mb-10">
+          A high-performance training sanctuary crafted for individuals who pursue excellence. Unrivaled equipment, architectural ambient design, and bespoke coaching.
         </p>
 
         <div class="flex flex-col sm:flex-row items-center gap-4">
-          <a href="#trial" class="w-full sm:w-auto flex items-center justify-center gap-2 bg-brand-yellow hover:bg-yellow-400 text-black font-extrabold px-8 py-4 rounded-xl text-base transition-all glow-gold">
-            <i data-lucide="zap" class="w-5 h-5 fill-black"></i> Get Free 1-Day Trial Pass
+          <a href="#vip-pass" class="w-full sm:w-auto flex items-center justify-center gap-3 bg-gold-400 hover:bg-gold-300 text-black font-extrabold px-8 py-4 rounded-xl text-sm uppercase tracking-wider transition-all shadow-[0_0_30px_rgba(234,179,8,0.3)]">
+            <i data-lucide="crown" class="w-4 h-4 fill-black"></i> Claim 1-Day Guest Invitation
           </a>
-          <a href="https://wa.me/917776088807?text=Hi%20AU%20Fitness,%20I%20want%20membership%20details%20and%20plans" target="_blank" class="w-full sm:w-auto flex items-center justify-center gap-2 bg-brand-card/90 hover:bg-neutral-800 border border-brand-border text-white font-bold px-7 py-4 rounded-xl text-base transition-all">
-            <i data-lucide="message-circle" class="w-5 h-5 text-green-500"></i> WhatsApp Us
+          <a href="https://wa.me/917776088807?text=Hi%20AU%20Fitness,%20I%20would%20like%20to%20inquire%20about%20club%20membership" target="_blank" class="w-full sm:w-auto flex items-center justify-center gap-2.5 glass-card hover:bg-noir-850 border border-noir-border text-white font-semibold px-7 py-4 rounded-xl text-sm transition-all">
+            <i data-lucide="message-circle" class="w-4 h-4 text-emerald-400"></i> Direct Concierge WhatsApp
           </a>
+        </div>
+
+        <div class="grid grid-cols-3 gap-6 max-w-lg mt-14 pt-8 border-t border-noir-border/60">
+          <div>
+            <span class="text-gold-400 font-display text-2xl sm:text-3xl font-bold block">ELITE</span>
+            <span class="text-[11px] uppercase tracking-widest text-neutral-500 font-semibold mt-1 block">Curated Environment</span>
+          </div>
+          <div>
+            <span class="text-gold-400 font-display text-2xl sm:text-3xl font-bold block">BESPOKE</span>
+            <span class="text-[11px] uppercase tracking-widest text-neutral-500 font-semibold mt-1 block">Strength Architecture</span>
+          </div>
+          <div>
+            <span class="text-gold-400 font-display text-2xl sm:text-3xl font-bold block">1-ON-1</span>
+            <span class="text-[11px] uppercase tracking-widest text-neutral-500 font-semibold mt-1 block">Certified Mentorship</span>
+          </div>
         </div>
       </div>
     </div>
   </header>
 
-  <section class="py-16 px-4 max-w-6xl mx-auto">
-    <div class="text-center mb-12">
-      <span class="text-xs uppercase font-extrabold tracking-widest text-brand-yellow">Train Without Limits</span>
-      <h2 class="font-heading text-4xl sm:text-5xl text-white tracking-wider mt-1">THE AU FITNESS EXPERIENCE</h2>
-      <p class="text-gray-400 text-sm sm:text-base mt-2">Step into a space engineered for relentless focus, real transformation, and positive energy.</p>
+  <section class="py-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+    <div class="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
+      <div>
+        <span class="text-xs uppercase font-extrabold tracking-[0.25em] text-gold-400 block mb-2">The Club Atmosphere</span>
+        <h2 class="font-display text-3xl sm:text-5xl font-extrabold text-white tracking-tight">DESIGNED FOR UNCOMPROMISED FOCUS</h2>
+      </div>
+      <p class="text-neutral-400 text-sm max-w-md leading-relaxed">
+        Engineered space where aesthetics meet intensity. No friction, zero waiting, and a club atmosphere that commands your best output.
+      </p>
     </div>
 
-    <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-stretch">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
       
-      <div class="lg:col-span-5 bg-brand-card border border-brand-border rounded-3xl overflow-hidden flex flex-col justify-between group hover:border-brand-yellow transition-all">
-        <div class="relative flex-1 min-h-[480px]">
+      <div class="lg:col-span-5 bg-noir-900 border border-noir-border rounded-3xl overflow-hidden flex flex-col justify-between group hover:border-gold-metallic/40 transition-all">
+        <div class="relative flex-1 min-h-[520px] overflow-hidden">
           <img 
             src="https://i.ibb.co/Xfpz3Xt6/unnamed-7.webp" 
-            alt="AU Fitness Main Floor" 
-            class="w-full h-full object-cover group-hover:scale-[1.02] transition-transform duration-500"
+            alt="AU Fitness Signature Center Floor" 
+            class="w-full h-full object-cover group-hover:scale-[1.03] transition-transform duration-700 filter brightness-95"
           />
-          <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent"></div>
-          <div class="absolute top-4 left-4">
-            <span class="bg-brand-yellow text-black font-extrabold text-[11px] uppercase tracking-wider px-3 py-1 rounded-md">
-              Elite Zone
+          <div class="absolute inset-0 bg-gradient-to-t from-noir-950 via-noir-950/20 to-transparent"></div>
+          <div class="absolute top-5 left-5">
+            <span class="bg-black/80 backdrop-blur-md border border-gold-metallic/30 text-gold-300 font-bold text-[10px] uppercase tracking-[0.2em] px-3.5 py-1.5 rounded-full">
+              Signature Center Floor
             </span>
           </div>
         </div>
-        <div class="p-6 bg-brand-card border-t border-brand-border">
-          <h3 class="font-heading text-2xl text-white tracking-wide mb-1">THE POWER & STRENGTH ARENA</h3>
-          <p class="text-gray-400 text-xs leading-relaxed">Where personal records are made. Our central workout floor is created for lifters dedicated to daily discipline, consistent gains, and real results.</p>
+        <div class="p-8 bg-noir-900 border-t border-noir-border/80">
+          <h3 class="font-display text-2xl font-bold text-white tracking-wide mb-2">ARCHITECTURAL POWER CENTER</h3>
+          <p class="text-neutral-400 text-xs leading-relaxed">The physical anchor of AU Fitness. A striking, illuminated strength dome structured for high-volume compound progression and personal breakthroughs.</p>
         </div>
       </div>
 
       <div class="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-6">
         
-        <div class="bg-brand-card border border-brand-border rounded-2xl overflow-hidden group hover:border-brand-yellow transition-all flex flex-col">
-          <div class="h-60 overflow-hidden">
+        <div class="bg-noir-900 border border-noir-border rounded-2xl overflow-hidden group hover:border-gold-metallic/40 transition-all flex flex-col">
+          <div class="h-64 overflow-hidden">
             <img 
               src="https://i.ibb.co/8DZq6hZg/unnamed-8.webp" 
-              alt="Dedicated Training Setup" 
-              class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+              alt="High Intensity Isolation" 
+              class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
             />
           </div>
-          <div class="p-4 flex-1 flex flex-col justify-center">
-            <h4 class="font-bold text-white text-sm">Targeted Muscle Focus</h4>
-            <p class="text-gray-400 text-xs mt-1">Thoughtfully spaced workout stations allow uninterrupted supersets and zero crowding during peak hours.</p>
+          <div class="p-5 flex-1 flex flex-col justify-center">
+            <h4 class="font-display font-bold text-white text-base mb-1">PRECISION HYPERTROPHY ZONE</h4>
+            <p class="text-neutral-400 text-xs leading-relaxed">Spacious floor arrangements that allow seamless dropsets and uninterrupted focus during your sets.</p>
           </div>
         </div>
 
-        <div class="bg-brand-card border border-brand-border rounded-2xl overflow-hidden group hover:border-brand-yellow transition-all flex flex-col">
-          <div class="h-60 overflow-hidden">
+        <div class="bg-noir-900 border border-noir-border rounded-2xl overflow-hidden group hover:border-gold-metallic/40 transition-all flex flex-col">
+          <div class="h-64 overflow-hidden">
             <img 
               src="https://i.ibb.co/WWVFc8fH/unnamed-5.webp" 
-              alt="Transformation Floor" 
-              class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+              alt="Sculpt & Recompose Floors" 
+              class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
             />
           </div>
-          <div class="p-4 flex-1 flex flex-col justify-center">
-            <h4 class="font-bold text-white text-sm">Complete Recomposition Floors</h4>
-            <p class="text-gray-400 text-xs mt-1">Multi-angle training bays that make executing your workout plan seamless and effective.</p>
+          <div class="p-5 flex-1 flex flex-col justify-center">
+            <h4 class="font-display font-bold text-white text-base mb-1">TOTAL BODY CONDITIONING</h4>
+            <p class="text-neutral-400 text-xs leading-relaxed">Multi-stack cable arrays providing continuous tension angles for refined muscle sculpting.</p>
           </div>
         </div>
 
-        <div class="bg-brand-card border border-brand-border rounded-2xl overflow-hidden group hover:border-brand-yellow transition-all flex flex-col">
-          <div class="h-60 overflow-hidden">
+        <div class="bg-noir-900 border border-noir-border rounded-2xl overflow-hidden group hover:border-gold-metallic/40 transition-all flex flex-col">
+          <div class="h-64 overflow-hidden">
             <img 
               src="https://i.ibb.co/zhPGpLdL/unnamed-6.webp" 
-              alt="Modern Training Architecture" 
-              class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+              alt="Atmospheric Lighting Vibe" 
+              class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
             />
           </div>
-          <div class="p-4 flex-1 flex flex-col justify-center">
-            <h4 class="font-bold text-white text-sm">Electrifying Workout Vibe</h4>
-            <p class="text-gray-400 text-xs mt-1">Signature ambient architecture, energetic playlists, and a community that holds you accountable to your goals.</p>
+          <div class="p-5 flex-1 flex flex-col justify-center">
+            <h4 class="font-display font-bold text-white text-base mb-1">WARM AMBIENT ACOUSTICS</h4>
+            <p class="text-neutral-400 text-xs leading-relaxed">Carefully tuned LED architecture paired with motivating club audio to eliminate mental fatigue.</p>
           </div>
         </div>
 
-        <div class="bg-brand-card border border-brand-border rounded-2xl overflow-hidden group hover:border-brand-yellow transition-all flex flex-col">
-          <div class="h-60 overflow-hidden">
+        <div class="bg-noir-900 border border-noir-border rounded-2xl overflow-hidden group hover:border-gold-metallic/40 transition-all flex flex-col">
+          <div class="h-64 overflow-hidden">
             <img 
               src="https://i.ibb.co/ycNpNbzh/unnamed-3.webp" 
-              alt="Free Weights Zone" 
-              class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+              alt="Free Weight Section" 
+              class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
             />
           </div>
-          <div class="p-4 flex-1 flex flex-col justify-center">
-            <h4 class="font-bold text-white text-sm">Pure Heavy Iron Culture</h4>
-            <p class="text-gray-400 text-xs mt-1">Extensive dumbbell ranges and solid benches designed for all lifters—from beginners to seasoned athletes.</p>
+          <div class="p-5 flex-1 flex flex-col justify-center">
+            <h4 class="font-display font-bold text-white text-base mb-1">THE FREE WEIGHT SANCTUARY</h4>
+            <p class="text-neutral-400 text-xs leading-relaxed">Heavy-gauge dumbbell sets and rigid benches tailored for serious progressive overload.</p>
           </div>
         </div>
 
@@ -204,142 +241,147 @@
     </div>
   </section>
 
-  <section id="trial" class="py-20 px-4 bg-brand-card border-y border-brand-border relative">
+  <section id="vip-pass" class="py-24 px-4 bg-noir-900 border-y border-noir-border relative gold-aura">
     <div class="max-w-xl mx-auto text-center">
-      <div class="w-16 h-16 rounded-full border-2 border-brand-yellow mx-auto mb-4 overflow-hidden glow-gold-sm">
+      <div class="relative w-20 h-20 mx-auto mb-6">
         <img 
           src="https://i.ibb.co/GfNKdkNh/657920997-17859829779680967-8719283677993680582-n.jpg" 
-          alt="AU Emblem" 
-          class="w-full h-full object-cover"
+          alt="AU Fitness Insignia" 
+          class="w-full h-full rounded-full border border-gold-metallic/60 object-cover shadow-[0_0_25px_rgba(212,175,55,0.3)]"
         />
       </div>
-      <span class="text-xs uppercase font-extrabold tracking-widest text-brand-yellow">Exclusive Invitation</span>
-      <h2 class="font-heading text-4xl sm:text-5xl text-white tracking-wider mt-1 mb-3">CLAIM YOUR 1-DAY WORKOUT PASS</h2>
-      <p class="text-gray-400 text-sm mb-8">Enter your details below to activate your free VIP trial pass on our reception WhatsApp.</p>
 
-      <form onsubmit="generateVipPass(event)" class="space-y-4 text-left">
+      <span class="text-xs uppercase font-extrabold tracking-[0.25em] text-gold-400">Exclusive Entry</span>
+      <h2 class="font-display text-3xl sm:text-5xl font-extrabold text-white tracking-tight mt-2 mb-3">EXPERIENCE AU FITNESS</h2>
+      <p class="text-neutral-400 text-xs sm:text-sm mb-10 max-w-md mx-auto">
+        Complete your details below. Your private guest access code will be generated and confirmed directly with our front desk concierge on WhatsApp.
+      </p>
+
+      <form onsubmit="generateVipInvitation(event)" class="space-y-5 text-left glass-card p-6 sm:p-8 rounded-3xl border border-noir-border shadow-2xl">
         <div>
-          <label class="block text-xs font-bold text-gray-300 mb-1 uppercase tracking-wider">Your Full Name</label>
+          <label for="guestName" class="block text-[11px] font-bold text-neutral-300 uppercase tracking-widest mb-2">Guest Full Name</label>
           <input 
             type="text" 
-            id="clientName" 
+            id="guestName" 
             required 
             placeholder="e.g. Akshay Patil" 
-            class="w-full bg-black border border-brand-border rounded-xl px-4 py-3.5 text-white text-sm focus:outline-none focus:border-brand-yellow transition-all" 
+            class="w-full bg-noir-950 border border-noir-border rounded-xl px-4 py-3.5 text-white text-sm focus:outline-none focus:border-gold-400 transition-all placeholder:text-neutral-600" 
           />
         </div>
 
-        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
           <div>
-            <label class="block text-xs font-bold text-gray-300 mb-1 uppercase tracking-wider">Primary Fitness Goal</label>
+            <label for="guestGoal" class="block text-[11px] font-bold text-neutral-300 uppercase tracking-widest mb-2">Primary Ambition</label>
             <select 
-              id="clientGoal" 
-              class="w-full bg-black border border-brand-border rounded-xl px-4 py-3.5 text-white text-sm focus:outline-none focus:border-brand-yellow transition-all"
+              id="guestGoal" 
+              class="w-full bg-noir-950 border border-noir-border rounded-xl px-4 py-3.5 text-white text-sm focus:outline-none focus:border-gold-400 transition-all"
             >
-              <option value="Fat Loss & Toning">Fat Loss & Toning</option>
-              <option value="Muscle Building / Hypertrophy">Muscle Building</option>
-              <option value="Strength & Conditioning">Strength & Conditioning</option>
-              <option value="Overall Lifestyle Fitness">Overall Lifestyle Fitness</option>
+              <option value="Precision Fat Loss & Toning">Fat Loss & Toning</option>
+              <option value="Muscle Hypertrophy & Density">Muscle Hypertrophy</option>
+              <option value="Strength & Power Conditioning">Strength & Power</option>
+              <option value="Executive Lifestyle Fitness">Executive Fitness</option>
             </select>
           </div>
           <div>
-            <label class="block text-xs font-bold text-gray-300 mb-1 uppercase tracking-wider">Workout Timing</label>
+            <label for="guestBatch" class="block text-[11px] font-bold text-neutral-300 uppercase tracking-widest mb-2">Preferred Batch</label>
             <select 
-              id="clientSlot" 
-              class="w-full bg-black border border-brand-border rounded-xl px-4 py-3.5 text-white text-sm focus:outline-none focus:border-brand-yellow transition-all"
+              id="guestBatch" 
+              class="w-full bg-noir-950 border border-noir-border rounded-xl px-4 py-3.5 text-white text-sm focus:outline-none focus:border-gold-400 transition-all"
             >
-              <option value="Morning Batch (6:00 AM - 10:00 AM)">Morning (6 AM - 10 AM)</option>
-              <option value="Evening Batch (5:00 PM - 10:00 PM)">Evening (5 PM - 10 PM)</option>
-              <option value="Afternoon Slot">Afternoon Slot</option>
+              <option value="Morning Prime (6:00 AM - 10:00 AM)">Morning (6 AM - 10 AM)</option>
+              <option value="Evening Peak (5:00 PM - 10:00 PM)">Evening (5 PM - 10 PM)</option>
+              <option value="Afternoon Open Slot">Afternoon Open Slot</option>
             </select>
           </div>
         </div>
 
         <button 
           type="submit" 
-          class="w-full flex items-center justify-center gap-2 bg-brand-yellow hover:bg-yellow-400 text-black font-extrabold py-4 rounded-xl text-base transition-all glow-gold mt-6"
+          class="w-full flex items-center justify-center gap-2 bg-gradient-to-r from-gold-500 via-gold-400 to-gold-500 hover:opacity-95 text-black font-extrabold py-4 rounded-xl text-sm uppercase tracking-widest transition-all shadow-[0_4px_25px_rgba(212,175,55,0.3)] mt-6"
         >
-          <i data-lucide="send" class="w-5 h-5"></i> Generate Pass on WhatsApp
+          <i data-lucide="send" class="w-4 h-4"></i> Generate Guest Pass on WhatsApp
         </button>
       </form>
     </div>
   </section>
 
-  <section class="py-20 px-4 max-w-6xl mx-auto">
-    <div class="text-center mb-14">
-      <span class="text-xs uppercase font-extrabold tracking-widest text-brand-yellow">Commitment Plans</span>
-      <h2 class="font-heading text-4xl sm:text-5xl text-white tracking-wider mt-1">MEMBERSHIP TIERS</h2>
-      <p class="text-gray-400 text-sm sm:text-base mt-2">Choose your program and unlock full access to AU Fitness.</p>
+  <section class="py-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+    <div class="text-center mb-16">
+      <span class="text-xs uppercase font-extrabold tracking-[0.25em] text-gold-400">Membership Portfolio</span>
+      <h2 class="font-display text-3xl sm:text-5xl font-extrabold text-white tracking-tight mt-2">INVEST IN YOUR PHYSIQUE</h2>
+      <p class="text-neutral-400 text-xs sm:text-sm mt-3 max-w-lg mx-auto">
+        Structured club memberships designed for sustained athletic performance and personalized physical results.
+      </p>
     </div>
 
     <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
       
-      <div class="bg-brand-card border border-brand-border rounded-2xl p-7 flex flex-col justify-between">
+      <div class="bg-noir-900 border border-noir-border rounded-3xl p-8 flex flex-col justify-between hover:border-neutral-700 transition-all">
         <div>
-          <span class="text-xs uppercase tracking-widest text-gray-400 font-bold">Foundation</span>
-          <h3 class="font-heading text-3xl text-white mt-1 mb-4">3 MONTHS ACCESS</h3>
-          <p class="text-gray-400 text-xs mb-6 leading-relaxed">Establish consistent workout routines, build fundamental movement patterns, and initiate conditioning.</p>
-          <ul class="space-y-3 text-xs text-gray-300 mb-8">
-            <li class="flex items-center gap-2"><i data-lucide="check-circle" class="w-4 h-4 text-brand-yellow"></i> Complete club access</li>
-            <li class="flex items-center gap-2"><i data-lucide="check-circle" class="w-4 h-4 text-brand-yellow"></i> Cardio & endurance area</li>
-            <li class="flex items-center gap-2"><i data-lucide="check-circle" class="w-4 h-4 text-brand-yellow"></i> Locker & changing facilities</li>
-            <li class="flex items-center gap-2"><i data-lucide="check-circle" class="w-4 h-4 text-brand-yellow"></i> Floor trainer exercise guidance</li>
+          <span class="text-[10px] uppercase tracking-[0.2em] text-neutral-400 font-bold block mb-1">Phase I Program</span>
+          <h3 class="font-display text-2xl font-bold text-white mb-4">FOUNDATION (3-MONTH)</h3>
+          <p class="text-neutral-400 text-xs mb-6 leading-relaxed">Establish foundational movement patterns, build workout discipline, and jumpstart athletic conditioning.</p>
+          <ul class="space-y-3.5 text-xs text-neutral-300 mb-8 border-t border-noir-border/60 pt-6">
+            <li class="flex items-center gap-2.5"><i data-lucide="check" class="w-4 h-4 text-gold-400"></i> Full training floor access</li>
+            <li class="flex items-center gap-2.5"><i data-lucide="check" class="w-4 h-4 text-gold-400"></i> Cardio & endurance deck</li>
+            <li class="flex items-center gap-2.5"><i data-lucide="check" class="w-4 h-4 text-gold-400"></i> Private locker & changing suites</li>
+            <li class="flex items-center gap-2.5"><i data-lucide="check" class="w-4 h-4 text-gold-400"></i> General trainer guidance</li>
           </ul>
         </div>
-        <a href="https://wa.me/917776088807?text=Hi%20AU%20Fitness,%20I%20want%20rates%20for%203-Months%20Membership" target="_blank" class="w-full text-center border border-brand-border hover:border-brand-yellow text-white font-bold text-xs py-3 rounded-xl transition-all">
-          Enquire Pricing
+        <a href="https://wa.me/917776088807?text=Hi%20AU%20Fitness,%20I%20would%20like%20details%20for%20the%203-Month%20Foundation%20Membership" target="_blank" class="w-full text-center border border-noir-border hover:border-gold-400 text-white font-bold text-xs uppercase tracking-wider py-3.5 rounded-xl transition-all">
+          Inquire Pricing
         </a>
       </div>
 
-      <div class="bg-black border-2 border-brand-yellow rounded-2xl p-7 flex flex-col justify-between relative glow-gold-sm">
-        <div class="absolute -top-3.5 left-1/2 -translate-x-1/2 bg-brand-yellow text-black text-[10px] font-extrabold uppercase px-3 py-1 rounded-full">
-          Most Popular Choice
+      <div class="bg-gradient-to-b from-noir-900 to-black border-2 border-gold-metallic/70 rounded-3xl p-8 flex flex-col justify-between relative shadow-[0_0_35px_rgba(212,175,55,0.15)]">
+        <div class="absolute -top-3.5 left-1/2 -translate-x-1/2 bg-gold-400 text-black text-[10px] font-extrabold uppercase tracking-widest px-4 py-1 rounded-full shadow-md">
+          Most Chosen Program
         </div>
         <div>
-          <span class="text-xs uppercase tracking-widest text-brand-yellow font-bold">Transformation</span>
-          <h3 class="font-heading text-3xl text-white mt-1 mb-4">6 MONTHS PRO</h3>
-          <p class="text-gray-400 text-xs mb-6 leading-relaxed">The ideal timeline to unlock substantial body recomposition, muscle building, and visible fitness progress.</p>
-          <ul class="space-y-3 text-xs text-gray-200 mb-8">
-            <li class="flex items-center gap-2"><i data-lucide="check-circle" class="w-4 h-4 text-brand-yellow"></i> All 3-Month inclusions</li>
-            <li class="flex items-center gap-2"><i data-lucide="check-circle" class="w-4 h-4 text-brand-yellow"></i> Body composition analysis</li>
-            <li class="flex items-center gap-2"><i data-lucide="check-circle" class="w-4 h-4 text-brand-yellow"></i> Workout progression review</li>
-            <li class="flex items-center gap-2"><i data-lucide="check-circle" class="w-4 h-4 text-brand-yellow"></i> 1 Complimentary guest workout pass</li>
+          <span class="text-[10px] uppercase tracking-[0.2em] text-gold-400 font-bold block mb-1">Phase II Program</span>
+          <h3 class="font-display text-2xl font-bold text-white mb-4">TRANSFORMATION (6-MONTH)</h3>
+          <p class="text-neutral-400 text-xs mb-6 leading-relaxed">Dedicated protocol structured for noticeable body recomposition, muscle density, and strength benchmarks.</p>
+          <ul class="space-y-3.5 text-xs text-neutral-200 mb-8 border-t border-noir-border/80 pt-6">
+            <li class="flex items-center gap-2.5"><i data-lucide="check" class="w-4 h-4 text-gold-400"></i> All Foundation tier inclusions</li>
+            <li class="flex items-center gap-2.5"><i data-lucide="check" class="w-4 h-4 text-gold-400"></i> Monthly body composition analysis</li>
+            <li class="flex items-center gap-2.5"><i data-lucide="check" class="w-4 h-4 text-gold-400"></i> Progressive overload programming</li>
+            <li class="flex items-center gap-2.5"><i data-lucide="check" class="w-4 h-4 text-gold-400"></i> 1 Complimentary guest invitation</li>
           </ul>
         </div>
-        <a href="https://wa.me/917776088807?text=Hi%20AU%20Fitness,%20I%20want%20rates%20for%206-Months%20Membership" target="_blank" class="w-full text-center bg-brand-yellow hover:bg-yellow-400 text-black font-extrabold text-xs py-3 rounded-xl transition-all">
-          Enquire 6-Month Plan
+        <a href="https://wa.me/917776088807?text=Hi%20AU%20Fitness,%20I%20would%20like%20details%20for%20the%206-Month%20Transformation%20Membership" target="_blank" class="w-full text-center bg-gold-400 hover:bg-gold-300 text-black font-extrabold text-xs uppercase tracking-wider py-4 rounded-xl transition-all shadow-md">
+          Inquire 6-Month Plan
         </a>
       </div>
 
-      <div class="bg-brand-card border border-brand-border rounded-2xl p-7 flex flex-col justify-between">
+      <div class="bg-noir-900 border border-noir-border rounded-3xl p-8 flex flex-col justify-between hover:border-neutral-700 transition-all">
         <div>
-          <span class="text-xs uppercase tracking-widest text-gray-400 font-bold">VIP Athlete</span>
-          <h3 class="font-heading text-3xl text-white mt-1 mb-4">12 MONTHS VIP</h3>
-          <p class="text-gray-400 text-xs mb-6 leading-relaxed">The premier program for dedicated members committed to year-round high performance.</p>
-          <ul class="space-y-3 text-xs text-gray-300 mb-8">
-            <li class="flex items-center gap-2"><i data-lucide="check-circle" class="w-4 h-4 text-brand-yellow"></i> 365 days priority access</li>
-            <li class="flex items-center gap-2"><i data-lucide="check-circle" class="w-4 h-4 text-brand-yellow"></i> Dance & studio group sessions</li>
-            <li class="flex items-center gap-2"><i data-lucide="check-circle" class="w-4 h-4 text-brand-yellow"></i> Membership freeze options</li>
-            <li class="flex items-center gap-2"><i data-lucide="check-circle" class="w-4 h-4 text-brand-yellow"></i> Priority trainer guidance</li>
+          <span class="text-[10px] uppercase tracking-[0.2em] text-neutral-400 font-bold block mb-1">Annual Tier</span>
+          <h3 class="font-display text-2xl font-bold text-white mb-4">VIP ATHLETE (12-MONTH)</h3>
+          <p class="text-neutral-400 text-xs mb-6 leading-relaxed">The ultimate investment for daily performers seeking year-round elevated physical condition.</p>
+          <ul class="space-y-3.5 text-xs text-neutral-300 mb-8 border-t border-noir-border/60 pt-6">
+            <li class="flex items-center gap-2.5"><i data-lucide="check" class="w-4 h-4 text-gold-400"></i> 365 Days priority club access</li>
+            <li class="flex items-center gap-2.5"><i data-lucide="check" class="w-4 h-4 text-gold-400"></i> Aerobics & studio group sessions</li>
+            <li class="flex items-center gap-2.5"><i data-lucide="check" class="w-4 h-4 text-gold-400"></i> Flexible membership freeze privileges</li>
+            <li class="flex items-center gap-2.5"><i data-lucide="check" class="w-4 h-4 text-gold-400"></i> Priority certified mentorship</li>
           </ul>
         </div>
-        <a href="https://wa.me/917776088807?text=Hi%20AU%20Fitness,%20I%20want%20rates%20for%2012-Months%20Membership" target="_blank" class="w-full text-center border border-brand-border hover:border-brand-yellow text-white font-bold text-xs py-3 rounded-xl transition-all">
-          Enquire Annual Pass
+        <a href="https://wa.me/917776088807?text=Hi%20AU%20Fitness,%20I%20would%20like%20details%20for%20the%2012-Month%20Annual%20Membership" target="_blank" class="w-full text-center border border-noir-border hover:border-gold-400 text-white font-bold text-xs uppercase tracking-wider py-3.5 rounded-xl transition-all">
+          Inquire Annual Pass
         </a>
       </div>
 
     </div>
   </section>
 
-  <section class="py-16 px-4 max-w-6xl mx-auto border-t border-brand-border">
-    <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
-      <div>
-        <span class="text-xs uppercase font-extrabold tracking-widest text-brand-yellow">Join The Club</span>
-        <h2 class="font-heading text-4xl sm:text-5xl text-white tracking-wider mt-1 mb-6">LOCATION & TIMINGS</h2>
+  <section class="py-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto border-t border-noir-border">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+      <div class="lg:col-span-7">
+        <span class="text-xs uppercase font-extrabold tracking-[0.25em] text-gold-400 block mb-2">Location & Concierge</span>
+        <h2 class="font-display text-3xl sm:text-5xl font-extrabold text-white tracking-tight mb-8">VISIT THE CLUB</h2>
         
-        <div class="space-y-5 text-sm text-gray-300">
-          <div class="flex items-start gap-3.5">
-            <div class="w-9 h-9 rounded-xl bg-brand-card border border-brand-border flex items-center justify-center text-brand-yellow shrink-0 mt-0.5">
+        <div class="space-y-6 text-sm text-neutral-300">
+          <div class="flex items-start gap-4">
+            <div class="w-10 h-10 rounded-2xl bg-noir-900 border border-noir-border flex items-center justify-center text-gold-400 shrink-0">
               <i data-lucide="map-pin" class="w-5 h-5"></i>
             </div>
             <div>
@@ -348,76 +390,80 @@
             </div>
           </div>
 
-          <div class="flex items-start gap-3.5">
-            <div class="w-9 h-9 rounded-xl bg-brand-card border border-brand-border flex items-center justify-center text-brand-yellow shrink-0 mt-0.5">
+          <div class="flex items-start gap-4">
+            <div class="w-10 h-10 rounded-2xl bg-noir-900 border border-noir-border flex items-center justify-center text-gold-400 shrink-0">
               <i data-lucide="clock" class="w-5 h-5"></i>
             </div>
             <div>
-              <strong class="text-white block font-semibold text-base">Training Hours</strong>
+              <strong class="text-white block font-semibold text-base">Club Hours</strong>
               Monday – Saturday: 6:00 AM – 10:00 PM<br/>
               Sunday: Morning Sessions
             </div>
           </div>
 
-          <div class="flex items-start gap-3.5">
-            <div class="w-9 h-9 rounded-xl bg-brand-card border border-brand-border flex items-center justify-center text-brand-yellow shrink-0 mt-0.5">
+          <div class="flex items-start gap-4">
+            <div class="w-10 h-10 rounded-2xl bg-noir-900 border border-noir-border flex items-center justify-center text-gold-400 shrink-0">
               <i data-lucide="phone-call" class="w-5 h-5"></i>
             </div>
             <div>
-              <strong class="text-white block font-semibold text-base">Reception Hotline</strong>
-              <a href="tel:7776088807" class="text-brand-yellow hover:underline font-bold text-lg">7776088807</a>
+              <strong class="text-white block font-semibold text-base">Front Desk Hotline</strong>
+              <a href="tel:7776088807" class="text-gold-400 hover:text-gold-300 font-bold text-lg">+91 7776088807</a>
             </div>
           </div>
         </div>
 
-        <div class="mt-8 flex flex-wrap gap-4">
-          <a href="https://share.google/blyXD0dvKqFapYJDy" target="_blank" class="flex items-center gap-2 bg-brand-card hover:bg-neutral-800 border border-brand-border text-white text-sm font-bold px-5 py-3 rounded-xl transition-all">
-            <i data-lucide="navigation" class="w-4 h-4 text-brand-yellow"></i> Open In Google Maps
+        <div class="mt-10 flex flex-wrap gap-4">
+          <a href="https://maps.app.goo.gl/9Z4k9pAypw688o1o9" target="_blank" class="flex items-center gap-2.5 bg-noir-900 hover:bg-noir-850 border border-noir-border text-white text-xs uppercase tracking-wider font-bold px-6 py-3.5 rounded-xl transition-all shadow-sm">
+            <i data-lucide="navigation" class="w-4 h-4 text-gold-400"></i> Navigate on Google Maps
           </a>
-          <a href="https://www.instagram.com/au_fitness__?igsi=eHhwNjg2OWRyNncy" target="_blank" class="flex items-center gap-2 bg-brand-card hover:bg-neutral-800 border border-brand-border text-white text-sm font-bold px-5 py-3 rounded-xl transition-all">
-            <i data-lucide="instagram" class="w-4 h-4 text-pink-500"></i> Follow @au_fitness__
+          <a href="https://www.instagram.com/au_fitness__?igsi=eHhwNjg2OWRyNncy" target="_blank" class="flex items-center gap-2.5 bg-noir-900 hover:bg-noir-850 border border-noir-border text-white text-xs uppercase tracking-wider font-bold px-6 py-3.5 rounded-xl transition-all shadow-sm">
+            <i data-lucide="instagram" class="w-4 h-4 text-pink-400"></i> Follow @au_fitness__
           </a>
         </div>
       </div>
 
-      <div class="bg-black border border-brand-border p-8 rounded-3xl text-center glow-gold">
-        <img 
-          src="https://i.ibb.co/GfNKdkNh/657920997-17859829779680967-8719283677993680582-n.jpg" 
-          alt="AU Logo" 
-          class="w-20 h-20 rounded-full border-2 border-brand-gold mx-auto mb-4 object-cover"
-        />
-        <h3 class="text-2xl font-bold text-white mb-2 font-heading tracking-wide">START YOUR TRANSFORMATION</h3>
-        <p class="text-gray-400 text-xs sm:text-sm mb-6 max-w-sm mx-auto">
-          Walk in today to experience the facility, connect with certified coaches, and get started on your fitness goals.
+      <div class="lg:col-span-5 bg-noir-900 border border-noir-border p-10 rounded-3xl text-center glass-card shadow-2xl relative overflow-hidden">
+        <div class="w-24 h-24 rounded-full border border-gold-metallic/50 mx-auto mb-6 overflow-hidden shadow-[0_0_30px_rgba(212,175,55,0.2)]">
+          <img 
+            src="https://i.ibb.co/GfNKdkNh/657920997-17859829779680967-8719283677993680582-n.jpg" 
+            alt="AU Insignia" 
+            class="w-full h-full object-cover"
+          />
+        </div>
+        <h3 class="text-2xl font-display font-extrabold text-white mb-2 tracking-tight">ELEVATE YOUR STANDARD</h3>
+        <p class="text-neutral-400 text-xs mb-8 max-w-sm mx-auto leading-relaxed">
+          Walk in to tour our facility, meet with certified mentors, and review your physical goals in person.
         </p>
-        <a href="tel:7776088807" class="w-full inline-flex items-center justify-center gap-2 bg-brand-yellow hover:bg-yellow-400 text-black font-extrabold py-3.5 rounded-xl transition-all">
-          <i data-lucide="phone" class="w-4 h-4"></i> Call Desk (7776088807)
+        <a href="tel:7776088807" class="w-full inline-flex items-center justify-center gap-2.5 bg-gold-400 hover:bg-gold-300 text-black font-extrabold text-xs uppercase tracking-widest py-4 rounded-xl transition-all shadow-md">
+          <i data-lucide="phone" class="w-4 h-4"></i> Call Concierge Desk
         </a>
       </div>
     </div>
   </section>
 
-  <footer class="border-t border-brand-border py-8 text-center text-xs text-gray-500">
-    <p>© AU Fitness, College Road, Nashik. All Rights Reserved.</p>
+  <footer class="border-t border-noir-border py-10 text-center text-xs text-neutral-400 bg-noir-950">
+    <p class="tracking-wider">© AU Fitness, VIP Circle, College Road, Nashik. All Rights Reserved.</p>
   </footer>
 
   <script>
+    // Initialize icons
     lucide.createIcons();
 
-    function generateVipPass(e) {
+    // WhatsApp VIP Pass Generator
+    function generateVipInvitation(e) {
       e.preventDefault();
-      const name = document.getElementById('clientName').value.trim();
-      const goal = document.getElementById('clientGoal').value;
-      const slot = document.getElementById('clientSlot').value;
+      const name = document.getElementById('guestName').value.trim();
+      const goal = document.getElementById('guestGoal').value;
+      const batch = document.getElementById('guestBatch').value;
 
-      const text = `*AU FITNESS - 1-DAY VIP PASS REQUEST*%0A%0A` +
-                   `*Name:* ${encodeURIComponent(name)}%0A` +
-                   `*Fitness Goal:* ${encodeURIComponent(goal)}%0A` +
-                   `*Preferred Batch:* ${encodeURIComponent(slot)}%0A%0A` +
-                   `Please confirm my free 1-day pass at College Road!`;
+      const message = `*AU FITNESS (COLLEGE ROAD) - VIP GUEST INVITATION*%0A%0A` +
+                      `*Guest Name:* ${encodeURIComponent(name)}%0A` +
+                      `*Ambition:* ${encodeURIComponent(goal)}%0A` +
+                      `*Preferred Batch:* ${encodeURIComponent(batch)}%0A%0A` +
+                      `Please confirm my complimentary 1-day guest pass availability.`;
 
-      const waUrl = `https://wa.me/917776088807?text=${text}`;
-      window.open(waUrl, '_blank');
+      const whatsappUrl = `https://wa.me/917776088807?text=${message}`;
+      window.open(whatsappUrl, '_blank');
     }
   </script>
 </body>
