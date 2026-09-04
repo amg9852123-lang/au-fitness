@@ -8,22 +8,23 @@
 <style>
   * { box-sizing: border-box; margin: 0; padding: 0; }
   body {
-    background-color: #0b0b0e;
+    background-color: #08090b;
     color: #f3f4f6;
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
     line-height: 1.45;
-    padding-bottom: 75px;
+    padding-bottom: 80px;
   }
   a { text-decoration: none; color: inherit; }
 
+  /* ALERT BAR: ELECTRIC GYM YELLOW */
   .alert-bar {
-    background: linear-gradient(90deg, #d97706, #fbbf24, #d97706);
+    background: #ffe600;
     color: #000000;
     font-size: 11px;
-    font-weight: 800;
+    font-weight: 900;
     text-align: center;
-    padding: 7px 12px;
-    letter-spacing: 0.5px;
+    padding: 8px 12px;
+    letter-spacing: 0.6px;
     text-transform: uppercase;
   }
 
@@ -31,16 +32,16 @@
     position: sticky;
     top: 0;
     z-index: 100;
-    background: rgba(11, 11, 14, 0.96);
-    backdrop-filter: blur(10px);
-    border-bottom: 1px solid #23221b;
+    background: rgba(8, 9, 11, 0.95);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid #1e2025;
     padding: 10px 14px;
     display: flex;
     justify-content: space-between;
     align-items: center;
     gap: 8px;
   }
-  .brand { display: flex; align-items: center; gap: 9px; min-width: 0; }
+  .brand { display: flex; align-items: center; gap: 10px; min-width: 0; }
 
   .brand-logo-img {
     width: 44px;
@@ -48,69 +49,106 @@
     min-width: 44px;
     border-radius: 50%;
     object-fit: cover;
-    border: 1.5px solid #d4af37;
-    box-shadow: 0 0 10px rgba(212, 175, 55, 0.35);
+    border: 1.5px solid #ffe600;
+    box-shadow: 0 0 12px rgba(255, 230, 0, 0.25);
     display: block;
     background: #000;
   }
 
   .brand-text { min-width: 0; }
-  .brand-text h1 { font-size: 14px; font-weight: 800; letter-spacing: -0.3px; line-height: 1.2; color: #ffffff; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-  .brand-text span { font-size: 9.5px; color: #fbbf24; text-transform: uppercase; display: block; font-weight: 700; margin-top: 1px; letter-spacing: 0.4px; }
+  .brand-text h1 { 
+    font-size: 14px; 
+    font-weight: 900; 
+    letter-spacing: 0.5px; 
+    text-transform: uppercase; 
+    color: #ffffff; 
+    white-space: nowrap; 
+    overflow: hidden; 
+    text-overflow: ellipsis; 
+  }
+  .brand-text span { 
+    font-size: 9.5px; 
+    color: #ffe600; 
+    text-transform: uppercase; 
+    display: block; 
+    font-weight: 800; 
+    margin-top: 1px; 
+    letter-spacing: 0.5px; 
+  }
 
   .header-actions { display: flex; align-items: center; gap: 6px; flex-shrink: 0; }
   .header-btn {
-    background: linear-gradient(135deg, #d97706, #b45309);
-    color: #fff;
-    padding: 7px 12px;
-    border-radius: 20px;
+    background: #ffe600;
+    color: #000;
+    padding: 7px 13px;
+    border-radius: 6px;
     font-size: 11px;
-    font-weight: 800;
+    font-weight: 900;
+    text-transform: uppercase;
     display: flex;
     align-items: center;
     gap: 5px;
-    box-shadow: 0 2px 10px rgba(217, 119, 6, 0.4);
+    letter-spacing: 0.4px;
   }
 
+  /* HERO SECTION */
   .hero {
     position: relative;
-    padding: 40px 16px 30px;
+    padding: 40px 16px 32px;
     text-align: center;
-    background: radial-gradient(circle at center, rgba(245, 158, 11, 0.18) 0%, rgba(11, 11, 14, 0.98) 75%), #111115;
-    border-bottom: 1px solid #23221b;
+    background: radial-gradient(circle at center, rgba(255, 230, 0, 0.08) 0%, rgba(8, 9, 11, 0.98) 75%), #0f1015;
+    border-bottom: 1px solid #1e2025;
   }
   .badge {
     display: inline-flex;
     align-items: center;
     gap: 6px;
-    background: rgba(251, 191, 36, 0.12);
-    border: 1px solid rgba(251, 191, 36, 0.35);
+    background: rgba(255, 230, 0, 0.08);
+    border: 1px solid rgba(255, 230, 0, 0.35);
     padding: 5px 14px;
-    border-radius: 20px;
-    font-size: 11px;
-    color: #fbbf24;
-    font-weight: 700;
+    border-radius: 4px;
+    font-size: 10.5px;
+    color: #ffe600;
+    font-weight: 800;
     margin-bottom: 14px;
     text-transform: uppercase;
+    letter-spacing: 0.6px;
   }
-  .hero h2 { font-size: 26px; font-weight: 900; line-height: 1.2; margin-bottom: 10px; color: #ffffff; }
-  .hero p { font-size: 13px; color: #d1d5db; margin-bottom: 22px; max-width: 480px; margin-inline: auto; }
+  .hero h2 { 
+    font-size: 28px; 
+    font-weight: 900; 
+    line-height: 1.15; 
+    margin-bottom: 12px; 
+    color: #ffffff; 
+    text-transform: uppercase;
+    letter-spacing: -0.5px;
+  }
+  .hero p { 
+    font-size: 13px; 
+    color: #9ca3af; 
+    margin-bottom: 24px; 
+    max-width: 480px; 
+    margin-inline: auto; 
+    line-height: 1.5; 
+  }
 
-  .hero-cta { display: flex; flex-direction: column; gap: 9px; max-width: 360px; margin-inline: auto; }
+  .hero-cta { display: flex; flex-direction: column; gap: 10px; max-width: 360px; margin-inline: auto; }
   .btn-primary {
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 8px;
-    background: linear-gradient(135deg, #d97706, #b45309);
-    color: white;
-    font-weight: 700;
-    font-size: 14px;
-    padding: 13px 20px;
-    border-radius: 30px;
+    background: #ffe600;
+    color: #000;
+    font-weight: 900;
+    font-size: 13.5px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    padding: 14px 20px;
+    border-radius: 8px;
     border: none;
     cursor: pointer;
-    box-shadow: 0 4px 15px rgba(217, 119, 6, 0.4);
+    box-shadow: 0 4px 20px rgba(255, 230, 0, 0.25);
     text-align: center;
   }
   .btn-secondary {
@@ -118,143 +156,176 @@
     align-items: center;
     justify-content: center;
     gap: 8px;
-    background: #18171e;
-    border: 1px solid #322b1f;
+    background: #14161b;
+    border: 1px solid #282a32;
     color: #f3f4f6;
-    font-weight: 600;
-    font-size: 14px;
-    padding: 12px 20px;
-    border-radius: 30px;
+    font-weight: 700;
+    font-size: 13.5px;
+    text-transform: uppercase;
+    letter-spacing: 0.4px;
+    padding: 13px 20px;
+    border-radius: 8px;
   }
 
+  /* STATS BAR */
   .stats-bar {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    background: #141318;
-    border-bottom: 1px solid #23221b;
+    background: #0d0e12;
+    border-bottom: 1px solid #1e2025;
     text-align: center;
-    padding: 14px 8px;
+    padding: 16px 8px;
   }
-  .stat-item h4 { font-size: 19px; font-weight: 800; color: #fbbf24; }
-  .stat-item p { font-size: 10px; color: #9ca3af; text-transform: uppercase; margin-top: 2px; font-weight: 600; }
+  .stat-item h4 { font-size: 20px; font-weight: 900; color: #ffe600; }
+  .stat-item p { font-size: 10px; color: #9ca3af; text-transform: uppercase; margin-top: 2px; font-weight: 700; letter-spacing: 0.5px; }
 
-  .section { padding: 32px 16px; border-bottom: 1px solid #23221b; }
-  .section-title { font-size: 20px; font-weight: 800; margin-bottom: 4px; color: #ffffff; }
-  .section-desc { font-size: 12px; color: #9ca3af; margin-bottom: 18px; }
+  /* SECTIONS */
+  .section { padding: 34px 16px; border-bottom: 1px solid #1e2025; }
+  .section-title { font-size: 19px; font-weight: 900; margin-bottom: 4px; color: #ffffff; text-transform: uppercase; letter-spacing: 0.3px; }
+  .section-desc { font-size: 12px; color: #9ca3af; margin-bottom: 20px; }
 
+  /* PHOTO GALLERY SCROLLER */
   .gallery-scroller {
     display: flex;
     gap: 12px;
     overflow-x: auto;
-    padding-bottom: 10px;
+    padding-bottom: 12px;
     scrollbar-width: none;
   }
   .gallery-scroller::-webkit-scrollbar { display: none; }
   .gallery-card {
-    flex: 0 0 240px;
-    background: #141319;
-    border: 1px solid #2b251b;
-    border-radius: 14px;
+    flex: 0 0 260px;
+    background: #111318;
+    border: 1px solid #232630;
+    border-radius: 10px;
     overflow: hidden;
   }
-  .gallery-card img { width: 100%; height: 180px; object-fit: cover; display: block; }
-  .gallery-body { padding: 12px; }
-  .gallery-title { font-size: 14px; font-weight: 700; color: #ffffff; }
-  .gallery-sub { font-size: 11px; color: #fbbf24; margin-top: 2px; }
-
-  .features-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
-  .feature-box {
-    background: #131218;
-    border: 1px solid #282218;
-    border-radius: 12px;
-    padding: 14px;
+  .gallery-card img { 
+    width: 100%; 
+    height: 190px; 
+    object-fit: cover; 
+    display: block; 
+    border-bottom: 1px solid #1e2025;
   }
-  .feature-box i { font-size: 20px; color: #fbbf24; margin-bottom: 8px; display: inline-block; }
-  .feature-box h4 { font-size: 13px; font-weight: 700; margin-bottom: 4px; color: #ffffff; }
-  .feature-box p { font-size: 11px; color: #9ca3af; line-height: 1.4; }
+  .gallery-body { padding: 14px; }
+  .gallery-tag { font-size: 9.5px; color: #ffe600; text-transform: uppercase; font-weight: 800; letter-spacing: 0.6px; display: block; margin-bottom: 2px; }
+  .gallery-title { font-size: 14px; font-weight: 800; color: #ffffff; }
+  .gallery-sub { font-size: 11.5px; color: #9ca3af; margin-top: 4px; line-height: 1.35; }
 
-  .plans-grid { display: flex; flex-direction: column; gap: 12px; }
+  /* EQUIPMENT HIGHLIGHTS */
+  .gear-list { display: flex; flex-direction: column; gap: 10px; }
+  .gear-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background: #101216;
+    border: 1px solid #20232c;
+    border-radius: 8px;
+    padding: 12px 14px;
+  }
+  .gear-icon {
+    width: 38px;
+    height: 38px;
+    min-width: 38px;
+    border-radius: 6px;
+    background: rgba(255, 230, 0, 0.08);
+    border: 1px solid rgba(255, 230, 0, 0.25);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #ffe600;
+    font-size: 16px;
+  }
+  .gear-item h5 { font-size: 13.5px; font-weight: 800; color: #ffffff; }
+  .gear-item p { font-size: 11px; color: #9ca3af; margin-top: 2px; }
+
+  /* MEMBERSHIP CARDS */
+  .plans-grid { display: flex; flex-direction: column; gap: 14px; }
   .plan-card {
-    background: #14131a;
-    border: 1px solid #2c251a;
-    border-radius: 14px;
-    padding: 16px;
+    background: #101217;
+    border: 1px solid #232631;
+    border-radius: 10px;
+    padding: 18px 16px;
     position: relative;
   }
   .plan-card.popular {
-    border: 1.5px solid #d97706;
-    background: linear-gradient(135deg, #1c1810 0%, #131218 100%);
+    border: 1.5px solid #ffe600;
+    background: linear-gradient(145deg, #161820 0%, #101217 100%);
   }
   .popular-tag {
     position: absolute;
-    top: -10px;
+    top: -11px;
     right: 14px;
-    background: linear-gradient(135deg, #d97706, #b45309);
-    color: white;
-    font-size: 9px;
-    font-weight: 800;
-    padding: 3px 9px;
-    border-radius: 12px;
+    background: #ffe600;
+    color: #000;
+    font-size: 9.5px;
+    font-weight: 900;
+    padding: 3px 10px;
+    border-radius: 4px;
     text-transform: uppercase;
     letter-spacing: 0.5px;
   }
   .plan-header { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 8px; }
-  .plan-name { font-size: 16px; font-weight: 800; color: #ffffff; }
-  .plan-price { font-size: 18px; font-weight: 800; color: #fbbf24; }
-  .plan-desc { font-size: 12px; color: #9ca3af; margin-bottom: 12px; }
-  .plan-points { list-style: none; display: flex; flex-direction: column; gap: 6px; margin-bottom: 14px; }
-  .plan-points li { font-size: 11.5px; color: #d1d5db; display: flex; align-items: center; gap: 6px; }
-  .plan-points li i { color: #fbbf24; font-size: 11px; }
+  .plan-name { font-size: 16px; font-weight: 900; color: #ffffff; text-transform: uppercase; }
+  .plan-price { font-size: 20px; font-weight: 900; color: #ffe600; }
+  .plan-desc { font-size: 12px; color: #9ca3af; margin-bottom: 14px; }
+  .plan-points { list-style: none; display: flex; flex-direction: column; gap: 8px; margin-bottom: 16px; }
+  .plan-points li { font-size: 12px; color: #d1d5db; display: flex; align-items: center; gap: 8px; }
+  .plan-points li i { color: #ffe600; font-size: 12px; }
 
-  .form-group { margin-bottom: 12px; }
-  .form-group label { display: block; font-size: 11px; color: #9ca3af; margin-bottom: 5px; text-transform: uppercase; font-weight: 700; }
+  /* FORM */
+  .form-group { margin-bottom: 14px; }
+  .form-group label { display: block; font-size: 10.5px; color: #9ca3af; margin-bottom: 6px; text-transform: uppercase; font-weight: 800; letter-spacing: 0.5px; }
   .form-control {
     width: 100%;
-    background: #15141b;
-    border: 1px solid #2e281b;
-    padding: 12px;
-    border-radius: 8px;
+    background: #111318;
+    border: 1px solid #232631;
+    padding: 13px;
+    border-radius: 6px;
     color: white;
     font-size: 13px;
     outline: none;
   }
+  .form-control:focus { border-color: #ffe600; }
   .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
 
+  /* FAQ */
   .faq-item {
-    background: #141319;
-    border: 1px solid #252018;
-    border-radius: 10px;
+    background: #101217;
+    border: 1px solid #20232c;
+    border-radius: 8px;
     margin-bottom: 10px;
     overflow: hidden;
   }
   .faq-question {
-    padding: 14px;
+    padding: 15px;
     font-size: 13px;
-    font-weight: 700;
+    font-weight: 800;
     display: flex;
     justify-content: space-between;
     align-items: center;
     cursor: pointer;
     color: #f3f4f6;
   }
-  .faq-question i { transition: transform 0.2s ease; font-size: 11px; color: #fbbf24; }
+  .faq-question i { transition: transform 0.2s ease; font-size: 12px; color: #ffe600; }
   .faq-question.active i { transform: rotate(180deg); }
   .faq-answer {
-    padding: 0 14px 14px 14px;
+    padding: 0 15px 15px 15px;
     font-size: 12px;
     color: #9ca3af;
-    line-height: 1.45;
+    line-height: 1.5;
     display: none;
   }
 
+  /* FLOATING BOTTOM BAR */
   .floating-bar {
     position: fixed;
     bottom: 0;
     left: 0;
     right: 0;
-    background: rgba(11, 11, 14, 0.98);
-    backdrop-filter: blur(12px);
-    border-top: 1px solid #292318;
+    background: rgba(8, 9, 11, 0.98);
+    backdrop-filter: blur(14px);
+    border-top: 1px solid #1e2025;
     padding: 10px 14px;
     display: flex;
     gap: 8px;
@@ -263,54 +334,54 @@
   .floating-bar a {
     flex: 1;
     text-align: center;
-    padding: 11px 0;
-    border-radius: 25px;
+    padding: 12px 0;
+    border-radius: 6px;
     font-size: 12px;
-    font-weight: 700;
+    font-weight: 800;
+    text-transform: uppercase;
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 5px;
+    gap: 6px;
+    letter-spacing: 0.4px;
   }
-  .f-call { background: #18171f; border: 1px solid #332b1f; color: white; }
-  .f-maps { background: #26242f; border: 1px solid #3d374d; color: #60a5fa; }
-  .f-wa { background: linear-gradient(135deg, #d97706, #b45309); color: white; }
+  .f-call { background: #14161b; border: 1px solid #262933; color: white; }
+  .f-pass { background: #1f222a; border: 1px solid #313542; color: #ffe600; }
+  .f-wa { background: #ffe600; color: #000; }
 </style>
 </head>
 <body>
 
 <div class="alert-bar">
-  🔥 Special New Joiner Offer • Free 1-Day Trial Workout Available
+  ⚡ Exclusive New Joiner Slots Open • Free 1-Day Trial Pass
 </div>
 
 <header>
   <div class="brand">
-    <div class="brand-logo-img" style="display:flex; align-items:center; justify-content:center; color:#fbbf24; font-weight:900; font-size:16px;">
-      AU
-    </div>
+    <img src="https://i.ibb.co/3YNcbg6C/logo.jpg" alt="AU Gym Logo" class="brand-logo-img">
     <div class="brand-text">
       <h1>AU Gym & Fitness</h1>
       <span>Start Strong • Finish Stronger</span>
     </div>
   </div>
   <div class="header-actions">
-    <a href="https://wa.me/919960081690?text=Hi%20AU%20Fitness,%20I%20want%20to%20inquire%20about%20membership%20plans" class="header-btn">
+    <a href="https://wa.me/919960081690?text=Hi%20AU%20Gym,%20I%20want%20to%20know%20about%20membership%20plans" class="header-btn">
       <i class="fa-brands fa-whatsapp"></i> Inquire
     </a>
   </div>
 </header>
 
 <div class="hero">
-  <div class="badge"><i class="fa-solid fa-dumbbell"></i> Premium Fitness & Strength Club</div>
-  <h2>Level Up Your Physical Strength</h2>
-  <p>Train in a spacious, air-conditioned facility equipped with heavy-duty bio-mechanical machines, a dedicated cardio line, free-weight arena, and certified personal trainers.</p>
+  <div class="badge"><i class="fa-solid fa-dumbbell"></i> Heavy-Duty Strength Arena</div>
+  <h2>Build Your Ultimate Form</h2>
+  <p>Engineered for lifters and fitness enthusiasts. Train on industrial yellow-line biomechanical machinery, high-clearance squat cages, dedicated cardio decks, and certified coach support.</p>
   
   <div class="hero-cta">
     <a href="#trialForm" class="btn-primary">
-      <i class="fa-solid fa-fire"></i> Book Free 1-Day Trial Workout
+      <i class="fa-solid fa-bolt"></i> Claim Free 1-Day Trial Pass
     </a>
-    <a href="https://wa.me/919960081690?text=Hi%20AU%20Fitness,%20please%20share%20membership%20rates" class="btn-secondary">
-      <i class="fa-brands fa-whatsapp" style="color: #22c55e;"></i> WhatsApp Gym Manager
+    <a href="https://wa.me/919960081690?text=Hi%20AU%20Gym,%20please%20share%20the%20gym%20location%20and%20plans" class="btn-secondary">
+      <i class="fa-brands fa-whatsapp" style="color: #22c55e;"></i> WhatsApp Front Desk
     </a>
   </div>
 </div>
@@ -318,162 +389,167 @@
 <div class="stats-bar">
   <div class="stat-item">
     <h4>4.8 ★</h4>
-    <p>Member Rating</p>
+    <p>Google Rating</p>
   </div>
   <div class="stat-item">
     <h4>50+</h4>
-    <p>Workout Stations</p>
+    <p>Workstations</p>
   </div>
   <div class="stat-item">
     <h4>6 AM-10 PM</h4>
-    <p>Gym Hours</p>
+    <p>Open Hours</p>
   </div>
 </div>
 
+<!-- FACILITY TOUR WITH REAL IMAGES -->
 <div class="section">
   <h3 class="section-title">The Facility Tour</h3>
-  <p class="section-desc">Experience our signature yellow & black performance gear.</p>
+  <p class="section-desc">Take a visual tour inside our custom yellow-and-black training floor.</p>
 
   <div class="gallery-scroller">
+    <!-- Card 1: Squat Rack & Ceiling Ring -->
     <div class="gallery-card">
-      <div style="height:180px; background:#18161f; display:flex; align-items:center; justify-content:center; border-bottom:1px solid #2b251b;">
-        <i class="fa-solid fa-dumbbell" style="font-size:50px; color:#fbbf24;"></i>
-      </div>
+      <img src="https://i.ibb.co/KM4Ryyw/unnamed-10.webp" alt="Power Squat Rack Arena">
       <div class="gallery-body">
-        <div class="gallery-title">Power Squat Cage</div>
-        <div class="gallery-sub">Olympic barbells & pull-up grip</div>
+        <span class="gallery-tag">Strength Station</span>
+        <div class="gallery-title">Olympic Squat Cage</div>
+        <div class="gallery-sub">Custom yellow power cage with pull-up grips and illuminated archway lighting.</div>
       </div>
     </div>
 
+    <!-- Card 2: Plate-Loaded Machines -->
     <div class="gallery-card">
-      <div style="height:180px; background:#18161f; display:flex; align-items:center; justify-content:center; border-bottom:1px solid #2b251b;">
-        <i class="fa-solid fa-heart-pulse" style="font-size:50px; color:#fbbf24;"></i>
-      </div>
+      <img src="https://i.ibb.co/HDpRrJVv/unnamed-9.webp" alt="Plate-Loaded Machinery">
       <div class="gallery-body">
-        <div class="gallery-title">Cardio & Endurance Hall</div>
-        <div class="gallery-sub">Commercial treadmills & ellipticals</div>
+        <span class="gallery-tag">Hypertrophy Zone</span>
+        <div class="gallery-title">Plate-Loaded Machines</div>
+        <div class="gallery-sub">Biomechanical leg press, preacher curl benches, and targeted row stations.</div>
       </div>
     </div>
 
+    <!-- Card 3: Cardio Arena -->
     <div class="gallery-card">
-      <div style="height:180px; background:#18161f; display:flex; align-items:center; justify-content:center; border-bottom:1px solid #2b251b;">
-        <i class="fa-solid fa-arrows-split-up-and-left" style="font-size:50px; color:#fbbf24;"></i>
-      </div>
+      <img src="https://i.ibb.co/HDpCyc4j/interior-2.webp" alt="Cardio & Endurance Hall">
       <div class="gallery-body">
-        <div class="gallery-title">Multi-Cable Stations</div>
-        <div class="gallery-sub">Lat pulldowns & cross-over towers</div>
+        <span class="gallery-tag">Stamina Floor</span>
+        <div class="gallery-title">Cardio & Conditioning</div>
+        <div class="gallery-sub">Commercial-grade treadmills and ellipticals laid out across a wooden floor deck.</div>
       </div>
     </div>
 
+    <!-- Card 4: Cable Crossover & Free Weights -->
     <div class="gallery-card">
-      <div style="height:180px; background:#18161f; display:flex; align-items:center; justify-content:center; border-bottom:1px solid #2b251b;">
-        <i class="fa-solid fa-person-running" style="font-size:50px; color:#fbbf24;"></i>
-      </div>
+      <img src="https://i.ibb.co/Lmm435d/interior-1.webp" alt="Free Weights & Cable Tower">
       <div class="gallery-body">
-        <div class="gallery-title">Free-Weight Zone</div>
-        <div class="gallery-sub">Dumbbells 2.5kg to 40kg + incline benches</div>
+        <span class="gallery-tag">Dumbbell & Cable Arena</span>
+        <div class="gallery-title">Cables & Free Weights</div>
+        <div class="gallery-sub">Heavy dumbbell collection, adjustable benches, and multi-pulley cable stations.</div>
       </div>
     </div>
   </div>
 </div>
 
+<!-- HARDWARE SPECIFICATIONS -->
 <div class="section">
-  <h3 class="section-title">Membership Packages</h3>
-  <p class="section-desc">Transparent pricing with no hidden registration fees.</p>
+  <h3 class="section-title">Equipment & Standards</h3>
+  <p class="section-desc">Engineered for pure biomechanical efficiency.</p>
+
+  <div class="gear-list">
+    <div class="gear-item">
+      <div class="gear-icon"><i class="fa-solid fa-weight-hanging"></i></div>
+      <div>
+        <h5>Heavy Iron & Olympic Barbells</h5>
+        <p>Calibrated weight plates, drop mats, and Olympic-grade knurled bars.</p>
+      </div>
+    </div>
+    <div class="gear-item">
+      <div class="gear-icon"><i class="fa-solid fa-arrows-split-up-and-left"></i></div>
+      <div>
+        <h5>Multi-Cable Motion Stations</h5>
+        <p>Smooth pulley systems for precise chest crossovers, tricep pushdowns, and lat rows.</p>
+      </div>
+    </div>
+    <div class="gear-item">
+      <div class="gear-icon"><i class="fa-solid fa-wind"></i></div>
+      <div>
+        <h5>Climate-Controlled Workout Zone</h5>
+        <p>High-airflow commercial AC layout so you lift hard without stifling heat.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- MEMBERSHIP PLANS -->
+<div class="section">
+  <h3 class="section-title">Membership Plans</h3>
+  <p class="section-desc">Straightforward packages with no surprise registration charges.</p>
 
   <div class="plans-grid">
     <div class="plan-card">
       <div class="plan-header">
-        <div class="plan-name">1 Month Starter</div>
+        <div class="plan-name">1 Month Pass</div>
         <div class="plan-price">₹1,499</div>
       </div>
-      <div class="plan-desc">Ideal for short-term routines and workout testing.</div>
+      <div class="plan-desc">Great for test-driving equipment and short workout routines.</div>
       <ul class="plan-points">
-        <li><i class="fa-solid fa-check"></i> Full gym & cardio floor access</li>
-        <li><i class="fa-solid fa-check"></i> General floor trainer guidance</li>
-        <li><i class="fa-solid fa-check"></i> Locker & shower facility</li>
+        <li><i class="fa-solid fa-check"></i> Complete access to strength and cardio deck</li>
+        <li><i class="fa-solid fa-check"></i> On-floor trainer form correction</li>
+        <li><i class="fa-solid fa-check"></i> Clean locker & changing facilities</li>
       </ul>
-      <a href="https://wa.me/919960081690?text=Hi%20AU%20Fitness,%20I%20am%20interested%20in%20the%201%20Month%20Starter%20Plan" class="btn-secondary" style="font-size:12px; padding:10px;">
-        Join 1 Month Plan
+      <a href="https://wa.me/919960081690?text=Hi%20AU%20Gym,%20I%20want%20to%20join%20the%201%20Month%20Plan" class="btn-secondary" style="font-size:12px; padding:11px;">
+        Enroll For 1 Month
       </a>
     </div>
 
     <div class="plan-card popular">
       <div class="popular-tag">Most Popular</div>
       <div class="plan-header">
-        <div class="plan-name">3 Months Transformation</div>
+        <div class="plan-name">3 Months Cut & Bulk</div>
         <div class="plan-price">₹3,499</div>
       </div>
-      <div class="plan-desc">The recommended window for visible muscle tone and fat loss.</div>
+      <div class="plan-desc">The optimal window for progressive overload and body transformation.</div>
       <ul class="plan-points">
-        <li><i class="fa-solid fa-check"></i> Unlimited gym & cardio floor access</li>
-        <li><i class="fa-solid fa-check"></i> Initial body composition assessment</li>
-        <li><i class="fa-solid fa-check"></i> Customized workout split chart</li>
-        <li><i class="fa-solid fa-check"></i> Locker & shower facility</li>
+        <li><i class="fa-solid fa-check"></i> Unlimited strength and cardio floor access</li>
+        <li><i class="fa-solid fa-check"></i> Initial body composition & posture analysis</li>
+        <li><i class="fa-solid fa-check"></i> Structured progressive workout chart</li>
+        <li><i class="fa-solid fa-check"></i> Dedicated locker space</li>
       </ul>
-      <a href="https://wa.me/919960081690?text=Hi%20AU%20Fitness,%20I%20am%20interested%20in%20the%203%20Months%20Plan" class="btn-primary" style="font-size:12px; padding:10px;">
-        Join 3 Months Plan
+      <a href="https://wa.me/919960081690?text=Hi%20AU%20Gym,%20I%20want%20to%20join%20the%203%20Months%20Transformation%20Plan" class="btn-primary" style="font-size:12px; padding:11px;">
+        Start 3-Month Transformation
       </a>
     </div>
 
     <div class="plan-card">
       <div class="plan-header">
-        <div class="plan-name">1 Year VIP Gold</div>
+        <div class="plan-name">1 Year Iron Club</div>
         <div class="plan-price">₹8,999</div>
       </div>
-      <div class="plan-desc">Maximum value for committed athletes and lifters.</div>
+      <div class="plan-desc">Best value for athletes committed to consistent yearly progress.</div>
       <ul class="plan-points">
-        <li><i class="fa-solid fa-check"></i> 365 days unlimited gym access</li>
-        <li><i class="fa-solid fa-check"></i> 1 Free Personal Training consultation session</li>
-        <li><i class="fa-solid fa-check"></i> Nutrition & high-protein diet roadmap</li>
-        <li><i class="fa-solid fa-check"></i> 30-day membership freeze option</li>
+        <li><i class="fa-solid fa-check"></i> 365 days unlimited training access</li>
+        <li><i class="fa-solid fa-check"></i> Free personal training goal-setting session</li>
+        <li><i class="fa-solid fa-check"></i> Personalized macronutrient & protein guide</li>
+        <li><i class="fa-solid fa-check"></i> 30-day medical freeze allowance</li>
       </ul>
-      <a href="https://wa.me/919960081690?text=Hi%20AU%20Fitness,%20I%20am%20interested%20in%20the%201%20Year%20VIP%20Gold%20Plan" class="btn-secondary" style="font-size:12px; padding:10px;">
-        Join 1 Year Plan
+      <a href="https://wa.me/919960081690?text=Hi%20AU%20Gym,%20I%20want%20to%20join%20the%201%20Year%20VIP%20Plan" class="btn-secondary" style="font-size:12px; padding:11px;">
+        Enroll For 1 Year
       </a>
     </div>
   </div>
 </div>
 
-<div class="section">
-  <h3 class="section-title">Why Lifters Choose AU</h3>
-  <p class="section-desc">Engineered for real athletic progression.</p>
-
-  <div class="features-grid">
-    <div class="feature-box">
-      <i class="fa-solid fa-dumbbell"></i>
-      <h4>Biomechanical Machines</h4>
-      <p>Targeted angles that optimize tension while protecting joints from injury.</p>
-    </div>
-    <div class="feature-box">
-      <i class="fa-solid fa-wind"></i>
-      <h4>Air-Conditioned Hall</h4>
-      <p>High air circulation and climate control to maintain peak performance.</p>
-    </div>
-    <div class="feature-box">
-      <i class="fa-solid fa-user-shield"></i>
-      <h4>Certified Coaches</h4>
-      <p>Experienced trainers focused on posture correction and progressive overload.</p>
-    </div>
-    <div class="feature-box">
-      <i class="fa-solid fa-clock"></i>
-      <h4>Flexible Timings</h4>
-      <p>Morning 6:00 AM to 10:00 PM for working professionals and students.</p>
-    </div>
-  </div>
-</div>
-
+<!-- TRIAL PASS FORM -->
 <div class="section" id="trialForm">
   <h3 class="section-title">Claim Free Trial Pass</h3>
-  <p class="section-desc">Experience our gym equipment firsthand before joining.</p>
+  <p class="section-desc">Try out our machines and atmosphere before deciding to sign up.</p>
 
   <form id="gymTrialForm">
     <div class="form-group">
-      <label>Your Name</label>
-      <input type="text" id="tname" required placeholder="e.g. Rahul Sharma" class="form-control">
+      <label>Full Name</label>
+      <input type="text" id="tname" required placeholder="e.g. Anand Shinde" class="form-control">
     </div>
     <div class="form-group">
-      <label>Phone Number</label>
+      <label>WhatsApp Contact</label>
       <input type="tel" id="tphone" required placeholder="Enter 10-digit mobile number" class="form-control">
     </div>
     <div class="form-row">
@@ -482,7 +558,7 @@
         <input type="date" id="tdate" required class="form-control">
       </div>
       <div class="form-group">
-        <label>Slot</label>
+        <label>Time Slot</label>
         <select id="tslot" class="form-control">
           <option value="Morning (6 AM - 10 AM)">Morning (6 AM - 10 AM)</option>
           <option value="Afternoon (11 AM - 4 PM)">Afternoon (11 AM - 4 PM)</option>
@@ -491,12 +567,12 @@
       </div>
     </div>
     <div class="form-group">
-      <label>Primary Fitness Goal</label>
+      <label>Fitness Target</label>
       <select id="tgoal" class="form-control">
-        <option value="Fat Loss & Weight Management">Fat Loss & Weight Management</option>
         <option value="Muscle Building & Strength">Muscle Building & Strength</option>
-        <option value="Cardio Stamina & Conditioning">Cardio Stamina & Conditioning</option>
-        <option value="General Health & Fitness">General Health & Fitness</option>
+        <option value="Fat Loss & Lean Toning">Fat Loss & Lean Toning</option>
+        <option value="Athletic Conditioning">Athletic Conditioning</option>
+        <option value="General Lifestyle Fitness">General Lifestyle Fitness</option>
       </select>
     </div>
     <button type="submit" class="btn-primary" style="width:100%; margin-top:8px;">
@@ -505,46 +581,47 @@
   </form>
 </div>
 
+<!-- FAQS -->
 <div class="section">
   <h3 class="section-title">Frequently Asked Questions</h3>
-  <p class="section-desc">Common questions from new members.</p>
+  <p class="section-desc">Everything you need to know before walking in.</p>
 
   <div class="faq-item">
     <div class="faq-question" onclick="toggleFaq(this)">
-      <span>Are trainers available on the gym floor?</span>
+      <span>Do I need to pay for the first trial workout?</span>
       <i class="fa-solid fa-chevron-down"></i>
     </div>
     <div class="faq-answer">
-      Yes! Floor trainers are always available to guide you with proper machine setups, posture, and basic lifting technique.
+      No, the 1-day pass is 100% free. You can test out the weights, try the cardio line, and evaluate the facility.
     </div>
   </div>
 
   <div class="faq-item">
     <div class="faq-question" onclick="toggleFaq(this)">
-      <span>What should I bring for my trial session?</span>
+      <span>Are floor trainers available to help with form?</span>
       <i class="fa-solid fa-chevron-down"></i>
     </div>
     <div class="faq-answer">
-      Please carry clean indoor workout shoes, active gym wear, a hand towel, and your water bottle.
+      Yes! Floor trainers are constantly on duty to correct posture, prevent injury, and ensure proper machine setups.
     </div>
   </div>
 
   <div class="faq-item">
     <div class="faq-question" onclick="toggleFaq(this)">
-      <span>Do you offer Personal Training (PT)?</span>
+      <span>What should I carry for my first session?</span>
       <i class="fa-solid fa-chevron-down"></i>
     </div>
     <div class="faq-answer">
-      Yes, 1-on-1 personalized transformation training with diet charting is available. Speak to our front desk for personal coaching slots.
+      A pair of clean indoor workout shoes, active gym wear, a sweat towel, and a water bottle are required.
     </div>
   </div>
 </div>
 
-<footer style="padding: 24px 16px; text-align: center; border-top: 1px solid #23221b; color: #71717a; font-size: 11px;">
-  <p style="color:#fbbf24; font-size:13px; font-weight:700; margin-bottom:4px;">AU Gym & Fitness</p>
-  <p>Start Strong • Finish Stronger 🏋️‍♂️</p>
+<footer style="padding: 24px 16px; text-align: center; border-top: 1px solid #1e2025; color: #71717a; font-size: 11px;">
+  <p style="color:#ffe600; font-size:13px; font-weight:900; margin-bottom:4px;">AU GYM & FITNESS</p>
+  <p>Start Strong • Finish Stronger ⚡</p>
   <div style="margin-top: 10px; display: flex; justify-content: center; gap: 14px;">
-    <a href="tel:+919960081690" style="color:#34d399;"><i class="fa-solid fa-phone"></i> Call Desk</a>
+    <a href="tel:+919960081690" style="color:#ffe600;"><i class="fa-solid fa-phone"></i> Call Desk</a>
     <a href="https://wa.me/919960081690" style="color:#22c55e;"><i class="fa-brands fa-whatsapp"></i> WhatsApp</a>
   </div>
   <p style="margin-top: 12px;">© AU Gym & Fitness. All rights reserved.</p>
@@ -552,8 +629,8 @@
 
 <div class="floating-bar">
   <a href="tel:+919960081690" class="f-call"><i class="fa-solid fa-phone"></i> Call</a>
-  <a href="#trialForm" class="f-maps"><i class="fa-solid fa-id-badge"></i> Free Pass</a>
-  <a href="https://wa.me/919960081690?text=Hi%20AU%20Fitness,%20I%20want%20to%20book%20a%20free%20trial" class="f-wa"><i class="fa-brands fa-whatsapp"></i> WhatsApp</a>
+  <a href="#trialForm" class="f-pass"><i class="fa-solid fa-bolt"></i> Free Pass</a>
+  <a href="https://wa.me/919960081690?text=Hi%20AU%20Gym,%20I%20want%20to%20claim%20my%20free%20trial" class="f-wa"><i class="fa-brands fa-whatsapp"></i> WhatsApp</a>
 </div>
 
 <script>
@@ -572,11 +649,11 @@
     var slot = document.getElementById('tslot').value;
     var goal = document.getElementById('tgoal').value;
 
-    var message = "Hi AU Gym & Fitness, I would like to book a 1-Day Trial Workout:\n\n" +
+    var message = "Hi AU Gym & Fitness, I want to book my 1-Day Free Trial:\n\n" +
                   "👤 *Name:* " + name + "\n" +
-                  "📞 *Phone:* " + phone + "\n" +
+                  "📞 *Contact:* " + phone + "\n" +
                   "📅 *Date:* " + date + "\n" +
-                  "⏰ *Time Slot:* " + slot + "\n" +
+                  "⏰ *Slot:* " + slot + "\n" +
                   "🎯 *Goal:* " + goal;
 
     var whatsappURL = "https://api.whatsapp.com/send?phone=919960081690&text=" + encodeURIComponent(message);
