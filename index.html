@@ -1,424 +1,588 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-  <title>AU Fitness | Private Training Club • College Road, Nashik</title>
-  <meta name="description" content="AU Fitness at VIP Circle, College Road, Nashik. Bespoke training floor, modern ambient architecture, and private coaching." />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AU Gym & Fitness | Start Strong • Finish Stronger</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background-color: #0b0b0e;
+    color: #f3f4f6;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    line-height: 1.45;
+    padding-bottom: 75px;
+  }
+  a { text-decoration: none; color: inherit; }
 
-  <script src="https://cdn.tailwindcss.com"></script>
+  .alert-bar {
+    background: linear-gradient(90deg, #d97706, #fbbf24, #d97706);
+    color: #000000;
+    font-size: 11px;
+    font-weight: 800;
+    text-align: center;
+    padding: 7px 12px;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+  }
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(11, 11, 14, 0.96);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid #23221b;
+    padding: 10px 14px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 8px;
+  }
+  .brand { display: flex; align-items: center; gap: 9px; min-width: 0; }
 
-  <script src="https://unpkg.com/lucide@latest"></script>
+  .brand-logo-img {
+    width: 44px;
+    height: 44px;
+    min-width: 44px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 1.5px solid #d4af37;
+    box-shadow: 0 0 10px rgba(212, 175, 55, 0.35);
+    display: block;
+    background: #000;
+  }
 
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            gold: {
-              DEFAULT: '#D4AF37',
-              light: '#FACC15',
-              dark: '#B8860B'
-            },
-            noir: {
-              950: '#070708',
-              900: '#111114',
-              850: '#18181D',
-              border: '#26262E'
-            }
-          },
-          fontFamily: {
-            display: ['"Oswald"', 'sans-serif'],
-            sans: ['"Plus Jakarta Sans"', 'sans-serif']
-          }
-        }
-      }
-    }
-  </script>
+  .brand-text { min-width: 0; }
+  .brand-text h1 { font-size: 14px; font-weight: 800; letter-spacing: -0.3px; line-height: 1.2; color: #ffffff; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .brand-text span { font-size: 9.5px; color: #fbbf24; text-transform: uppercase; display: block; font-weight: 700; margin-top: 1px; letter-spacing: 0.4px; }
 
-  <style>
-    .gold-radial {
-      background: radial-gradient(circle at 50% 0%, rgba(212, 175, 55, 0.12) 0%, transparent 65%);
-    }
-    .glass-surface {
-      background: rgba(17, 17, 20, 0.85);
-      backdrop-filter: blur(14px);
-      -webkit-backdrop-filter: blur(14px);
-    }
-  </style>
+  .header-actions { display: flex; align-items: center; gap: 6px; flex-shrink: 0; }
+  .header-btn {
+    background: linear-gradient(135deg, #d97706, #b45309);
+    color: #fff;
+    padding: 7px 12px;
+    border-radius: 20px;
+    font-size: 11px;
+    font-weight: 800;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    box-shadow: 0 2px 10px rgba(217, 119, 6, 0.4);
+  }
+
+  .hero {
+    position: relative;
+    padding: 40px 16px 30px;
+    text-align: center;
+    background: radial-gradient(circle at center, rgba(245, 158, 11, 0.18) 0%, rgba(11, 11, 14, 0.98) 75%), #111115;
+    border-bottom: 1px solid #23221b;
+  }
+  .badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: rgba(251, 191, 36, 0.12);
+    border: 1px solid rgba(251, 191, 36, 0.35);
+    padding: 5px 14px;
+    border-radius: 20px;
+    font-size: 11px;
+    color: #fbbf24;
+    font-weight: 700;
+    margin-bottom: 14px;
+    text-transform: uppercase;
+  }
+  .hero h2 { font-size: 26px; font-weight: 900; line-height: 1.2; margin-bottom: 10px; color: #ffffff; }
+  .hero p { font-size: 13px; color: #d1d5db; margin-bottom: 22px; max-width: 480px; margin-inline: auto; }
+
+  .hero-cta { display: flex; flex-direction: column; gap: 9px; max-width: 360px; margin-inline: auto; }
+  .btn-primary {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    background: linear-gradient(135deg, #d97706, #b45309);
+    color: white;
+    font-weight: 700;
+    font-size: 14px;
+    padding: 13px 20px;
+    border-radius: 30px;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(217, 119, 6, 0.4);
+    text-align: center;
+  }
+  .btn-secondary {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    background: #18171e;
+    border: 1px solid #322b1f;
+    color: #f3f4f6;
+    font-weight: 600;
+    font-size: 14px;
+    padding: 12px 20px;
+    border-radius: 30px;
+  }
+
+  .stats-bar {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    background: #141318;
+    border-bottom: 1px solid #23221b;
+    text-align: center;
+    padding: 14px 8px;
+  }
+  .stat-item h4 { font-size: 19px; font-weight: 800; color: #fbbf24; }
+  .stat-item p { font-size: 10px; color: #9ca3af; text-transform: uppercase; margin-top: 2px; font-weight: 600; }
+
+  .section { padding: 32px 16px; border-bottom: 1px solid #23221b; }
+  .section-title { font-size: 20px; font-weight: 800; margin-bottom: 4px; color: #ffffff; }
+  .section-desc { font-size: 12px; color: #9ca3af; margin-bottom: 18px; }
+
+  .gallery-scroller {
+    display: flex;
+    gap: 12px;
+    overflow-x: auto;
+    padding-bottom: 10px;
+    scrollbar-width: none;
+  }
+  .gallery-scroller::-webkit-scrollbar { display: none; }
+  .gallery-card {
+    flex: 0 0 240px;
+    background: #141319;
+    border: 1px solid #2b251b;
+    border-radius: 14px;
+    overflow: hidden;
+  }
+  .gallery-card img { width: 100%; height: 180px; object-fit: cover; display: block; }
+  .gallery-body { padding: 12px; }
+  .gallery-title { font-size: 14px; font-weight: 700; color: #ffffff; }
+  .gallery-sub { font-size: 11px; color: #fbbf24; margin-top: 2px; }
+
+  .features-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+  .feature-box {
+    background: #131218;
+    border: 1px solid #282218;
+    border-radius: 12px;
+    padding: 14px;
+  }
+  .feature-box i { font-size: 20px; color: #fbbf24; margin-bottom: 8px; display: inline-block; }
+  .feature-box h4 { font-size: 13px; font-weight: 700; margin-bottom: 4px; color: #ffffff; }
+  .feature-box p { font-size: 11px; color: #9ca3af; line-height: 1.4; }
+
+  .plans-grid { display: flex; flex-direction: column; gap: 12px; }
+  .plan-card {
+    background: #14131a;
+    border: 1px solid #2c251a;
+    border-radius: 14px;
+    padding: 16px;
+    position: relative;
+  }
+  .plan-card.popular {
+    border: 1.5px solid #d97706;
+    background: linear-gradient(135deg, #1c1810 0%, #131218 100%);
+  }
+  .popular-tag {
+    position: absolute;
+    top: -10px;
+    right: 14px;
+    background: linear-gradient(135deg, #d97706, #b45309);
+    color: white;
+    font-size: 9px;
+    font-weight: 800;
+    padding: 3px 9px;
+    border-radius: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+  .plan-header { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 8px; }
+  .plan-name { font-size: 16px; font-weight: 800; color: #ffffff; }
+  .plan-price { font-size: 18px; font-weight: 800; color: #fbbf24; }
+  .plan-desc { font-size: 12px; color: #9ca3af; margin-bottom: 12px; }
+  .plan-points { list-style: none; display: flex; flex-direction: column; gap: 6px; margin-bottom: 14px; }
+  .plan-points li { font-size: 11.5px; color: #d1d5db; display: flex; align-items: center; gap: 6px; }
+  .plan-points li i { color: #fbbf24; font-size: 11px; }
+
+  .form-group { margin-bottom: 12px; }
+  .form-group label { display: block; font-size: 11px; color: #9ca3af; margin-bottom: 5px; text-transform: uppercase; font-weight: 700; }
+  .form-control {
+    width: 100%;
+    background: #15141b;
+    border: 1px solid #2e281b;
+    padding: 12px;
+    border-radius: 8px;
+    color: white;
+    font-size: 13px;
+    outline: none;
+  }
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+
+  .faq-item {
+    background: #141319;
+    border: 1px solid #252018;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    overflow: hidden;
+  }
+  .faq-question {
+    padding: 14px;
+    font-size: 13px;
+    font-weight: 700;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    color: #f3f4f6;
+  }
+  .faq-question i { transition: transform 0.2s ease; font-size: 11px; color: #fbbf24; }
+  .faq-question.active i { transform: rotate(180deg); }
+  .faq-answer {
+    padding: 0 14px 14px 14px;
+    font-size: 12px;
+    color: #9ca3af;
+    line-height: 1.45;
+    display: none;
+  }
+
+  .floating-bar {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(11, 11, 14, 0.98);
+    backdrop-filter: blur(12px);
+    border-top: 1px solid #292318;
+    padding: 10px 14px;
+    display: flex;
+    gap: 8px;
+    z-index: 100;
+  }
+  .floating-bar a {
+    flex: 1;
+    text-align: center;
+    padding: 11px 0;
+    border-radius: 25px;
+    font-size: 12px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+  }
+  .f-call { background: #18171f; border: 1px solid #332b1f; color: white; }
+  .f-maps { background: #26242f; border: 1px solid #3d374d; color: #60a5fa; }
+  .f-wa { background: linear-gradient(135deg, #d97706, #b45309); color: white; }
+</style>
 </head>
-<body class="bg-noir-950 text-neutral-300 font-sans antialiased selection:bg-gold selection:text-black overflow-x-hidden">
+<body>
 
-  <aside aria-label="Pass Announcement" class="border-b border-noir-border bg-noir-900 text-[11px] font-semibold tracking-wider text-neutral-300 py-2 px-3 text-center">
-    <div class="max-w-6xl mx-auto flex items-center justify-center gap-2">
-      <span class="w-1.5 h-1.5 rounded-full bg-gold animate-ping shrink-0"></span>
-      <span class="truncate">PRIVATE CLUB: 1-Day VIP Guest Pass at College Road</span>
+<div class="alert-bar">
+  🔥 Special New Joiner Offer • Free 1-Day Trial Workout Available
+</div>
+
+<header>
+  <div class="brand">
+    <div class="brand-logo-img" style="display:flex; align-items:center; justify-content:center; color:#fbbf24; font-weight:900; font-size:16px;">
+      AU
     </div>
-  </aside>
+    <div class="brand-text">
+      <h1>AU Gym & Fitness</h1>
+      <span>Start Strong • Finish Stronger</span>
+    </div>
+  </div>
+  <div class="header-actions">
+    <a href="https://wa.me/919960081690?text=Hi%20AU%20Fitness,%20I%20want%20to%20inquire%20about%20membership%20plans" class="header-btn">
+      <i class="fa-brands fa-whatsapp"></i> Inquire
+    </a>
+  </div>
+</header>
 
-  <nav class="sticky top-0 z-50 bg-noir-950/95 backdrop-blur-xl border-b border-noir-border px-4 py-3 transition-all">
-    <div class="max-w-7xl mx-auto flex items-center justify-between">
-      <a href="#" class="flex items-center gap-2.5">
-        <img 
-          src="https://i.ibb.co/GfNKdkNh/657920997-17859829779680967-8719283677993680582-n.jpg" 
-          alt="AU Fitness Logo" 
-          class="w-9 h-9 rounded-full border border-gold/50 object-cover shadow-[0_0_15px_rgba(212,175,55,0.2)] shrink-0"
-        />
-        <div>
-          <span class="font-display font-bold text-xl tracking-wider text-white block leading-none">AU FITNESS</span>
-          <span class="text-[8px] uppercase tracking-[0.2em] text-gold font-semibold mt-0.5 block">Private Training Club</span>
-        </div>
+<div class="hero">
+  <div class="badge"><i class="fa-solid fa-dumbbell"></i> Premium Fitness & Strength Club</div>
+  <h2>Level Up Your Physical Strength</h2>
+  <p>Train in a spacious, air-conditioned facility equipped with heavy-duty bio-mechanical machines, a dedicated cardio line, free-weight arena, and certified personal trainers.</p>
+  
+  <div class="hero-cta">
+    <a href="#trialForm" class="btn-primary">
+      <i class="fa-solid fa-fire"></i> Book Free 1-Day Trial Workout
+    </a>
+    <a href="https://wa.me/919960081690?text=Hi%20AU%20Fitness,%20please%20share%20membership%20rates" class="btn-secondary">
+      <i class="fa-brands fa-whatsapp" style="color: #22c55e;"></i> WhatsApp Gym Manager
+    </a>
+  </div>
+</div>
+
+<div class="stats-bar">
+  <div class="stat-item">
+    <h4>4.8 ★</h4>
+    <p>Member Rating</p>
+  </div>
+  <div class="stat-item">
+    <h4>50+</h4>
+    <p>Workout Stations</p>
+  </div>
+  <div class="stat-item">
+    <h4>6 AM-10 PM</h4>
+    <p>Gym Hours</p>
+  </div>
+</div>
+
+<div class="section">
+  <h3 class="section-title">The Facility Tour</h3>
+  <p class="section-desc">Experience our signature yellow & black performance gear.</p>
+
+  <div class="gallery-scroller">
+    <div class="gallery-card">
+      <div style="height:180px; background:#18161f; display:flex; align-items:center; justify-content:center; border-bottom:1px solid #2b251b;">
+        <i class="fa-solid fa-dumbbell" style="font-size:50px; color:#fbbf24;"></i>
+      </div>
+      <div class="gallery-body">
+        <div class="gallery-title">Power Squat Cage</div>
+        <div class="gallery-sub">Olympic barbells & pull-up grip</div>
+      </div>
+    </div>
+
+    <div class="gallery-card">
+      <div style="height:180px; background:#18161f; display:flex; align-items:center; justify-content:center; border-bottom:1px solid #2b251b;">
+        <i class="fa-solid fa-heart-pulse" style="font-size:50px; color:#fbbf24;"></i>
+      </div>
+      <div class="gallery-body">
+        <div class="gallery-title">Cardio & Endurance Hall</div>
+        <div class="gallery-sub">Commercial treadmills & ellipticals</div>
+      </div>
+    </div>
+
+    <div class="gallery-card">
+      <div style="height:180px; background:#18161f; display:flex; align-items:center; justify-content:center; border-bottom:1px solid #2b251b;">
+        <i class="fa-solid fa-arrows-split-up-and-left" style="font-size:50px; color:#fbbf24;"></i>
+      </div>
+      <div class="gallery-body">
+        <div class="gallery-title">Multi-Cable Stations</div>
+        <div class="gallery-sub">Lat pulldowns & cross-over towers</div>
+      </div>
+    </div>
+
+    <div class="gallery-card">
+      <div style="height:180px; background:#18161f; display:flex; align-items:center; justify-content:center; border-bottom:1px solid #2b251b;">
+        <i class="fa-solid fa-person-running" style="font-size:50px; color:#fbbf24;"></i>
+      </div>
+      <div class="gallery-body">
+        <div class="gallery-title">Free-Weight Zone</div>
+        <div class="gallery-sub">Dumbbells 2.5kg to 40kg + incline benches</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="section">
+  <h3 class="section-title">Membership Packages</h3>
+  <p class="section-desc">Transparent pricing with no hidden registration fees.</p>
+
+  <div class="plans-grid">
+    <div class="plan-card">
+      <div class="plan-header">
+        <div class="plan-name">1 Month Starter</div>
+        <div class="plan-price">₹1,499</div>
+      </div>
+      <div class="plan-desc">Ideal for short-term routines and workout testing.</div>
+      <ul class="plan-points">
+        <li><i class="fa-solid fa-check"></i> Full gym & cardio floor access</li>
+        <li><i class="fa-solid fa-check"></i> General floor trainer guidance</li>
+        <li><i class="fa-solid fa-check"></i> Locker & shower facility</li>
+      </ul>
+      <a href="https://wa.me/919960081690?text=Hi%20AU%20Fitness,%20I%20am%20interested%20in%20the%201%20Month%20Starter%20Plan" class="btn-secondary" style="font-size:12px; padding:10px;">
+        Join 1 Month Plan
       </a>
-
-      <div class="flex items-center gap-3">
-        <a href="tel:7776088807" class="hidden sm:flex items-center gap-1.5 text-xs font-bold text-neutral-400 hover:text-white px-2 py-1 uppercase">
-          <i data-lucide="phone" class="w-3.5 h-3.5 text-gold"></i> 7776088807
-        </a>
-        <a href="#vip-pass" class="bg-gradient-to-r from-gold-dark via-gold to-gold-light text-black font-extrabold text-[11px] uppercase tracking-wider px-3.5 py-2 rounded-full shadow-[0_2px_15px_rgba(212,175,55,0.25)] shrink-0 whitespace-nowrap">
-          Claim Pass
-        </a>
-      </div>
-    </div>
-  </nav>
-
-  <header class="relative min-h-[580px] flex items-center px-4 py-12 border-b border-noir-border overflow-hidden gold-radial">
-    <div class="absolute inset-0 -z-20">
-      <img 
-        src="https://i.ibb.co/pj218xgH/unnamed-4.webp" 
-        alt="AU Fitness Floor" 
-        class="w-full h-full object-cover object-center filter brightness-[0.20] contrast-[1.1]"
-      />
-    </div>
-    <div class="absolute inset-0 bg-gradient-to-t from-noir-950 via-noir-950/75 to-transparent -z-10"></div>
-
-    <div class="max-w-4xl mx-auto w-full text-center lg:text-left">
-      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-noir-900 border border-gold/30 text-gold text-[10px] font-bold uppercase tracking-widest mb-6">
-        <span class="w-1.5 h-1.5 rounded-full bg-gold"></span> VIP Circle, College Road • Nashik
-      </div>
-      
-      <h1 class="font-display text-4xl sm:text-6xl md:text-7xl font-bold text-white tracking-wide uppercase leading-tight mb-5">
-        Discipline Redefined.<br/>
-        <span class="text-gold">Elevate Your Standard.</span>
-      </h1>
-
-      <p class="text-neutral-400 text-sm sm:text-base max-w-xl mx-auto lg:mx-0 leading-relaxed mb-8">
-        A high-performance training sanctuary crafted for individuals who pursue real physical progress. Modern architecture, curated floor space, and focused mentorship.
-      </p>
-
-      <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-3.5">
-        <a href="#vip-pass" class="w-full sm:w-auto flex items-center justify-center gap-2.5 bg-gold hover:bg-gold-light text-black font-extrabold px-6 py-3.5 rounded-xl text-xs uppercase tracking-wider shadow-[0_0_25px_rgba(212,175,55,0.3)]">
-          <i data-lucide="crown" class="w-4 h-4 fill-black"></i> Claim 1-Day Guest Invitation
-        </a>
-        <a href="https://wa.me/917776088807?text=Hi%20AU%20Fitness,%20I%20would%20like%20to%20inquire%20about%20club%20membership" target="_blank" class="w-full sm:w-auto flex items-center justify-center gap-2 glass-surface hover:bg-noir-850 border border-noir-border text-white font-semibold px-6 py-3.5 rounded-xl text-xs">
-          <i data-lucide="message-circle" class="w-4 h-4 text-emerald-400"></i> Direct Concierge WhatsApp
-        </a>
-      </div>
-
-      <div class="grid grid-cols-3 gap-2.5 max-w-lg mx-auto lg:mx-0 mt-10 pt-6 border-t border-noir-border/60">
-        <div class="bg-noir-900/80 border border-noir-border/80 rounded-xl p-2.5 text-center">
-          <span class="text-gold font-display text-lg sm:text-2xl font-bold block leading-none">ELITE</span>
-          <span class="text-[9px] uppercase tracking-wider text-neutral-400 font-semibold mt-1 block">Curated Vibe</span>
-        </div>
-        <div class="bg-noir-900/80 border border-noir-border/80 rounded-xl p-2.5 text-center">
-          <span class="text-gold font-display text-lg sm:text-2xl font-bold block leading-none">BESPOKE</span>
-          <span class="text-[9px] uppercase tracking-wider text-neutral-400 font-semibold mt-1 block">Architecture</span>
-        </div>
-        <div class="bg-noir-900/80 border border-noir-border/80 rounded-xl p-2.5 text-center">
-          <span class="text-gold font-display text-lg sm:text-2xl font-bold block leading-none">1-ON-1</span>
-          <span class="text-[9px] uppercase tracking-wider text-neutral-400 font-semibold mt-1 block">Mentorship</span>
-        </div>
-      </div>
-    </div>
-  </header>
-
-  <section class="py-16 px-4 max-w-6xl mx-auto">
-    <div class="text-center mb-10">
-      <span class="text-[10px] uppercase font-extrabold tracking-[0.25em] text-gold block mb-1">The Atmosphere</span>
-      <h2 class="font-display text-3xl sm:text-4xl font-bold text-white tracking-wide uppercase">Engineered For Focus</h2>
-      <p class="text-neutral-400 text-xs sm:text-sm mt-2 max-w-md mx-auto">Where aesthetics meet athletic intensity without friction or crowds.</p>
     </div>
 
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
-      
-      <div class="bg-noir-900 border border-noir-border rounded-2xl overflow-hidden group">
-        <div class="h-60 overflow-hidden">
-          <img src="https://i.ibb.co/Xfpz3Xt6/unnamed-7.webp" alt="Power Rack" class="w-full h-full object-cover group-hover:scale-105 transition-all duration-500" />
-        </div>
-        <div class="p-4">
-          <h3 class="font-display font-bold text-white text-base uppercase">Signature Power Arch</h3>
-          <p class="text-neutral-400 text-xs mt-1">Illuminated center stage built for high-volume compound sets.</p>
-        </div>
+    <div class="plan-card popular">
+      <div class="popular-tag">Most Popular</div>
+      <div class="plan-header">
+        <div class="plan-name">3 Months Transformation</div>
+        <div class="plan-price">₹3,499</div>
       </div>
-
-      <div class="bg-noir-900 border border-noir-border rounded-2xl overflow-hidden group">
-        <div class="h-60 overflow-hidden">
-          <img src="https://i.ibb.co/8DZq6hZg/unnamed-8.webp" alt="Hypertrophy Zone" class="w-full h-full object-cover group-hover:scale-105 transition-all duration-500" />
-        </div>
-        <div class="p-4">
-          <h3 class="font-display font-bold text-white text-base uppercase">Hypertrophy Station</h3>
-          <p class="text-neutral-400 text-xs mt-1">Zero-crowding layouts engineered for smooth supersets.</p>
-        </div>
-      </div>
-
-      <div class="bg-noir-900 border border-noir-border rounded-2xl overflow-hidden group">
-        <div class="h-60 overflow-hidden">
-          <img src="https://i.ibb.co/WWVFc8fH/unnamed-5.webp" alt="Cable Conditioning" class="w-full h-full object-cover group-hover:scale-105 transition-all duration-500" />
-        </div>
-        <div class="p-4">
-          <h3 class="font-display font-bold text-white text-base uppercase">Conditioning Cables</h3>
-          <p class="text-neutral-400 text-xs mt-1">Continuous tension towers for total-body definition.</p>
-        </div>
-      </div>
-
-      <div class="bg-noir-900 border border-noir-border rounded-2xl overflow-hidden group">
-        <div class="h-60 overflow-hidden">
-          <img src="https://i.ibb.co/zhPGpLdL/unnamed-6.webp" alt="Ambient Studio" class="w-full h-full object-cover group-hover:scale-105 transition-all duration-500" />
-        </div>
-        <div class="p-4">
-          <h3 class="font-display font-bold text-white text-base uppercase">Warm Ambient Dome</h3>
-          <p class="text-neutral-400 text-xs mt-1">Curated soundscapes and architectural lighting.</p>
-        </div>
-      </div>
-
-      <div class="bg-noir-900 border border-noir-border rounded-2xl overflow-hidden group">
-        <div class="h-60 overflow-hidden">
-          <img src="https://i.ibb.co/ycNpNbzh/unnamed-3.webp" alt="Dumbbell Racks" class="w-full h-full object-cover group-hover:scale-105 transition-all duration-500" />
-        </div>
-        <div class="p-4">
-          <h3 class="font-display font-bold text-white text-base uppercase">Heavy Iron Arena</h3>
-          <p class="text-neutral-400 text-xs mt-1">Full dumbbell sets and rigid benches for overload work.</p>
-        </div>
-      </div>
-
-      <div class="bg-noir-900 border border-noir-border rounded-2xl overflow-hidden group">
-        <div class="h-60 overflow-hidden">
-          <img src="https://i.ibb.co/pj218xgH/unnamed-4.webp" alt="Endurance Deck" class="w-full h-full object-cover group-hover:scale-105 transition-all duration-500" />
-        </div>
-        <div class="p-4">
-          <h3 class="font-display font-bold text-white text-base uppercase">Endurance Deck</h3>
-          <p class="text-neutral-400 text-xs mt-1">Panoramic timber-deck floor for cardio sessions.</p>
-        </div>
-      </div>
-
-    </div>
-  </section>
-
-  <section id="vip-pass" class="py-16 px-4 bg-noir-900 border-y border-noir-border relative gold-radial">
-    <div class="max-w-md mx-auto text-center">
-      <div class="w-16 h-16 mx-auto mb-4">
-        <img 
-          src="https://i.ibb.co/GfNKdkNh/657920997-17859829779680967-8719283677993680582-n.jpg" 
-          alt="AU Logo" 
-          class="w-full h-full rounded-full border border-gold/60 object-cover"
-        />
-      </div>
-
-      <span class="text-[10px] uppercase font-bold tracking-[0.2em] text-gold">Exclusive Access</span>
-      <h2 class="font-display text-3xl font-bold text-white tracking-wide uppercase mt-1 mb-2">Claim 1-Day VIP Pass</h2>
-      <p class="text-neutral-400 text-xs mb-8">Enter your details to generate your direct WhatsApp invitation.</p>
-
-      <form onsubmit="generateVipInvitation(event)" class="space-y-4 text-left glass-surface p-5 sm:p-7 rounded-2xl border border-noir-border shadow-xl">
-        <div>
-          <label for="guestName" class="block text-[10px] font-bold text-neutral-300 uppercase tracking-widest mb-1.5">Guest Name</label>
-          <input 
-            type="text" 
-            id="guestName" 
-            required 
-            placeholder="e.g. Akshay Patil" 
-            class="w-full bg-noir-950 border border-noir-border rounded-xl px-3.5 py-3 text-white text-xs focus:outline-none focus:border-gold transition-all" 
-          />
-        </div>
-
-        <div>
-          <label for="guestGoal" class="block text-[10px] font-bold text-neutral-300 uppercase tracking-widest mb-1.5">Primary Ambition</label>
-          <select 
-            id="guestGoal" 
-            class="w-full bg-noir-950 border border-noir-border rounded-xl px-3.5 py-3 text-white text-xs focus:outline-none focus:border-gold transition-all"
-          >
-            <option value="Fat Loss & Toning">Fat Loss & Toning</option>
-            <option value="Muscle Hypertrophy">Muscle Hypertrophy</option>
-            <option value="Strength & Power">Strength & Power</option>
-            <option value="Executive Fitness">Executive Fitness</option>
-          </select>
-        </div>
-
-        <div>
-          <label for="guestBatch" class="block text-[10px] font-bold text-neutral-300 uppercase tracking-widest mb-1.5">Preferred Slot</label>
-          <select 
-            id="guestBatch" 
-            class="w-full bg-noir-950 border border-noir-border rounded-xl px-3.5 py-3 text-white text-xs focus:outline-none focus:border-gold transition-all"
-          >
-            <option value="Morning Prime (6:00 AM - 10:00 AM)">Morning (6 AM - 10 AM)</option>
-            <option value="Evening Peak (5:00 PM - 10:00 PM)">Evening (5 PM - 10 PM)</option>
-            <option value="Afternoon Slot">Afternoon Slot</option>
-          </select>
-        </div>
-
-        <button 
-          type="submit" 
-          class="w-full flex items-center justify-center gap-2 bg-gradient-to-r from-gold-dark via-gold to-gold-light text-black font-extrabold py-3.5 rounded-xl text-xs uppercase tracking-widest mt-4 shadow-md"
-        >
-          <i data-lucide="send" class="w-3.5 h-3.5"></i> Open Pass On WhatsApp
-        </button>
-      </form>
-    </div>
-  </section>
-
-  <section class="py-16 px-4 max-w-6xl mx-auto">
-    <div class="text-center mb-12">
-      <span class="text-[10px] uppercase font-bold tracking-[0.25em] text-gold block mb-1">Commitment</span>
-      <h2 class="font-display text-3xl sm:text-4xl font-bold text-white tracking-wide uppercase">Membership Tiers</h2>
-      <p class="text-neutral-400 text-xs sm:text-sm mt-1">Clear, results-driven club access passes.</p>
+      <div class="plan-desc">The recommended window for visible muscle tone and fat loss.</div>
+      <ul class="plan-points">
+        <li><i class="fa-solid fa-check"></i> Unlimited gym & cardio floor access</li>
+        <li><i class="fa-solid fa-check"></i> Initial body composition assessment</li>
+        <li><i class="fa-solid fa-check"></i> Customized workout split chart</li>
+        <li><i class="fa-solid fa-check"></i> Locker & shower facility</li>
+      </ul>
+      <a href="https://wa.me/919960081690?text=Hi%20AU%20Fitness,%20I%20am%20interested%20in%20the%203%20Months%20Plan" class="btn-primary" style="font-size:12px; padding:10px;">
+        Join 3 Months Plan
+      </a>
     </div>
 
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-      <div class="bg-noir-900 border border-noir-border rounded-2xl p-6 flex flex-col justify-between">
-        <div>
-          <span class="text-[9px] uppercase tracking-widest text-neutral-400 font-bold block mb-1">Phase I</span>
-          <h3 class="font-display text-xl font-bold text-white mb-2">FOUNDATION (3-MONTH)</h3>
-          <p class="text-neutral-400 text-xs mb-5">Establish workout cadence and fundamental strength progression.</p>
-          <ul class="space-y-2.5 text-xs text-neutral-300 mb-6 border-t border-noir-border pt-4">
-            <li class="flex items-center gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-gold"></i> Full floor access</li>
-            <li class="flex items-center gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-gold"></i> Cardio & endurance deck</li>
-            <li class="flex items-center gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-gold"></i> Locker & changing suites</li>
-          </ul>
-        </div>
-        <a href="https://wa.me/917776088807?text=Hi%20AU%20Fitness,%20I%20would%20like%20details%20for%20the%203-Month%20Membership" target="_blank" class="w-full text-center border border-noir-border hover:border-gold text-white font-bold text-xs uppercase tracking-wider py-3 rounded-xl transition-all">
-          Inquire Rates
-        </a>
+    <div class="plan-card">
+      <div class="plan-header">
+        <div class="plan-name">1 Year VIP Gold</div>
+        <div class="plan-price">₹8,999</div>
       </div>
+      <div class="plan-desc">Maximum value for committed athletes and lifters.</div>
+      <ul class="plan-points">
+        <li><i class="fa-solid fa-check"></i> 365 days unlimited gym access</li>
+        <li><i class="fa-solid fa-check"></i> 1 Free Personal Training consultation session</li>
+        <li><i class="fa-solid fa-check"></i> Nutrition & high-protein diet roadmap</li>
+        <li><i class="fa-solid fa-check"></i> 30-day membership freeze option</li>
+      </ul>
+      <a href="https://wa.me/919960081690?text=Hi%20AU%20Fitness,%20I%20am%20interested%20in%20the%201%20Year%20VIP%20Gold%20Plan" class="btn-secondary" style="font-size:12px; padding:10px;">
+        Join 1 Year Plan
+      </a>
+    </div>
+  </div>
+</div>
 
-      <div class="bg-gradient-to-b from-noir-900 to-black border-2 border-gold rounded-2xl p-6 flex flex-col justify-between relative shadow-[0_0_25px_rgba(212,175,55,0.15)]">
-        <div class="absolute -top-3 left-1/2 -translate-x-1/2 bg-gold text-black text-[9px] font-extrabold uppercase tracking-widest px-3 py-0.5 rounded-full">
-          Recommended
-        </div>
-        <div>
-          <span class="text-[9px] uppercase tracking-widest text-gold font-bold block mb-1">Phase II</span>
-          <h3 class="font-display text-xl font-bold text-white mb-2">TRANSFORMATION (6-MONTH)</h3>
-          <p class="text-neutral-400 text-xs mb-5">Significant physical recomposition and strength benchmarking.</p>
-          <ul class="space-y-2.5 text-xs text-neutral-200 mb-6 border-t border-noir-border pt-4">
-            <li class="flex items-center gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-gold"></i> All Foundation features</li>
-            <li class="flex items-center gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-gold"></i> Body fat progress review</li>
-            <li class="flex items-center gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-gold"></i> 1 Complimentary guest pass</li>
-          </ul>
-        </div>
-        <a href="https://wa.me/917776088807?text=Hi%20AU%20Fitness,%20I%20would%20like%20details%20for%20the%206-Month%20Membership" target="_blank" class="w-full text-center bg-gold hover:bg-gold-light text-black font-extrabold text-xs uppercase tracking-wider py-3.5 rounded-xl transition-all shadow-md">
-          Inquire 6-Month Plan
-        </a>
+<div class="section">
+  <h3 class="section-title">Why Lifters Choose AU</h3>
+  <p class="section-desc">Engineered for real athletic progression.</p>
+
+  <div class="features-grid">
+    <div class="feature-box">
+      <i class="fa-solid fa-dumbbell"></i>
+      <h4>Biomechanical Machines</h4>
+      <p>Targeted angles that optimize tension while protecting joints from injury.</p>
+    </div>
+    <div class="feature-box">
+      <i class="fa-solid fa-wind"></i>
+      <h4>Air-Conditioned Hall</h4>
+      <p>High air circulation and climate control to maintain peak performance.</p>
+    </div>
+    <div class="feature-box">
+      <i class="fa-solid fa-user-shield"></i>
+      <h4>Certified Coaches</h4>
+      <p>Experienced trainers focused on posture correction and progressive overload.</p>
+    </div>
+    <div class="feature-box">
+      <i class="fa-solid fa-clock"></i>
+      <h4>Flexible Timings</h4>
+      <p>Morning 6:00 AM to 10:00 PM for working professionals and students.</p>
+    </div>
+  </div>
+</div>
+
+<div class="section" id="trialForm">
+  <h3 class="section-title">Claim Free Trial Pass</h3>
+  <p class="section-desc">Experience our gym equipment firsthand before joining.</p>
+
+  <form id="gymTrialForm">
+    <div class="form-group">
+      <label>Your Name</label>
+      <input type="text" id="tname" required placeholder="e.g. Rahul Sharma" class="form-control">
+    </div>
+    <div class="form-group">
+      <label>Phone Number</label>
+      <input type="tel" id="tphone" required placeholder="Enter 10-digit mobile number" class="form-control">
+    </div>
+    <div class="form-row">
+      <div class="form-group">
+        <label>Preferred Date</label>
+        <input type="date" id="tdate" required class="form-control">
       </div>
-
-      <div class="bg-noir-900 border border-noir-border rounded-2xl p-6 flex flex-col justify-between">
-        <div>
-          <span class="text-[9px] uppercase tracking-widest text-neutral-400 font-bold block mb-1">Annual</span>
-          <h3 class="font-display text-xl font-bold text-white mb-2">VIP ATHLETE (12-MONTH)</h3>
-          <p class="text-neutral-400 text-xs mb-5">365-day access for dedicated year-round lifestyle training.</p>
-          <ul class="space-y-2.5 text-xs text-neutral-300 mb-6 border-t border-noir-border pt-4">
-            <li class="flex items-center gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-gold"></i> 365 Days priority access</li>
-            <li class="flex items-center gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-gold"></i> Studio group sessions</li>
-            <li class="flex items-center gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-gold"></i> Membership freeze options</li>
-          </ul>
-        </div>
-        <a href="https://wa.me/917776088807?text=Hi%20AU%20Fitness,%20I%20would%20like%20details%20for%20the%20Annual%20Membership" target="_blank" class="w-full text-center border border-noir-border hover:border-gold text-white font-bold text-xs uppercase tracking-wider py-3 rounded-xl transition-all">
-          Inquire Annual Pass
-        </a>
+      <div class="form-group">
+        <label>Slot</label>
+        <select id="tslot" class="form-control">
+          <option value="Morning (6 AM - 10 AM)">Morning (6 AM - 10 AM)</option>
+          <option value="Afternoon (11 AM - 4 PM)">Afternoon (11 AM - 4 PM)</option>
+          <option value="Evening (5 PM - 10 PM)">Evening (5 PM - 10 PM)</option>
+        </select>
       </div>
     </div>
-  </section>
-
-  <section class="py-16 px-4 max-w-6xl mx-auto border-t border-noir-border">
-    <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
-      <div>
-        <span class="text-[10px] uppercase font-bold tracking-[0.25em] text-gold block mb-1">Visit The Club</span>
-        <h2 class="font-display text-3xl font-bold text-white tracking-wide uppercase mb-6">Location & Hours</h2>
-        
-        <div class="space-y-4 text-xs sm:text-sm text-neutral-300">
-          <div class="flex items-start gap-3">
-            <div class="w-8 h-8 rounded-lg bg-noir-900 border border-noir-border flex items-center justify-center text-gold shrink-0">
-              <i data-lucide="map-pin" class="w-4 h-4"></i>
-            </div>
-            <div>
-              <strong class="text-white block text-sm">AU Fitness</strong>
-              VIP Circle, College Road, Nashik, Maharashtra
-            </div>
-          </div>
-<a href="https://maps.app.goo.gl/fhYMtQ1wiBC16iL8A?g_st=ac" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 bg-noir-900 hover:bg-noir-850 border border-noir-border text-white text-xs uppercase tracking-wider font-bold px-4 py-3 rounded-xl transition-all">
-  <i data-lucide="navigation" class="w-3.5 h-3.5 text-gold"></i> Open In Google Maps
-</a>
-
-
-         <div class="flex items-start gap-3">
-            <div class="w-8 h-8 rounded-lg bg-noir-900 border border-noir-border flex items-center justify-center text-gold shrink-0">
-              <i data-lucide="clock" class="w-4 h-4"></i>
-            </div>
-            <div>
-              <strong class="text-white block text-sm">Training Hours</strong>
-              Monday – Saturday: 6:00 AM – 10:00 PM<br/>
-              Sunday: Morning Sessions
-            </div>
-          </div>
-
-          <div class="flex items-start gap-3">
-            <div class="w-8 h-8 rounded-lg bg-noir-900 border border-noir-border flex items-center justify-center text-gold shrink-0">
-              <i data-lucide="phone-call" class="w-4 h-4"></i>
-            </div>
-            <div>
-              <strong class="text-white block text-sm">Concierge Desk</strong>
-              <a href="tel:7776088807" class="text-gold font-bold text-base">+91 7776088807</a>
-            </div>
-          </div>
-        </div>
-
-        <div class="mt-8 flex flex-wrap gap-3">
-          <a href="https://maps.app.goo.gl/Eri4vpx2Ezx5Y4jX9" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 bg-noir-900 hover:bg-noir-850 border border-noir-border text-white text-xs uppercase tracking-wider font-bold px-4 py-3 rounded-xl transition-all">
-            <i data-lucide="navigation" class="w-3.5 h-3.5 text-gold"></i> Open In Google Maps
-          </a>
-          <a href="https://www.instagram.com/au_fitness__?igsi=eHhwNjg2OWRyNncy" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 bg-noir-900 hover:bg-noir-850 border border-noir-border text-white text-xs uppercase tracking-wider font-bold px-4 py-3 rounded-xl transition-all">
-            <i data-lucide="instagram" class="w-3.5 h-3.5 text-pink-400"></i> Instagram Profile
-          </a>
-        </div>
-      </div>
-
-      <div class="bg-noir-900 border border-noir-border p-8 rounded-2xl text-center glass-surface">
-        <img 
-          src="https://i.ibb.co/GfNKdkNh/657920997-17859829779680967-8719283677993680582-n.jpg" 
-          alt="AU Logo" 
-          class="w-16 h-16 rounded-full border border-gold/50 mx-auto mb-4 object-cover"
-        />
-        <h3 class="text-xl font-display font-bold text-white mb-1 uppercase tracking-wide">Elevate Your Standard</h3>
-        <p class="text-neutral-400 text-xs mb-6 max-w-xs mx-auto">Walk in today to tour the facility and consult with our trainers.</p>
-        <a href="tel:7776088807" class="w-full inline-flex items-center justify-center gap-2 bg-gold hover:bg-gold-light text-black font-extrabold text-xs uppercase tracking-widest py-3.5 rounded-xl shadow-md">
-          <i data-lucide="phone" class="w-3.5 h-3.5"></i> Call Concierge Desk
-        </a>
-      </div>
+    <div class="form-group">
+      <label>Primary Fitness Goal</label>
+      <select id="tgoal" class="form-control">
+        <option value="Fat Loss & Weight Management">Fat Loss & Weight Management</option>
+        <option value="Muscle Building & Strength">Muscle Building & Strength</option>
+        <option value="Cardio Stamina & Conditioning">Cardio Stamina & Conditioning</option>
+        <option value="General Health & Fitness">General Health & Fitness</option>
+      </select>
     </div>
-  </section>
+    <button type="submit" class="btn-primary" style="width:100%; margin-top:8px;">
+      <i class="fa-brands fa-whatsapp"></i> Confirm Trial on WhatsApp
+    </button>
+  </form>
+</div>
 
-  <footer class="border-t border-noir-border py-8 text-center text-[11px] text-neutral-400 bg-noir-950">
-    <p>© AU Fitness, VIP Circle, College Road, Nashik. All Rights Reserved.</p>
-  </footer>
+<div class="section">
+  <h3 class="section-title">Frequently Asked Questions</h3>
+  <p class="section-desc">Common questions from new members.</p>
 
-  <script>
-    lucide.createIcons();
+  <div class="faq-item">
+    <div class="faq-question" onclick="toggleFaq(this)">
+      <span>Are trainers available on the gym floor?</span>
+      <i class="fa-solid fa-chevron-down"></i>
+    </div>
+    <div class="faq-answer">
+      Yes! Floor trainers are always available to guide you with proper machine setups, posture, and basic lifting technique.
+    </div>
+  </div>
 
-    function generateVipInvitation(e) {
-      e.preventDefault();
-      const name = document.getElementById('guestName').value.trim();
-      const goal = document.getElementById('guestGoal').value;
-      const batch = document.getElementById('guestBatch').value;
+  <div class="faq-item">
+    <div class="faq-question" onclick="toggleFaq(this)">
+      <span>What should I bring for my trial session?</span>
+      <i class="fa-solid fa-chevron-down"></i>
+    </div>
+    <div class="faq-answer">
+      Please carry clean indoor workout shoes, active gym wear, a hand towel, and your water bottle.
+    </div>
+  </div>
 
-      const message = `*AU FITNESS (COLLEGE ROAD) - VIP GUEST INVITATION*%0A%0A` +
-                      `*Guest Name:* ${encodeURIComponent(name)}%0A` +
-                      `*Ambition:* ${encodeURIComponent(goal)}%0A` +
-                      `*Preferred Batch:* ${encodeURIComponent(batch)}%0A%0A` +
-                      `Please confirm my complimentary 1-day guest pass availability.`;
+  <div class="faq-item">
+    <div class="faq-question" onclick="toggleFaq(this)">
+      <span>Do you offer Personal Training (PT)?</span>
+      <i class="fa-solid fa-chevron-down"></i>
+    </div>
+    <div class="faq-answer">
+      Yes, 1-on-1 personalized transformation training with diet charting is available. Speak to our front desk for personal coaching slots.
+    </div>
+  </div>
+</div>
 
-      const whatsappUrl = `https://wa.me/917776088807?text=${message}`;
-      window.open(whatsappUrl, '_blank');
-    }
-  </script>
+<footer style="padding: 24px 16px; text-align: center; border-top: 1px solid #23221b; color: #71717a; font-size: 11px;">
+  <p style="color:#fbbf24; font-size:13px; font-weight:700; margin-bottom:4px;">AU Gym & Fitness</p>
+  <p>Start Strong • Finish Stronger 🏋️‍♂️</p>
+  <div style="margin-top: 10px; display: flex; justify-content: center; gap: 14px;">
+    <a href="tel:+919960081690" style="color:#34d399;"><i class="fa-solid fa-phone"></i> Call Desk</a>
+    <a href="https://wa.me/919960081690" style="color:#22c55e;"><i class="fa-brands fa-whatsapp"></i> WhatsApp</a>
+  </div>
+  <p style="margin-top: 12px;">© AU Gym & Fitness. All rights reserved.</p>
+</footer>
+
+<div class="floating-bar">
+  <a href="tel:+919960081690" class="f-call"><i class="fa-solid fa-phone"></i> Call</a>
+  <a href="#trialForm" class="f-maps"><i class="fa-solid fa-id-badge"></i> Free Pass</a>
+  <a href="https://wa.me/919960081690?text=Hi%20AU%20Fitness,%20I%20want%20to%20book%20a%20free%20trial" class="f-wa"><i class="fa-brands fa-whatsapp"></i> WhatsApp</a>
+</div>
+
+<script>
+  function toggleFaq(el) {
+    el.classList.toggle('active');
+    const answer = el.nextElementSibling;
+    answer.style.display = (answer.style.display === 'block') ? 'none' : 'block';
+  }
+
+  document.getElementById('gymTrialForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    
+    var name = document.getElementById('tname').value.trim();
+    var phone = document.getElementById('tphone').value.trim();
+    var date = document.getElementById('tdate').value;
+    var slot = document.getElementById('tslot').value;
+    var goal = document.getElementById('tgoal').value;
+
+    var message = "Hi AU Gym & Fitness, I would like to book a 1-Day Trial Workout:\n\n" +
+                  "👤 *Name:* " + name + "\n" +
+                  "📞 *Phone:* " + phone + "\n" +
+                  "📅 *Date:* " + date + "\n" +
+                  "⏰ *Time Slot:* " + slot + "\n" +
+                  "🎯 *Goal:* " + goal;
+
+    var whatsappURL = "https://api.whatsapp.com/send?phone=919960081690&text=" + encodeURIComponent(message);
+    window.location.href = whatsappURL;
+  });
+</script>
+
 </body>
 </html>
