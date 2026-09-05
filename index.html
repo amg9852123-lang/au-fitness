@@ -3,666 +3,569 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>AU Gym & Fitness | Start Strong • Finish Stronger</title>
+<title>The Juice Lab | Juice &amp; Fastfood Center Nashik</title>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 <style>
   * { box-sizing: border-box; margin: 0; padding: 0; }
   body {
-    background-color: #08090b;
-    color: #f3f4f6;
+    background-color: #faf5f8;
+    color: #1e293b;
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
     line-height: 1.45;
-    padding-bottom: 80px;
+    padding-bottom: 78px;
   }
   a { text-decoration: none; color: inherit; }
 
-  /* ALERT BAR: ELECTRIC GYM YELLOW */
+  /* TOP ANNOUNCEMENT */
   .alert-bar {
-    background: #ffe600;
-    color: #000000;
+    background: linear-gradient(90deg, #e93b81, #ff5797);
+    color: #ffffff;
     font-size: 11px;
-    font-weight: 900;
+    font-weight: 800;
     text-align: center;
     padding: 8px 12px;
-    letter-spacing: 0.6px;
+    letter-spacing: 0.4px;
     text-transform: uppercase;
   }
 
+  /* HEADER */
   header {
     position: sticky;
     top: 0;
     z-index: 100;
-    background: rgba(8, 9, 11, 0.95);
-    backdrop-filter: blur(12px);
-    border-bottom: 1px solid #1e2025;
+    background: rgba(255, 255, 255, 0.96);
+    backdrop-filter: blur(10px);
+    border-bottom: 2px solid #ffe1ed;
     padding: 10px 14px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    gap: 8px;
   }
-  .brand { display: flex; align-items: center; gap: 10px; min-width: 0; }
-
-  .brand-logo-img {
+  .brand { display: flex; align-items: center; gap: 10px; }
+  .brand-logo-wrap {
     width: 44px;
     height: 44px;
     min-width: 44px;
+    background: #ffffff;
     border-radius: 50%;
-    object-fit: cover;
-    border: 1.5px solid #ffe600;
-    box-shadow: 0 0 12px rgba(255, 230, 0, 0.25);
-    display: block;
-    background: #000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    border: 2px solid #e93b81;
+    box-shadow: 0 3px 10px rgba(233, 59, 129, 0.3);
   }
-
-  .brand-text { min-width: 0; }
-  .brand-text h1 { 
-    font-size: 14px; 
-    font-weight: 900; 
-    letter-spacing: 0.5px; 
-    text-transform: uppercase; 
-    color: #ffffff; 
-    white-space: nowrap; 
-    overflow: hidden; 
-    text-overflow: ellipsis; 
-  }
-  .brand-text span { 
-    font-size: 9.5px; 
-    color: #ffe600; 
-    text-transform: uppercase; 
-    display: block; 
-    font-weight: 800; 
-    margin-top: 1px; 
-    letter-spacing: 0.5px; 
-  }
-
-  .header-actions { display: flex; align-items: center; gap: 6px; flex-shrink: 0; }
-  .header-btn {
-    background: #ffe600;
-    color: #000;
-    padding: 7px 13px;
-    border-radius: 6px;
-    font-size: 11px;
+  .brand-logo-wrap img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .brand-text h1 {
+    font-size: 15px;
     font-weight: 900;
+    color: #e93b81;
     text-transform: uppercase;
+    line-height: 1.15;
+  }
+  .brand-text span {
+    font-size: 9.5px;
+    color: #7cb342;
+    display: block;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.3px;
+  }
+  .header-btn {
+    background: #e93b81;
+    color: #ffffff;
+    padding: 7px 14px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 800;
     display: flex;
     align-items: center;
     gap: 5px;
-    letter-spacing: 0.4px;
   }
 
-  /* HERO SECTION */
+  /* HERO WITH AMBIENCE BACKGROUND */
   .hero {
     position: relative;
-    padding: 40px 16px 32px;
+    padding: 44px 16px 36px;
     text-align: center;
-    background: radial-gradient(circle at center, rgba(255, 230, 0, 0.08) 0%, rgba(8, 9, 11, 0.98) 75%), #0f1015;
-    border-bottom: 1px solid #1e2025;
+    background: linear-gradient(rgba(255, 245, 248, 0.88), rgba(250, 245, 248, 0.96)), 
+                url('https://i.ibb.co/kdHwQm4/unnamed-12.webp') center/cover no-repeat;
+    border-bottom: 1px solid #fed7e8;
   }
   .badge {
     display: inline-flex;
     align-items: center;
     gap: 6px;
-    background: rgba(255, 230, 0, 0.08);
-    border: 1px solid rgba(255, 230, 0, 0.35);
+    background: #f0fdf4;
+    border: 1px solid #bbf7d0;
     padding: 5px 14px;
-    border-radius: 4px;
-    font-size: 10.5px;
-    color: #ffe600;
+    border-radius: 20px;
+    font-size: 11px;
+    color: #16a34a;
     font-weight: 800;
-    margin-bottom: 14px;
+    margin-bottom: 12px;
     text-transform: uppercase;
-    letter-spacing: 0.6px;
   }
-  .hero h2 { 
-    font-size: 28px; 
-    font-weight: 900; 
-    line-height: 1.15; 
-    margin-bottom: 12px; 
-    color: #ffffff; 
-    text-transform: uppercase;
-    letter-spacing: -0.5px;
+  .hero h2 {
+    font-size: 27px;
+    font-weight: 900;
+    line-height: 1.2;
+    color: #1e293b;
+    margin-bottom: 8px;
   }
-  .hero p { 
-    font-size: 13px; 
-    color: #9ca3af; 
-    margin-bottom: 24px; 
-    max-width: 480px; 
-    margin-inline: auto; 
-    line-height: 1.5; 
+  .hero h2 span { color: #e93b81; }
+  .hero p {
+    font-size: 12.5px;
+    color: #475569;
+    max-width: 460px;
+    margin: 0 auto 20px;
+    font-weight: 500;
   }
-
-  .hero-cta { display: flex; flex-direction: column; gap: 10px; max-width: 360px; margin-inline: auto; }
+  .hero-cta { display: flex; flex-direction: column; gap: 9px; max-width: 360px; margin: 0 auto; }
   .btn-primary {
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 8px;
-    background: #ffe600;
-    color: #000;
-    font-weight: 900;
+    background: #e93b81;
+    color: #ffffff;
+    font-weight: 800;
     font-size: 13.5px;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-    padding: 14px 20px;
-    border-radius: 8px;
+    padding: 13px 20px;
+    border-radius: 30px;
     border: none;
     cursor: pointer;
-    box-shadow: 0 4px 20px rgba(255, 230, 0, 0.25);
-    text-align: center;
+    box-shadow: 0 4px 14px rgba(233, 59, 129, 0.35);
   }
   .btn-secondary {
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 8px;
-    background: #14161b;
-    border: 1px solid #282a32;
-    color: #f3f4f6;
+    background: #ffffff;
+    border: 1.5px solid #fed7e8;
+    color: #1e293b;
     font-weight: 700;
     font-size: 13.5px;
-    text-transform: uppercase;
-    letter-spacing: 0.4px;
-    padding: 13px 20px;
-    border-radius: 8px;
+    padding: 12px 20px;
+    border-radius: 30px;
   }
 
   /* STATS BAR */
   .stats-bar {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    background: #0d0e12;
-    border-bottom: 1px solid #1e2025;
+    background: #ffffff;
+    border-bottom: 1px solid #fee2ed;
     text-align: center;
-    padding: 16px 8px;
+    padding: 14px 8px;
   }
-  .stat-item h4 { font-size: 20px; font-weight: 900; color: #ffe600; }
-  .stat-item p { font-size: 10px; color: #9ca3af; text-transform: uppercase; margin-top: 2px; font-weight: 700; letter-spacing: 0.5px; }
+  .stat-item h4 { font-size: 19px; font-weight: 900; color: #e93b81; }
+  .stat-item p { font-size: 10px; color: #64748b; text-transform: uppercase; margin-top: 2px; font-weight: 700; }
 
   /* SECTIONS */
-  .section { padding: 34px 16px; border-bottom: 1px solid #1e2025; }
-  .section-title { font-size: 19px; font-weight: 900; margin-bottom: 4px; color: #ffffff; text-transform: uppercase; letter-spacing: 0.3px; }
-  .section-desc { font-size: 12px; color: #9ca3af; margin-bottom: 20px; }
+  .section { padding: 30px 16px; border-bottom: 1px solid #fee2ed; }
+  .section-title { font-size: 19px; font-weight: 900; color: #1e293b; margin-bottom: 3px; }
+  .section-desc { font-size: 12px; color: #64748b; margin-bottom: 16px; }
 
-  /* PHOTO GALLERY SCROLLER */
-  .gallery-scroller {
+  /* SIGNATURE CAROUSEL */
+  .signature-scroller {
     display: flex;
     gap: 12px;
     overflow-x: auto;
-    padding-bottom: 12px;
+    padding-bottom: 8px;
     scrollbar-width: none;
   }
-  .gallery-scroller::-webkit-scrollbar { display: none; }
-  .gallery-card {
-    flex: 0 0 260px;
-    background: #111318;
-    border: 1px solid #232630;
-    border-radius: 10px;
+  .signature-scroller::-webkit-scrollbar { display: none; }
+  .signature-card {
+    flex: 0 0 240px;
+    background: #ffffff;
+    border: 1px solid #fed7e8;
+    border-radius: 14px;
     overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
   }
-  .gallery-card img { 
-    width: 100%; 
-    height: 190px; 
-    object-fit: cover; 
-    display: block; 
-    border-bottom: 1px solid #1e2025;
-  }
-  .gallery-body { padding: 14px; }
-  .gallery-tag { font-size: 9.5px; color: #ffe600; text-transform: uppercase; font-weight: 800; letter-spacing: 0.6px; display: block; margin-bottom: 2px; }
-  .gallery-title { font-size: 14px; font-weight: 800; color: #ffffff; }
-  .gallery-sub { font-size: 11.5px; color: #9ca3af; margin-top: 4px; line-height: 1.35; }
+  .signature-card img { width: 100%; height: 160px; object-fit: cover; display: block; }
+  .signature-body { padding: 12px; }
+  .signature-badge { font-size: 9px; font-weight: 800; color: #16a34a; text-transform: uppercase; margin-bottom: 3px; }
+  .signature-title { font-size: 14px; font-weight: 800; color: #1e293b; }
+  .signature-sub { font-size: 11px; color: #64748b; margin-top: 2px; line-height: 1.3; }
+  .signature-price { font-size: 14px; font-weight: 900; color: #e93b81; margin-top: 6px; }
 
-  /* HARDWARE SPECIFICATIONS */
-  .gear-list { display: flex; flex-direction: column; gap: 10px; }
-  .gear-item {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    background: #101216;
-    border: 1px solid #20232c;
-    border-radius: 8px;
-    padding: 12px 14px;
-  }
-  .gear-icon {
-    width: 38px;
-    height: 38px;
-    min-width: 38px;
-    border-radius: 6px;
-    background: rgba(255, 230, 0, 0.08);
-    border: 1px solid rgba(255, 230, 0, 0.25);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #ffe600;
-    font-size: 16px;
-  }
-  .gear-item h5 { font-size: 13.5px; font-weight: 800; color: #ffffff; }
-  .gear-item p { font-size: 11px; color: #9ca3af; margin-top: 2px; }
-
-  /* MEMBERSHIP CARDS */
-  .plans-grid { display: flex; flex-direction: column; gap: 14px; }
-  .plan-card {
-    background: #101217;
-    border: 1px solid #232631;
-    border-radius: 10px;
-    padding: 18px 16px;
-    position: relative;
-  }
-  .plan-card.popular {
-    border: 1.5px solid #ffe600;
-    background: linear-gradient(145deg, #161820 0%, #101217 100%);
-  }
-  .popular-tag {
-    position: absolute;
-    top: -11px;
-    right: 14px;
-    background: #ffe600;
-    color: #000;
-    font-size: 9.5px;
-    font-weight: 900;
-    padding: 3px 10px;
-    border-radius: 4px;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-  }
-  .plan-header { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 8px; }
-  .plan-name { font-size: 16px; font-weight: 900; color: #ffffff; text-transform: uppercase; }
-  .plan-price { font-size: 20px; font-weight: 900; color: #ffe600; }
-  .plan-desc { font-size: 12px; color: #9ca3af; margin-bottom: 14px; }
-  .plan-points { list-style: none; display: flex; flex-direction: column; gap: 8px; margin-bottom: 16px; }
-  .plan-points li { font-size: 12px; color: #d1d5db; display: flex; align-items: center; gap: 8px; }
-  .plan-points li i { color: #ffe600; font-size: 12px; }
-
-  /* FORM */
-  .form-group { margin-bottom: 14px; }
-  .form-group label { display: block; font-size: 10.5px; color: #9ca3af; margin-bottom: 6px; text-transform: uppercase; font-weight: 800; letter-spacing: 0.5px; }
-  .form-control {
+  /* SEARCH & CATEGORY TABS */
+  .menu-search {
     width: 100%;
-    background: #111318;
-    border: 1px solid #232631;
-    padding: 13px;
-    border-radius: 6px;
-    color: white;
+    background: #ffffff;
+    border: 1.5px solid #fed7e8;
+    padding: 12px 14px;
+    border-radius: 25px;
+    color: #1e293b;
     font-size: 13px;
     outline: none;
+    margin-bottom: 12px;
   }
-  .form-control:focus { border-color: #ffe600; }
-  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+  .menu-search:focus { border-color: #e93b81; }
 
-  /* FAQ */
-  .faq-item {
-    background: #101217;
-    border: 1px solid #20232c;
-    border-radius: 8px;
-    margin-bottom: 10px;
-    overflow: hidden;
+  .tab-row {
+    display: flex;
+    gap: 8px;
+    overflow-x: auto;
+    padding-bottom: 8px;
+    margin-bottom: 16px;
+    scrollbar-width: none;
   }
-  .faq-question {
-    padding: 15px;
-    font-size: 13px;
-    font-weight: 800;
+  .tab-row::-webkit-scrollbar { display: none; }
+  .tab-btn {
+    white-space: nowrap;
+    padding: 7px 14px;
+    border-radius: 20px;
+    font-size: 11.5px;
+    font-weight: 700;
+    background: #ffffff;
+    border: 1.5px solid #fee2ed;
+    color: #64748b;
+    cursor: pointer;
+  }
+  .tab-btn.active {
+    background: #e93b81;
+    border-color: #e93b81;
+    color: #ffffff;
+  }
+
+  /* MENU ROWS */
+  .menu-list { display: flex; flex-direction: column; gap: 8px; }
+  .menu-row {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    cursor: pointer;
-    color: #f3f4f6;
+    background: #ffffff;
+    border: 1px solid #fee2ed;
+    border-radius: 10px;
+    padding: 12px 14px;
   }
-  .faq-question i { transition: transform 0.2s ease; font-size: 12px; color: #ffe600; }
-  .faq-question.active i { transform: rotate(180deg); }
-  .faq-answer {
-    padding: 0 15px 15px 15px;
-    font-size: 12px;
-    color: #9ca3af;
-    line-height: 1.5;
-    display: none;
+  .item-left h5 { font-size: 13.5px; font-weight: 800; color: #1e293b; display: flex; align-items: center; gap: 6px; }
+  .item-left span { font-size: 11px; color: #64748b; display: block; margin-top: 2px; }
+  .item-right { text-align: right; }
+  .item-price { font-size: 14px; font-weight: 900; color: #e93b81; }
+  .item-tag { font-size: 9.5px; color: #16a34a; font-weight: 700; text-transform: uppercase; margin-top: 2px; }
+
+  /* VEG DOT */
+  .veg-dot {
+    width: 12px;
+    height: 12px;
+    border: 1.5px solid #16a34a;
+    border-radius: 2px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+  .veg-dot::after {
+    content: '';
+    width: 5px;
+    height: 5px;
+    background: #16a34a;
+    border-radius: 50%;
   }
 
-  /* FLOATING BOTTOM BAR (4-BUTTONS: CALL, MAPS, PASS, WHATSAPP) */
+  /* PROMO CARD */
+  .promo-banner {
+    background: linear-gradient(135deg, #ffeef5, #f3fcf1);
+    border: 2px dashed #e93b81;
+    border-radius: 14px;
+    padding: 20px 16px;
+    text-align: center;
+  }
+  .promo-banner h3 { font-size: 16px; font-weight: 900; color: #e93b81; margin-bottom: 4px; }
+  .promo-banner p { font-size: 12px; color: #475569; margin-bottom: 14px; }
+
+  /* FLOATING NAVIGATION BAR */
   .floating-bar {
     position: fixed;
     bottom: 0;
     left: 0;
     right: 0;
-    background: rgba(8, 9, 11, 0.98);
-    backdrop-filter: blur(14px);
-    border-top: 1px solid #1e2025;
-    padding: 9px 10px;
+    background: rgba(255, 255, 255, 0.98);
+    backdrop-filter: blur(12px);
+    border-top: 1px solid #fee2ed;
+    padding: 10px 14px;
     display: flex;
-    gap: 6px;
+    gap: 8px;
     z-index: 100;
   }
   .floating-bar a {
     flex: 1;
     text-align: center;
     padding: 11px 0;
-    border-radius: 6px;
-    font-size: 11px;
+    border-radius: 25px;
+    font-size: 11.5px;
     font-weight: 800;
     text-transform: uppercase;
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 4px;
-    letter-spacing: 0.3px;
+    gap: 5px;
   }
-  .f-call { background: #14161b; border: 1px solid #262933; color: white; }
-  .f-maps { background: #181d28; border: 1px solid #2c354a; color: #60a5fa; }
-  .f-pass { background: #1f222a; border: 1px solid #313542; color: #ffe600; }
-  .f-wa { background: #ffe600; color: #000; }
+  .f-call { background: #f8fafc; border: 1.5px solid #e2e8f0; color: #1e293b; }
+  .f-map { background: #f0fdf4; border: 1.5px solid #bbf7d0; color: #16a34a; }
+  .f-wa { background: #e93b81; color: #ffffff; box-shadow: 0 2px 10px rgba(233, 59, 129, 0.35); }
 </style>
 </head>
 <body>
 
 <div class="alert-bar">
-  ⚡ Exclusive New Joiner Slots Open • Free 1-Day Trial Pass
+  🍓 Squeeze The Day! 100% Pure Fresh Juices, Shakes &amp; Street Fast Food 🧪
 </div>
 
 <header>
   <div class="brand">
-    <img src="https://i.ibb.co/3YNcbg6C/logo.jpg" alt="AU Gym Logo" class="brand-logo-img">
+    <div class="brand-logo-wrap">
+      <img src="https://i.ibb.co/p6j2bY8P/755693050-18199479883339120-2146350793912710259-n.jpg" alt="The Juice Lab Logo">
+    </div>
     <div class="brand-text">
-      <h1>AU Gym & Fitness</h1>
-      <span>Start Strong • Finish Stronger</span>
+      <h1>The Juice Lab</h1>
+      <span>Juice &amp; Fastfood Center</span>
     </div>
   </div>
-  <div class="header-actions">
-    <a href="https://wa.me/917776088807?text=Hi%20AU%20Gym,%20I%20want%20to%20know%20about%20membership%20plans" class="header-btn">
-      <i class="fa-brands fa-whatsapp"></i> Inquire
-    </a>
-  </div>
+  <a href="https://wa.me/917770063636?text=Hi%20The%20Juice%20Lab,%20I%20want%20to%20order%20parcel" class="header-btn">
+    <i class="fa-brands fa-whatsapp"></i> Order
+  </a>
 </header>
 
 <div class="hero">
-  <div class="badge"><i class="fa-solid fa-dumbbell"></i> Heavy-Duty Strength Arena</div>
-  <h2>Build Your Ultimate Form</h2>
-  <p>Engineered for lifters and fitness enthusiasts. Train on industrial yellow-line biomechanical machinery, high-clearance squat cages, dedicated cardio decks, and certified coach support.</p>
+  <div class="badge"><i class="fa-solid fa-flask"></i> Experimenting With Flavors</div>
+  <h2>Welcome to <span>The Juice Lab</span></h2>
+  <p>Fresh Cold-Press Juices, Thick Shakes, Famous Amul Butter Pav Bhaji, South Indian Dosas, and Street Chaats in Mahatma Nagar, Nashik.</p>
   
   <div class="hero-cta">
-    <a href="#trialForm" class="btn-primary">
-      <i class="fa-solid fa-bolt"></i> Claim Free 1-Day Trial Pass
+    <a href="https://wa.me/917770063636?text=Hi%20The%20Juice%20Lab,%20I%20want%20to%20place%20an%20order" class="btn-primary">
+      <i class="fa-brands fa-whatsapp"></i> Order on WhatsApp (+91 77700 63636)
     </a>
-    <a href="https://wa.me/917776088807?text=Hi%20AU%20Gym,%20please%20share%20the%20gym%20location%20and%20plans" class="btn-secondary">
-      <i class="fa-brands fa-whatsapp" style="color: #22c55e;"></i> WhatsApp Front Desk
+    <a href="https://maps.app.goo.gl/y1HfFKzk9hcwLm2a9?g_st=ac" target="_blank" class="btn-secondary">
+      <i class="fa-solid fa-diamond-turn-right" style="color:#e93b81;"></i> Get Directions on Google Maps
     </a>
   </div>
 </div>
 
 <div class="stats-bar">
   <div class="stat-item">
-    <h4>4.8 ★</h4>
-    <p>Google Rating</p>
+    <h4>100%</h4>
+    <p>Fresh Pure Fruit</p>
   </div>
   <div class="stat-item">
-    <h4>50+</h4>
-    <p>Workstations</p>
+    <h4>150+</h4>
+    <p>Lab Varieties</p>
   </div>
   <div class="stat-item">
-    <h4>6 AM-10 PM</h4>
-    <p>Open Hours</p>
+    <h4>Jain</h4>
+    <p>Options Ready</p>
   </div>
 </div>
 
-<!-- FACILITY TOUR WITH REAL IMAGES -->
+<!-- SIGNATURE HIGHLIGHTS WITH GENERATED IMAGES -->
 <div class="section">
-  <h3 class="section-title">The Facility Tour</h3>
-  <p class="section-desc">Take a visual tour inside our custom yellow-and-black training floor.</p>
+  <h3 class="section-title">Chef's Special Experiments</h3>
+  <p class="section-desc">Handcrafted street dishes and fresh laboratory creations.</p>
 
-  <div class="gallery-scroller">
-    <!-- Card 1: Squat Rack & Ceiling Ring -->
-    <div class="gallery-card">
-      <img src="https://i.ibb.co/KM4Ryyw/unnamed-10.webp" alt="Power Squat Rack Arena">
-      <div class="gallery-body">
-        <span class="gallery-tag">Strength Station</span>
-        <div class="gallery-title">Olympic Squat Cage</div>
-        <div class="gallery-sub">Custom yellow power cage with pull-up grips and illuminated archway lighting.</div>
+  <div class="signature-scroller">
+    <div class="signature-card">
+      <img src="https://i.ibb.co/ZzM8bsDG/1788609901916.png" alt="Amul Butter Syringe Pav Bhaji">
+      <div class="signature-body">
+        <div class="signature-badge">Must Try</div>
+        <div class="signature-title">Amul Butter Syringe Pav Bhaji</div>
+        <div class="signature-sub">Mashed bhaji with butter syringe injection &amp; toasted pavs.</div>
+        <div class="signature-price">₹99</div>
       </div>
     </div>
 
-    <!-- Card 2: Plate-Loaded Machines -->
-    <div class="gallery-card">
-      <img src="https://i.ibb.co/HDpRrJVv/unnamed-9.webp" alt="Plate-Loaded Machinery">
-      <div class="gallery-body">
-        <span class="gallery-tag">Hypertrophy Zone</span>
-        <div class="gallery-title">Plate-Loaded Machines</div>
-        <div class="gallery-sub">Biomechanical leg press, preacher curl benches, and targeted row stations.</div>
+    <div class="signature-card">
+      <img src="https://i.ibb.co/N6y5Nr24/1788609896195.png" alt="The Citrus Isotope">
+      <div class="signature-body">
+        <div class="signature-badge">Lab Formula</div>
+        <div class="signature-title">The Citrus Isotope Juice</div>
+        <div class="signature-sub">Fresh cold blend of pure sweet Mosambi and Orange.</div>
+        <div class="signature-price">₹119</div>
       </div>
     </div>
 
-    <!-- Card 3: Cardio Arena -->
-    <div class="gallery-card">
-      <img src="https://i.ibb.co/HDpCyc4j/interior-2.webp" alt="Cardio & Endurance Hall">
-      <div class="gallery-body">
-        <span class="gallery-tag">Stamina Floor</span>
-        <div class="gallery-title">Cardio & Conditioning</div>
-        <div class="gallery-sub">Commercial-grade treadmills and ellipticals laid out across a wooden floor deck.</div>
+    <div class="signature-card">
+      <img src="https://i.ibb.co/spBJ6JVB/1788609885805.png" alt="Classic Crisp Masala Dosa">
+      <div class="signature-body">
+        <div class="signature-badge">South Special</div>
+        <div class="signature-title">Crispy Masala Dosa</div>
+        <div class="signature-sub">Golden brown rolled crepe with potato masala, sambar &amp; chutneys.</div>
+        <div class="signature-price">₹85</div>
       </div>
     </div>
 
-    <!-- Card 4: Cable Crossover & Free Weights -->
-    <div class="gallery-card">
-      <img src="https://i.ibb.co/Lmm435d/interior-1.webp" alt="Free Weights & Cable Tower">
-      <div class="gallery-body">
-        <span class="gallery-tag">Dumbbell & Cable Arena</span>
-        <div class="gallery-title">Cables & Free Weights</div>
-        <div class="gallery-sub">Heavy dumbbell collection, adjustable benches, and multi-pulley cable stations.</div>
+    <div class="signature-card">
+      <img src="https://i.ibb.co/Xr33YV00/1788609890389.png" alt="Lotus Biscoff Shake">
+      <div class="signature-body">
+        <div class="signature-badge">Thick Shake</div>
+        <div class="signature-title">Lotus Biscoff Shake</div>
+        <div class="signature-sub">Rich Biscoff butter blended with cream &amp; biscuit crunch.</div>
+        <div class="signature-price">₹239</div>
       </div>
     </div>
   </div>
 </div>
 
-<!-- HARDWARE SPECIFICATIONS -->
+<!-- DIGITAL MENU SECTION -->
 <div class="section">
-  <h3 class="section-title">Equipment & Standards</h3>
-  <p class="section-desc">Engineered for pure biomechanical efficiency.</p>
+  <h3 class="section-title">Complete Digital Menu</h3>
+  <p class="section-desc">Search through juices, shakes, dosas, pav bhaji, and fast food.</p>
 
-  <div class="gear-list">
-    <div class="gear-item">
-      <div class="gear-icon"><i class="fa-solid fa-weight-hanging"></i></div>
-      <div>
-        <h5>Heavy Iron & Olympic Barbells</h5>
-        <p>Calibrated weight plates, drop mats, and Olympic-grade knurled bars.</p>
-      </div>
-    </div>
-    <div class="gear-item">
-      <div class="gear-icon"><i class="fa-solid fa-arrows-split-up-and-left"></i></div>
-      <div>
-        <h5>Multi-Cable Motion Stations</h5>
-        <p>Smooth pulley systems for precise chest crossovers, tricep pushdowns, and lat rows.</p>
-      </div>
-    </div>
-    <div class="gear-item">
-      <div class="gear-icon"><i class="fa-solid fa-wind"></i></div>
-      <div>
-        <h5>Climate-Controlled Workout Zone</h5>
-        <p>High-airflow commercial AC layout so you lift hard without stifling heat.</p>
-      </div>
-    </div>
+  <input type="text" id="menuSearch" class="menu-search" placeholder="🔍 Search any item (e.g. Pav Bhaji, Frankie, Falooda, Dosa, Nutella)..." onkeyup="filterMenu()">
+
+  <div class="tab-row">
+    <button class="tab-btn active" onclick="setCategory('all', this)">All Menu</button>
+    <button class="tab-btn" onclick="setCategory('fresh_juice', this)">Fresh Fruit Juices</button>
+    <button class="tab-btn" onclick="setCategory('lab_shakes', this)">Signature Lab Shakes</button>
+    <button class="tab-btn" onclick="setCategory('pav_fastfood', this)">Pav Bhaji &amp; Frankie</button>
+    <button class="tab-btn" onclick="setCategory('south_indian', this)">Dosas &amp; South Indian</button>
+    <button class="tab-btn" onclick="setCategory('chaat_toast', this)">Pani Puri, Chaat &amp; Toasts</button>
+    <button class="tab-btn" onclick="setCategory('falooda_dessert', this)">Falooda &amp; Creams</button>
+    <button class="tab-btn" onclick="setCategory('detox_shots', this)">Detox, Shots &amp; Elixirs</button>
   </div>
+
+  <div class="menu-list" id="menuList"></div>
 </div>
 
-<!-- MEMBERSHIP PLANS -->
+<!-- JAIN / BULK PARCEL BANNER -->
 <div class="section">
-  <h3 class="section-title">Membership Plans</h3>
-  <p class="section-desc">Straightforward packages with no surprise registration charges.</p>
-
-  <div class="plans-grid">
-    <div class="plan-card">
-      <div class="plan-header">
-        <div class="plan-name">1 Month Pass</div>
-        <div class="plan-price">₹1,499</div>
-      </div>
-      <div class="plan-desc">Great for test-driving equipment and short workout routines.</div>
-      <ul class="plan-points">
-        <li><i class="fa-solid fa-check"></i> Complete access to strength and cardio deck</li>
-        <li><i class="fa-solid fa-check"></i> On-floor trainer form correction</li>
-        <li><i class="fa-solid fa-check"></i> Clean locker & changing facilities</li>
-      </ul>
-      <a href="https://wa.me/917776088807?text=Hi%20AU%20Gym,%20I%20want%20to%20join%20the%201%20Month%20Plan" class="btn-secondary" style="font-size:12px; padding:11px;">
-        Enroll For 1 Month
-      </a>
-    </div>
-
-    <div class="plan-card popular">
-      <div class="popular-tag">Most Popular</div>
-      <div class="plan-header">
-        <div class="plan-name">3 Months Cut & Bulk</div>
-        <div class="plan-price">₹3,499</div>
-      </div>
-      <div class="plan-desc">The optimal window for progressive overload and body transformation.</div>
-      <ul class="plan-points">
-        <li><i class="fa-solid fa-check"></i> Unlimited strength and cardio floor access</li>
-        <li><i class="fa-solid fa-check"></i> Initial body composition & posture analysis</li>
-        <li><i class="fa-solid fa-check"></i> Structured progressive workout chart</li>
-        <li><i class="fa-solid fa-check"></i> Dedicated locker space</li>
-      </ul>
-      <a href="https://wa.me/917776088807?text=Hi%20AU%20Gym,%20I%20want%20to%20join%20the%203%20Months%20Transformation%20Plan" class="btn-primary" style="font-size:12px; padding:11px;">
-        Start 3-Month Transformation
-      </a>
-    </div>
-
-    <div class="plan-card">
-      <div class="plan-header">
-        <div class="plan-name">1 Year Iron Club</div>
-        <div class="plan-price">₹8,999</div>
-      </div>
-      <div class="plan-desc">Best value for athletes committed to consistent yearly progress.</div>
-      <ul class="plan-points">
-        <li><i class="fa-solid fa-check"></i> 365 days unlimited training access</li>
-        <li><i class="fa-solid fa-check"></i> Free personal training goal-setting session</li>
-        <li><i class="fa-solid fa-check"></i> Personalized macronutrient & protein guide</li>
-        <li><i class="fa-solid fa-check"></i> 30-day medical freeze allowance</li>
-      </ul>
-      <a href="https://wa.me/917776088807?text=Hi%20AU%20Gym,%20I%20want%20to%20join%20the%201%20Year%20VIP%20Plan" class="btn-secondary" style="font-size:12px; padding:11px;">
-        Enroll For 1 Year
-      </a>
-    </div>
+  <div class="promo-banner">
+    <h3>🌱 100% Pure Veg &amp; Jain Options Available</h3>
+    <p>Special Pav Bhaji, Sandwiches, and Juices prepared without onion or garlic on request.</p>
+    <a href="https://wa.me/917770063636?text=Hi%20The%20Juice%20Lab,%20I%20want%20to%20order%20Jain%20food%20parcels" class="btn-primary" style="display:inline-flex;">
+      <i class="fa-brands fa-whatsapp"></i> WhatsApp Quick Order
+    </a>
   </div>
 </div>
 
-<!-- TRIAL PASS FORM -->
-<div class="section" id="trialForm">
-  <h3 class="section-title">Claim Free Trial Pass</h3>
-  <p class="section-desc">Try out our machines and atmosphere before deciding to sign up.</p>
-
-  <form id="gymTrialForm">
-    <div class="form-group">
-      <label>Full Name</label>
-      <input type="text" id="tname" required placeholder="e.g. Anand Shinde" class="form-control">
-    </div>
-    <div class="form-group">
-      <label>WhatsApp Contact</label>
-      <input type="tel" id="tphone" required placeholder="Enter 10-digit mobile number" class="form-control">
-    </div>
-    <div class="form-row">
-      <div class="form-group">
-        <label>Preferred Date</label>
-        <input type="date" id="tdate" required class="form-control">
-      </div>
-      <div class="form-group">
-        <label>Time Slot</label>
-        <select id="tslot" class="form-control">
-          <option value="Morning (6 AM - 10 AM)">Morning (6 AM - 10 AM)</option>
-          <option value="Afternoon (11 AM - 4 PM)">Afternoon (11 AM - 4 PM)</option>
-          <option value="Evening (5 PM - 10 PM)">Evening (5 PM - 10 PM)</option>
-        </select>
-      </div>
-    </div>
-    <div class="form-group">
-      <label>Fitness Target</label>
-      <select id="tgoal" class="form-control">
-        <option value="Muscle Building & Strength">Muscle Building & Strength</option>
-        <option value="Fat Loss & Lean Toning">Fat Loss & Lean Toning</option>
-        <option value="Athletic Conditioning">Athletic Conditioning</option>
-        <option value="General Lifestyle Fitness">General Lifestyle Fitness</option>
-      </select>
-    </div>
-    <button type="submit" class="btn-primary" style="width:100%; margin-top:8px;">
-      <i class="fa-brands fa-whatsapp"></i> Confirm Trial on WhatsApp
-    </button>
-  </form>
-</div>
-
-<!-- FAQS -->
-<div class="section">
-  <h3 class="section-title">Frequently Asked Questions</h3>
-  <p class="section-desc">Everything you need to know before walking in.</p>
-
-  <div class="faq-item">
-    <div class="faq-question" onclick="toggleFaq(this)">
-      <span>Do I need to pay for the first trial workout?</span>
-      <i class="fa-solid fa-chevron-down"></i>
-    </div>
-    <div class="faq-answer">
-      No, the 1-day pass is 100% free. You can test out the weights, try the cardio line, and evaluate the facility.
-    </div>
-  </div>
-
-  <div class="faq-item">
-    <div class="faq-question" onclick="toggleFaq(this)">
-      <span>Are floor trainers available to help with form?</span>
-      <i class="fa-solid fa-chevron-down"></i>
-    </div>
-    <div class="faq-answer">
-      Yes! Floor trainers are constantly on duty to correct posture, prevent injury, and ensure proper machine setups.
-    </div>
-  </div>
-
-  <div class="faq-item">
-    <div class="faq-question" onclick="toggleFaq(this)">
-      <span>What should I carry for my first session?</span>
-      <i class="fa-solid fa-chevron-down"></i>
-    </div>
-    <div class="faq-answer">
-      A pair of clean indoor workout shoes, active gym wear, a sweat towel, and a water bottle are required.
-    </div>
-  </div>
-</div>
-
-<footer style="padding: 24px 16px; text-align: center; border-top: 1px solid #1e2025; color: #71717a; font-size: 11px;">
-  <p style="color:#ffe600; font-size:13px; font-weight:900; margin-bottom:4px;">AU GYM & FITNESS</p>
-  <p>Start Strong • Finish Stronger ⚡</p>
-  <div style="margin-top: 10px; display: flex; justify-content: center; gap: 14px;">
-    <a href="tel:+917776088807" style="color:#ffe600;"><i class="fa-solid fa-phone"></i> Call Desk</a>
-    <a href="https://maps.app.goo.gl/hF4XqFo7LVaUHNzC9?g_st=ac" target="_blank" style="color:#60a5fa;"><i class="fa-solid fa-location-dot"></i> Directions</a>
-    <a href="https://wa.me/917776088807" target="_blank" style="color:#22c55e;"><i class="fa-brands fa-whatsapp"></i> WhatsApp</a>
-  </div>
-  <p style="margin-top: 12px;">© AU Gym & Fitness. All rights reserved.</p>
+<footer style="padding: 24px 16px; text-align: center; color: #64748b; font-size: 11px;">
+  <p style="color:#e93b81; font-size:14px; font-weight:900; margin-bottom:4px;">THE JUICE LAB</p>
+  <p>Parijat Signal, The Hub, Mahatma Nagar, Nashik</p>
+  <p style="margin-top: 10px;">&copy; The Juice Lab. All rights reserved.</p>
 </footer>
 
-<!-- FLOATING BAR -->
 <div class="floating-bar">
-  <a href="tel:+917776088807" class="f-call"><i class="fa-solid fa-phone"></i> Call</a>
-  <a href="https://maps.app.goo.gl/hF4XqFo7LVaUHNzC9?g_st=ac" target="_blank" class="f-maps"><i class="fa-solid fa-location-arrow"></i> Maps</a>
-  <a href="#trialForm" class="f-pass"><i class="fa-solid fa-bolt"></i> Free Pass</a>
-  <a href="https://wa.me/917776088807?text=Hi%20AU%20Gym,%20I%20want%20to%20claim%20my%20free%20trial" target="_blank" class="f-wa"><i class="fa-brands fa-whatsapp"></i> WhatsApp</a>
+  <a href="tel:+917770063636" class="f-call"><i class="fa-solid fa-phone"></i> Call</a>
+  <a href="https://maps.app.goo.gl/y1HfFKzk9hcwLm2a9?g_st=ac" target="_blank" class="f-map"><i class="fa-solid fa-location-dot"></i> Maps</a>
+  <a href="https://wa.me/917770063636?text=Hi%20The%20Juice%20Lab,%20I%20want%20to%20order%20now" class="f-wa"><i class="fa-brands fa-whatsapp"></i> Order Now</a>
 </div>
 
 <script>
-  function toggleFaq(el) {
-    el.classList.toggle('active');
-    const answer = el.nextElementSibling;
-    answer.style.display = (answer.style.display === 'block') ? 'none' : 'block';
+  const JUICE_LAB_MENU = [
+    // FRESH FRUIT JUICES & MIX
+    { n: "The Citrus Isotope", sub: "Fresh Orange & Mosambi blend", p: "₹119", cat: "fresh_juice" },
+    { n: "The Tangy Catalyst", sub: "Pineapple & Mosambi juice", p: "₹109", cat: "fresh_juice" },
+    { n: "The Tri-Blend Compound", sub: "Orange, Pineapple & Mosambi", p: "₹119", cat: "fresh_juice" },
+    { n: "Nashik Red Compound", sub: "Fresh Pomegranate & Grapes", p: "₹159", cat: "fresh_juice" },
+    { n: "Dhurandhar", sub: "Apple, Pineapple & Orange", p: "₹149", cat: "fresh_juice" },
+    { n: "Pinapple Drive", sub: "Pineapple juice, ice cream, fresh fruit", p: "₹139", cat: "fresh_juice" },
+    { n: "The Crimson Trine", sub: "Strawberry, Pomegranate & Orange", p: "₹179", cat: "fresh_juice" },
+    { n: "Fresh Watermelon Juice", sub: "Hydrating seasonal watermelon", p: "₹79", cat: "fresh_juice" },
+    { n: "Fresh Mosambi / Orange Juice", sub: "Freshly squeezed citrus extract", p: "₹99", cat: "fresh_juice" },
+    { n: "Fresh Pomegranate Juice", sub: "Pure Anar juice", p: "₹179", cat: "fresh_juice" },
+    { n: "Fresh Kiwi / Avocado Juice", sub: "Cold extracted fresh exotic fruit", p: "₹139 / ₹179", cat: "fresh_juice" },
+    { n: "The A.B.C Catalyst (Cold Press)", sub: "Apple, Beetroot & Carrot wellness blend", p: "₹150", cat: "fresh_juice" },
+
+    // SIGNATURE LAB SHAKES
+    { n: "Lotus Biscoff Shake", sub: "Biscoff spread, crumbs & rich cream", p: "₹239", cat: "lab_shakes" },
+    { n: "Ferrero Rocher Shake", sub: "Hazelnut cocoa chocolate crunch", p: "₹239", cat: "lab_shakes" },
+    { n: "Nutella Brownie Shake", sub: "Fudge brownie with melted Nutella", p: "₹239", cat: "lab_shakes" },
+    { n: "Belgiam Chocolate Shake", sub: "Dark cocoa creamy indulgence", p: "₹170", cat: "lab_shakes" },
+    { n: "Kit Kat / Snickers Milk Shake", sub: "Loaded chocolate candy thick shake", p: "₹200 / ₹199", cat: "lab_shakes" },
+    { n: "Mango Mastani Shake", sub: "Rich mango pulp, dry fruits & ice cream", p: "₹239", cat: "lab_shakes" },
+    { n: "Custard Apple (Sitaphal) Shake", sub: "Pure seasonal Sitaphal pulp", p: "₹209", cat: "lab_shakes" },
+    { n: "Avocado Milk Shake", sub: "Fresh creamy Hass avocado blend", p: "₹219", cat: "lab_shakes" },
+
+    // PAV BHAJI & FRANKIE
+    { n: "Butter Pav Bhaji (Special Syringe)", sub: "Amul butter syringe infused signature bhaji", p: "₹99", cat: "pav_fastfood" },
+    { n: "Jain Pav Bhaji / Half Jain", sub: "No onion, no garlic pure Jain preparation", p: "₹140 / ₹119", cat: "pav_fastfood" },
+    { n: "Cheese Pav Bhaji / Paneer Pav Bhaji", sub: "Topped with grated Amul cheese or fresh paneer", p: "₹135 / ₹170", cat: "pav_fastfood" },
+    { n: "Masala Pav (2 pcs) / Cheese Masala Pav", sub: "Spiced butter tossed soft pavs", p: "₹99 / ₹140", cat: "pav_fastfood" },
+    { n: "Tawa Pulao / Cheese Tawa Pulao", sub: "Mumbai street style spiced butter pulao", p: "₹120 / ₹155", cat: "pav_fastfood" },
+    { n: "Veg Frankie / Veg Schezwan Mayo Frankie", sub: "Spiced potato roll with fresh onions & chutney", p: "₹89 / ₹109", cat: "pav_fastfood" },
+    { n: "Paneer Frankie / Noodles Frankie", sub: "Stuffed grilled frankie roll", p: "₹139 / ₹129", cat: "pav_fastfood" },
+    { n: "Noodles Schezwan Paneer Frankie", sub: "Spicy indo-chinese paneer wrap", p: "₹175", cat: "pav_fastfood" },
+
+    // DOSAS & SOUTH INDIAN
+    { n: "Steamed Idli / Mini Idli", sub: "Fluffy rice cakes served with sambar & chutney", p: "₹49 / ₹75", cat: "south_indian" },
+    { n: "Medu Wada Sambar / Ghee Podi Idli", sub: "Crispy lentil donut or spiced ghee tossed idlis", p: "₹99 / ₹119", cat: "south_indian" },
+    { n: "Masala Dosa / Butter Sada Dosa", sub: "Classic golden crisp crepe", p: "₹85", cat: "south_indian" },
+    { n: "Masala Cheese Dosa / Paper Sada Dosa", sub: "Crisp dosa topped with cheese", p: "₹120 / ₹180", cat: "south_indian" },
+    { n: "Schezwan Dosa / Paneer Chilli Dosa", sub: "Fiery schezwan toss with cottage cheese", p: "₹140 / ₹199", cat: "south_indian" },
+    { n: "Matka Dosa / Pizza Dosa", sub: "Fusion cheese loaded special dosas", p: "₹220 / ₹179", cat: "south_indian" },
+    { n: "Korean Pav Bhaji Dosa", sub: "Lab signature spicy street fusion", p: "₹210", cat: "south_indian" },
+    { n: "Onion Uttapam / Cheese Tomato Onion", sub: "Thick savory pancake with fresh toppings", p: "₹115 / ₹155", cat: "south_indian" },
+
+    // CHAAT, TOASTS & SANDWICHES
+    { n: "Pani Puri / Ragda Puri", sub: "Crispy puris with tangy mint pani & spiced ragda", p: "₹40 / ₹75", cat: "chaat_toast" },
+    { n: "Juice Lab Special Flavour Pani Puri", sub: "Assorted unique fruity and herb pani flavours", p: "₹149", cat: "chaat_toast" },
+    { n: "Cheese Sev Puri / Dahi Puri", sub: "Grated cheese loaded crisp puris", p: "₹105 / ₹95", cat: "chaat_toast" },
+    { n: "Bombay Special Maawa Bhel", sub: "Crispy puffed rice with tangy chutneys", p: "₹99", cat: "chaat_toast" },
+    { n: "Cheese Chilli Toast / Garlic Toast", sub: "Crusty open toast with melted cheese & chillies", p: "₹129 / ₹125", cat: "chaat_toast" },
+    { n: "Avocado Toast (Normal Bread)", sub: "Mashed seasoned avocado spread", p: "₹159", cat: "chaat_toast" },
+    { n: "Veg Cheese Grilled Sandwich", sub: "Triple layered butter grilled sandwich", p: "₹160", cat: "chaat_toast" },
+    { n: "Juice Lab Spl. Pizza (6 Inch)", sub: "Handmade vegetable & cheese baked pizza", p: "₹179", cat: "chaat_toast" },
+
+    // FALOODA & CREAMS
+    { n: "Royal Falooda / Kesar Falooda", sub: "Rose syrup, sev, basil seeds and ice cream", p: "₹179 / ₹180", cat: "falooda_dessert" },
+    { n: "Special Banarasi Paan Falooda", sub: "Sweet refreshing paan infused glass falooda", p: "₹269", cat: "falooda_dessert" },
+    { n: "Dryfruit Falooda / Anjeer Falooda", sub: "Loaded rich nut cuts & kulfi ice cream", p: "₹280 / ₹270", cat: "falooda_dessert" },
+    { n: "Fresh Mango Cream / Strawberry Cream", sub: "Seasonal pure fruit cuts over whipped cream", p: "₹190", cat: "falooda_dessert" },
+    { n: "Ferrero Rocher Premium Cream", sub: "Decadent hazelnut chocolate dessert bowl", p: "₹260", cat: "falooda_dessert" },
+
+    // DETOX, SHOTS & ELIXIRS
+    { n: "Peru Chilli Shot / Jamun Shorts", sub: "Tangy spicy concentrated fruit shots", p: "₹69", cat: "detox_shots" },
+    { n: "Guava Chilli Detox / Watermelon Basil", sub: "Clean herbal infused detox waters", p: "₹79", cat: "detox_shots" },
+    { n: "Rose Water & Chia Glow Drink", sub: "Natural skin glow cooling elixir", p: "₹69", cat: "detox_shots" },
+    { n: "Lemon Cucumber Fat Cutter", sub: "Weight loss metabolism booster tonic", p: "₹59", cat: "detox_shots" },
+    { n: "Fresh Fruit Platter (Full / Half)", sub: "Assortment of fresh seasonal cut fruits", p: "₹189 / ₹99", cat: "detox_shots" }
+  ];
+
+  let currentCategory = 'all';
+
+  function renderMenu(items) {
+    const list = document.getElementById('menuList');
+    if (!list) return;
+    if (items.length === 0) {
+      list.innerHTML = '<div style="text-align:center; padding:25px; color:#64748b; font-size:13px;">No items match your search.</div>';
+      return;
+    }
+    list.innerHTML = items.map(item => `
+      <div class="menu-row">
+        <div class="item-left">
+          <h5><span class="veg-dot"></span> ${item.n}</h5>
+          <span>${item.sub}</span>
+        </div>
+        <div class="item-right">
+          <div class="item-price">${item.p}</div>
+          <div class="item-tag">Pure Veg</div>
+        </div>
+      </div>
+    `).join('');
   }
 
-  document.getElementById('gymTrialForm').addEventListener('submit', function(e) {
-    e.preventDefault();
-    
-    var name = document.getElementById('tname').value.trim();
-    var phone = document.getElementById('tphone').value.trim();
-    var date = document.getElementById('tdate').value;
-    var slot = document.getElementById('tslot').value;
-    var goal = document.getElementById('tgoal').value;
+  function setCategory(cat, btn) {
+    currentCategory = cat;
+    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    filterMenu();
+  }
 
-    var message = "Hi AU Gym & Fitness, I want to book my 1-Day Free Trial:\n\n" +
-                  "👤 *Name:* " + name + "\n" +
-                  "📞 *Contact:* " + phone + "\n" +
-                  "📅 *Date:* " + date + "\n" +
-                  "⏰ *Slot:* " + slot + "\n" +
-                  "🎯 *Goal:* " + goal;
+  function filterMenu() {
+    const q = (document.getElementById('menuSearch').value || '').toLowerCase().trim();
+    const filtered = JUICE_LAB_MENU.filter(i => {
+      const matchCat = (currentCategory === 'all' || i.cat === currentCategory);
+      const matchQuery = i.n.toLowerCase().includes(q) || i.sub.toLowerCase().includes(q);
+      return matchCat && matchQuery;
+    });
+    renderMenu(filtered);
+  }
 
-    var whatsappURL = "https://api.whatsapp.com/send?phone=917776088807&text=" + encodeURIComponent(message);
-    window.location.href = whatsappURL;
-  });
+  window.addEventListener('DOMContentLoaded', () => renderMenu(JUICE_LAB_MENU));
 </script>
 
 </body>
