@@ -39,7 +39,6 @@
       scroll-behavior: smooth;
     }
 
-    /* Typography & Utilities */
     h1, h2, h3, h4 {
       font-family: var(--font-heading);
       letter-spacing: 0.5px;
@@ -47,7 +46,7 @@
 
     .container {
       width: 90%;
-      max-width: 1140px;
+      max-width: 1180px;
       margin: auto;
     }
 
@@ -75,17 +74,17 @@
       margin: auto;
     }
 
-    /* Header & Navigation */
+    /* Header */
     header {
       position: fixed;
       top: 0;
       left: 0;
       width: 100%;
-      background: rgba(10, 10, 13, 0.85);
+      background: rgba(10, 10, 13, 0.9);
       backdrop-filter: blur(12px);
       border-bottom: 1px solid var(--border-gold);
       z-index: 1000;
-      padding: 1rem 0;
+      padding: 0.75rem 0;
     }
 
     .nav-wrapper {
@@ -97,31 +96,25 @@
     .logo-container {
       display: flex;
       align-items: center;
-      gap: 12px;
+      gap: 14px;
       text-decoration: none;
     }
 
-    .logo-badge {
-      width: 44px;
-      height: 44px;
+    .logo-img {
+      width: 48px;
+      height: 48px;
       border-radius: 50%;
       border: 1.5px solid var(--champagne);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background: #15151a;
-      font-family: var(--font-heading);
-      color: var(--champagne);
-      font-weight: 700;
-      font-size: 1.1rem;
+      object-fit: cover;
     }
 
     .logo-text span:first-child {
       display: block;
       font-family: var(--font-heading);
       font-weight: 700;
-      font-size: 1.1rem;
+      font-size: 1.15rem;
       color: var(--text-main);
+      line-height: 1.1;
     }
 
     .logo-text span:last-child {
@@ -154,14 +147,15 @@
       min-height: 100vh;
       display: flex;
       align-items: center;
-      padding-top: 5rem;
       position: relative;
-      background: radial-gradient(circle at 50% 30%, rgba(212, 175, 55, 0.08) 0%, transparent 70%);
+      background: linear-gradient(rgba(10, 10, 13, 0.75), rgba(10, 10, 13, 0.9)), 
+                  url('https://i.ibb.co/5XBBWRgH/1788875566052.png') center/cover no-repeat;
+      padding-top: 5rem;
     }
 
     .hero-content {
       text-align: center;
-      max-width: 800px;
+      max-width: 820px;
       margin: auto;
       padding: 3rem 0;
     }
@@ -169,7 +163,7 @@
     .exclusive-tag {
       display: inline-block;
       padding: 6px 18px;
-      background: rgba(212, 175, 55, 0.1);
+      background: rgba(212, 175, 55, 0.12);
       border: 1px solid var(--border-gold);
       border-radius: 50px;
       color: var(--champagne-light);
@@ -186,7 +180,7 @@
     }
 
     .hero p {
-      color: var(--text-muted);
+      color: #D1D1D6;
       font-size: 1.15rem;
       margin-bottom: 2.5rem;
     }
@@ -197,7 +191,7 @@
       gap: 10px;
       background: linear-gradient(135deg, #F3E5AB 0%, #D4AF37 60%, #AA820A 100%);
       color: #000;
-      font-weight: 600;
+      font-weight: 700;
       padding: 14px 34px;
       border-radius: 4px;
       text-decoration: none;
@@ -210,17 +204,17 @@
 
     .btn-gold:hover {
       transform: translateY(-2px);
-      box-shadow: 0 8px 24px var(--champagne-glow);
+      box-shadow: 0 8px 25px var(--champagne-glow);
     }
 
-    /* Experience Grid */
+    /* What We Offer / Experiences */
     .experience {
       padding: 6rem 0;
     }
 
     .exp-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
       gap: 2rem;
     }
 
@@ -228,31 +222,43 @@
       background: var(--bg-card);
       border: 1px solid var(--border-gold);
       border-radius: 8px;
-      padding: 2.5rem 2rem;
+      overflow: hidden;
       transition: transform 0.3s, border-color 0.3s;
-      position: relative;
     }
 
     .exp-card:hover {
       transform: translateY(-4px);
-      border-color: var(--border-gold-strong);
-      background: var(--bg-card-hover);
+      border-color: var(--champagne);
     }
 
-    .exp-icon {
-      font-size: 2rem;
-      color: var(--champagne);
-      margin-bottom: 1.5rem;
-      display: inline-block;
+    .exp-img-wrap {
+      width: 100%;
+      height: 220px;
+      overflow: hidden;
     }
 
-    .exp-card h3 {
+    .exp-img-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.4s ease;
+    }
+
+    .exp-card:hover .exp-img-wrap img {
+      transform: scale(1.05);
+    }
+
+    .exp-content {
+      padding: 1.8rem;
+    }
+
+    .exp-content h3 {
       font-size: 1.3rem;
-      margin-bottom: 0.8rem;
-      color: var(--text-main);
+      margin-bottom: 0.6rem;
+      color: var(--champagne-light);
     }
 
-    .exp-card p {
+    .exp-content p {
       color: var(--text-muted);
       font-size: 0.95rem;
     }
@@ -302,11 +308,6 @@
       letter-spacing: 1px;
     }
 
-    .pricing-header h3 {
-      font-size: 1.4rem;
-      margin-bottom: 0.5rem;
-    }
-
     .price-wrap {
       margin: 1.5rem 0;
     }
@@ -337,15 +338,46 @@
       margin-right: 6px;
     }
 
+    /* Real Customer Vibes Gallery */
+    .gallery-section {
+      padding: 6rem 0;
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.25rem;
+    }
+
+    .gallery-item {
+      position: relative;
+      overflow: hidden;
+      border-radius: 6px;
+      aspect-ratio: 1 / 1;
+      border: 1px solid var(--border-gold);
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.4s ease;
+    }
+
+    .gallery-item:hover img {
+      transform: scale(1.08);
+    }
+
     /* Booking & Location Section */
     .booking-section {
       padding: 6rem 0;
+      background: #0d0d12;
     }
 
     .booking-container {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 3.5rem;
+      gap: 3rem;
       background: var(--bg-card);
       border: 1px solid var(--border-gold);
       border-radius: 12px;
@@ -386,11 +418,13 @@
     }
 
     .location-wrap {
-      background: #171720;
+      position: relative;
       padding: 3.5rem;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
+      background: linear-gradient(rgba(18, 18, 23, 0.88), rgba(18, 18, 23, 0.95)), 
+                  url('https://i.ibb.co/yFr0psXQ/1788878814389.png') center/cover no-repeat;
     }
 
     .loc-details h4 {
@@ -428,7 +462,7 @@
   <header>
     <div class="container nav-wrapper">
       <a href="#" class="logo-container">
-        <div class="logo-badge">D</div>
+        <img src="https://i.ibb.co/B2NDyp28/468129975-2025431511252305-8629326087026775602-n.jpg" alt="Cafe D'light Logo" class="logo-img">
         <div class="logo-text">
           <span>CAFE D'LIGHT</span>
           <span>Mini Theatre & Resto</span>
@@ -437,7 +471,8 @@
       <ul class="nav-links">
         <li><a href="#experience">Experiences</a></li>
         <li><a href="#packages">Celebration Packages</a></li>
-        <li><a href="#booking">Reserve Slot</a></li>
+        <li><a href="#gallery">Vibes Gallery</a></li>
+        <li><a href="#booking">Book Slot</a></li>
       </ul>
     </div>
   </header>
@@ -447,66 +482,85 @@
     <div class="container hero-content">
       <span class="exclusive-tag">Exclusive Private Space in Nashik</span>
       <h1>Celebrate Your Moments In <br><span class="gold-gradient-text">Private Luxury</span></h1>
-      <p>Nashik's premier private mini-theatre for romantic dates, birthdays, surprise proposals, and OTT movie streaming in total privacy.</p>
-      <a href="#booking" class="btn-gold">Check Slot Availability ✦</a>
+      <p>Nashik's premier private mini-theatre for romantic dates, birthdays, surprise proposals, and OTT movie screening in complete acoustic privacy.</p>
+      <a href="#booking" class="btn-gold">Reserve Your Slot on WhatsApp ✦</a>
     </div>
   </section>
 
-  <!-- Services / Experiences -->
+  <!-- Section 2: What We Offer -->
   <section class="experience" id="experience">
     <div class="container">
       <div class="section-title">
-        <h2 class="gold-gradient-text">Curated Experiences</h2>
-        <p>Crafted exclusively for couples, families, and intimate celebrations.</p>
+        <h2 class="gold-gradient-text">What We Offer</h2>
+        <p>Curated private experiences designed for couples, birthdays, and celebrations.</p>
       </div>
       <div class="exp-grid">
+        
+        <!-- Experience 1 -->
         <div class="exp-card">
-          <span class="exp-icon">🍿</span>
-          <h3>Private Screening</h3>
-          <p>Watch any movie, OTT series, or personal gallery slideshow on high-definition big screen with theatre surround audio.</p>
+          <div class="exp-img-wrap">
+            <img src="https://i.ibb.co/v65Z40y0/1788878768541.png" alt="Private Mini Theatre Nashik">
+          </div>
+          <div class="exp-content">
+            <h3>Private Mini Theatre</h3>
+            <p>Watch any OTT release, movie, or romantic video montage on a theatre screen with cinematic audio and plush lounge recliners.</p>
+          </div>
         </div>
+
+        <!-- Experience 2 -->
         <div class="exp-card">
-          <span class="exp-icon">✨</span>
-          <h3>Romantic Setups</h3>
-          <p>Enchanting rose petal entries, custom neon ambient signs, dim lighting, and soft fog effects for proposals & anniversaries.</p>
+          <div class="exp-img-wrap">
+            <img src="https://i.ibb.co/chfxY1XH/1788878784088.png" alt="Celebration Decor Nashik">
+          </div>
+          <div class="exp-content">
+            <h3>Custom Celebrations</h3>
+            <p>Shimmer walls, warm neon LED typography, balloon bouquets, and romantic pathway fog effects crafted for your special day.</p>
+          </div>
         </div>
+
+        <!-- Experience 3 -->
         <div class="exp-card">
-          <span class="exp-icon">☕</span>
-          <h3>Café & Resto Treats</h3>
-          <p>Freshly brewed coffee, gourmet shakes, cakes, and appetizers served right to your private lounge seating.</p>
+          <div class="exp-img-wrap">
+            <img src="https://i.ibb.co/DypdN6F/1788878788714.png" alt="Gourmet Cafe & Resto">
+          </div>
+          <div class="exp-content">
+            <h3>Café & Resto Bites</h3>
+            <p>Freshly brewed espresso, milkshakes, handcrafted cakes, and savory finger bites delivered right to your private suite.</p>
+          </div>
         </div>
+
       </div>
     </div>
   </section>
 
-  <!-- Packages Section -->
+  <!-- Section 3: Packages Section -->
   <section class="packages" id="packages">
     <div class="container">
       <div class="section-title">
         <h2 class="gold-gradient-text">Celebration Packages</h2>
-        <p>No hidden charges. Transparent packages for every celebration.</p>
+        <p>Transparent pricing with zero hidden charges. Choose your favorite plan.</p>
       </div>
       <div class="pricing-grid">
         
         <!-- Package 1 -->
         <div class="pricing-card">
           <div class="pricing-header">
-            <h3>Movie Chill</h3>
-            <p style="color: var(--text-muted); font-size: 0.85rem;">For Cinephiles & Couples</p>
+            <h3>Movie Only</h3>
+            <p style="color: var(--text-muted); font-size: 0.85rem;">For Cinephiles & Casual Dates</p>
           </div>
           <div class="price-wrap">
             <span class="price">₹1,000</span>
           </div>
           <ul class="pricing-features">
-            <li>2.5 Hours Full Private Lounge</li>
-            <li>Full HD Projector & Surround Sound</li>
-            <li>Netflix / Prime / Hotstar / YouTube</li>
+            <li>2.5 Hours Complete Private Theatre</li>
+            <li>Full HD Projector & Surround Audio</li>
+            <li>Netflix, Hotstar, Prime & YouTube</li>
             <li>Complimentary Fresh Popcorn Combo</li>
           </ul>
-          <button class="btn-gold" onclick="selectPackage('Movie Chill (₹1000)')">Choose Package</button>
+          <button class="btn-gold" onclick="selectPackage('Movie Only (₹1000)')">Choose Package</button>
         </div>
 
-        <!-- Package 2 (Featured) -->
+        <!-- Package 2 -->
         <div class="pricing-card featured">
           <span class="badge-pop">Most Popular</span>
           <div class="pricing-header">
@@ -518,10 +572,10 @@
           </div>
           <ul class="pricing-features">
             <li>3 Hours Complete Private Access</li>
-            <li>Custom Room Decoration & Balloons</li>
-            <li>Neon Glow "Happy Birthday / Love" Sign</li>
-            <li>Fog Entry Effect + Cake Cutting Table</li>
-            <li>Big Screen Video Slideshow Option</li>
+            <li>Custom Room Decor & Balloons Setup</li>
+            <li>Illuminated Neon Sign ("Happy Birthday" / "Love")</li>
+            <li>Floor Fog Entry & Cake Cutting Table</li>
+            <li>Personalized Screen Video Slideshow</li>
           </ul>
           <button class="btn-gold" onclick="selectPackage('Celebration Delight (₹1500)')">Choose Package</button>
         </div>
@@ -530,17 +584,17 @@
         <div class="pricing-card">
           <div class="pricing-header">
             <h3>VIP Proposal Lux</h3>
-            <p style="color: var(--text-muted); font-size: 0.85rem;">Unforgettable Milestones</p>
+            <p style="color: var(--text-muted); font-size: 0.85rem;">Unforgettable Proposals</p>
           </div>
           <div class="price-wrap">
             <span class="price">₹2,500</span>
           </div>
           <ul class="pricing-features">
-            <li>3.5 Hours Extended Lounge Slot</li>
-            <li>Premium Fresh Flower & Candle Decor</li>
-            <li>Custom Entry Video & Sound Cue</li>
-            <li>Complimentary Gourmet Cake & Drinks</li>
-            <li>Dedicated Lighting for Photography</li>
+            <li>3.5 Hours Extended Private Slot</li>
+            <li>Fresh Rose Petals Pathway & Candle Setup</li>
+            <li>Customized Song Cue & Video Playback</li>
+            <li>Complimentary Gourmet Cake & Shakes</li>
+            <li>Cinematic Studio Lighting for Photos</li>
           </ul>
           <button class="btn-gold" onclick="selectPackage('VIP Proposal Lux (₹2500)')">Choose Package</button>
         </div>
@@ -549,23 +603,47 @@
     </div>
   </section>
 
-  <!-- Instant Booking & Direct WhatsApp Connector -->
+  <!-- Section 4: Real Customer Vibes Gallery -->
+  <section class="gallery-section" id="gallery">
+    <div class="container">
+      <div class="section-title">
+        <h2 class="gold-gradient-text">Real Customer Vibes</h2>
+        <p>Glimpse inside the moments celebrated at Cafe D'light.</p>
+      </div>
+      <div class="gallery-grid">
+        <div class="gallery-item">
+          <img src="https://i.ibb.co/sdZYLLC4/1788878793871.png" alt="Cake Cutting Celebration">
+        </div>
+        <div class="gallery-item">
+          <img src="https://i.ibb.co/Ddx5WdY/1788878796673.png" alt="Romantic Proposal Setup">
+        </div>
+        <div class="gallery-item">
+          <img src="https://i.ibb.co/p6j1x5m1/1788878800009.png" alt="Private Screening with Popcorn">
+        </div>
+        <div class="gallery-item">
+          <img src="https://i.ibb.co/nNr2tYhq/1788878807684.png" alt="Candlelight Date Setup">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 5: Reservation & Location -->
   <section class="booking-section" id="booking">
     <div class="container">
       <div class="booking-container">
         
         <div class="booking-form-wrap">
           <h3 style="font-size: 1.8rem; margin-bottom: 0.5rem;" class="gold-gradient-text">Reserve Your Slot</h3>
-          <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 2rem;">Instant WhatsApp booking confirmation direct to Cafe D'light.</p>
+          <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 2rem;">Pre-fill details to send an instant booking request on WhatsApp.</p>
           
           <form id="reservationForm">
             <div class="form-group">
-              <label>Your Full Name</label>
-              <input type="text" id="custName" class="form-control" placeholder="e.g. Rahul Sharma" required>
+              <label>Your Name</label>
+              <input type="text" id="custName" class="form-control" placeholder="e.g. Rohit Patil" required>
             </div>
             
             <div class="form-group">
-              <label>Occasion / Date</label>
+              <label>Event Date</label>
               <input type="date" id="eventDate" class="form-control" required>
             </div>
 
@@ -573,7 +651,7 @@
               <label>Selected Package</label>
               <select id="selectedPackage" class="form-control">
                 <option value="Celebration Delight (₹1500)">Celebration Delight (₹1500)</option>
-                <option value="Movie Chill (₹1000)">Movie Chill (₹1000)</option>
+                <option value="Movie Only (₹1000)">Movie Only (₹1000)</option>
                 <option value="VIP Proposal Lux (₹2500)">VIP Proposal Lux (₹2500)</option>
               </select>
             </div>
@@ -586,13 +664,13 @@
 
         <div class="location-wrap">
           <div class="loc-details">
-            <h4>Visit The Lounge</h4>
+            <h4>Visit Cafe D'light</h4>
             <p><strong>Address:</strong> Shop No. C4, Ashok Presidency, Opp. Nerlikar Hospital, Jehan Circle, Gangapur Road, Nashik.</p>
-            <p><strong>Timings:</strong> 11:00 AM – 11:30 PM (Slots by reservation)</p>
-            <p><strong>Contact:</strong> Direct reservation hotline available 7 days a week.</p>
+            <p><strong>Hours:</strong> 11:00 AM – 11:30 PM (Daily via advance slot booking)</p>
+            <p><strong>Privacy:</strong> 100% soundproof acoustic private lounge.</p>
           </div>
           <div style="border-top: 1px solid var(--border-gold); padding-top: 1.5rem;">
-            <p style="color: var(--champagne-light); font-size: 0.85rem;">✦ Complete sound insulation & full privacy assured.</p>
+            <p style="color: var(--champagne-light); font-size: 0.85rem;">✦ Pre-booking mandatory for decor & personalized screen visuals.</p>
           </div>
         </div>
 
@@ -603,7 +681,7 @@
   <!-- Footer -->
   <footer>
     <div class="container">
-      <p>&copy; Cafe D'light Resto & Mini Theatre, Nashik. All Rights Reserved.</p>
+      <p>&copy; Cafe D'light Resto & Mini Theatre, Nashik. Crafted for unforgettable celebrations.</p>
     </div>
   </footer>
 
@@ -620,14 +698,14 @@
       const date = document.getElementById('eventDate').value;
       const packageSelected = document.getElementById('selectedPackage').value;
       
-      // Replace with Cafe D'light's actual 10-digit WhatsApp number (add country code 91)
+      // Update with Cafe D'light's exact phone number (with country code 91)
       const phoneNumber = "919876543210"; 
       
-      const message = `Hello Cafe D'light Nashik! I would like to reserve a private theatre slot:%0A%0A` +
+      const message = `Hello Cafe D'light Nashik! I would like to reserve a slot:%0A%0A` +
                       `👤 *Name:* ${name}%0A` +
                       `📅 *Date:* ${date}%0A` +
                       `🎟️ *Package:* ${packageSelected}%0A%0A` +
-                      `Please let me know available time slots!`;
+                      `Please confirm availability!`;
       
       window.open(`https://wa.me/${phoneNumber}?text=${message}`, '_blank');
     });
