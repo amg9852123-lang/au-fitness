@@ -1,1 +1,484 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+  <title>ORB BURST</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      user-select: none;
+      -webkit-user-select: none;
+    }
+    body {
+      background: #09090e;
+      overflow: hidden;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      color: #fff;
+    }
+    #canvas {
+      display: block;
+      width: 100vw;
+      height: 100vh;
+      touch-action: none;
+    }
+    #ui {
+      position: absolute;
+      top: 24px;
+      left: 0;
+      right: 0;
+      display: flex;
+      justify-content: space-between;
+      padding: 0 32px;
+      pointer-events: none;
+    }
+    .hud-box {
+      display: flex;
+      flex-direction: column;
+    }
+    .label {
+      font-size: 11px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: #71717a;
+      font-weight: 700;
+    }
+    .value {
+      font-size: 28px;
+      font-weight: 800;
+      letter-spacing: -0.5px;
+    }
+    #combo-box {
+      align-items: center;
+      transition: transform 0.1s ease;
+    }
+    #combo-val {
+      color: #fbbf24;
+      text-shadow: 0 0 16px rgba(251, 191, 36, 0.4);
+    }
+    #overlay {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background: rgba(9, 9, 14, 0.85);
+      backdrop-filter: blur(8px);
+      z-index: 10;
+    }
+    #overlay h1 {
+      font-size: 52px;
+      font-weight: 900;
+      letter-spacing: -1.5px;
+      margin-bottom: 8px;
+      background: linear-gradient(135deg, #a78bfa, #ec4899, #f59e0b);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    #overlay p {
+      color: #a1a1aa;
+      font-size: 16px;
+      margin-bottom: 28px;
+      text-align: center;
+      max-width: 320px;
+      line-height: 1.5;
+    }
+    .btn {
+      padding: 14px 36px;
+      background: #ffffff;
+      color: #09090e;
+      border: none;
+      border-radius: 9999px;
+      font-size: 15px;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      cursor: pointer;
+      box-shadow: 0 0 30px rgba(255, 255, 255, 0.25);
+      transition: transform 0.15s ease, box-shadow 0.15s ease;
+      pointer-events: auto;
+    }
+    .btn:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 40px rgba(255, 255, 255, 0.4);
+    }
+    .btn:active {
+      transform: scale(0.96);
+    }
+  </style>
+</head>
+<body>
+  <div id="ui">
+    <div class="hud-box">
+      <span class="label">Score</span>
+      <span class="value" id="score-val">0</span>
+    </div>
+    <div class="hud-box" id="combo-box">
+      <span class="label">Multiplier</span>
+      <span class="value" id="combo-val">1x</span>
+    </div>
+    <div class="hud-box" style="align-items: flex-end;">
+      <span class="label">Best</span>
+      <span class="value" id="best-val">0</span>
+    </div>
+  </div>
+
+  <div id="overlay">
+    <h1 id="title-text">ORB BURST</h1>
+    <p id="desc-text">Pop glowing orbs before they shrink and vanish. Chain combos without missing to multiply your score.</p>
+    <button class="btn" id="start-btn">TAP TO PLAY</button>
+  </div>
+
+  <canvas id="canvas"></canvas>
+
+  <script>
+    const canvas = document.getElementById('canvas');
+    const ctx = canvas.getContext('2d');
+    const scoreVal = document.getElementById('score-val');
+    const comboVal = document.getElementById('combo-val');
+    const bestVal = document.getElementById('best-val');
+    const overlay = document.getElementById('overlay');
+    const startBtn = document.getElementById('start-btn');
+    const titleText = document.getElementById('title-text');
+    const descText = document.getElementById('desc-text');
+
+    let dpr = window.devicePixelRatio || 1;
+    let width = 0, height = 0;
+
+    function resize() {
+      width = window.innerWidth;
+      height = window.innerHeight;
+      canvas.width = width * dpr;
+      canvas.height = height * dpr;
+      ctx.scale(dpr, dpr);
+    }
+    window.addEventListener('resize', resize);
+    resize();
+
+    // Web Audio Synthesizer (Zero asset loading lag)
+    let audioCtx = null;
+    function initAudio() {
+      if (!audioCtx) audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+    }
+
+    function playPopSound(comboLevel) {
+      if (!audioCtx) return;
+      const osc = audioCtx.createOscillator();
+      const gain = audioCtx.createGain();
+      
+      // Pitch ramps up exponentially with combo streak
+      const baseFreq = 280;
+      const pitch = baseFreq * Math.pow(1.08, Math.min(comboLevel, 24));
+      
+      osc.type = 'sine';
+      osc.frequency.setValueAtTime(pitch, audioCtx.currentTime);
+      osc.frequency.exponentialRampToValueAtTime(pitch * 1.8, audioCtx.currentTime + 0.12);
+
+      gain.gain.setValueAtTime(0.25, audioCtx.currentTime);
+      gain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + 0.12);
+
+      osc.connect(gain);
+      gain.connect(audioCtx.destination);
+      osc.start();
+      osc.stop(audioCtx.currentTime + 0.12);
+    }
+
+    function playMissSound() {
+      if (!audioCtx) return;
+      const osc = audioCtx.createOscillator();
+      const gain = audioCtx.createGain();
+      osc.type = 'triangle';
+      osc.frequency.setValueAtTime(140, audioCtx.currentTime);
+      osc.frequency.exponentialRampToValueAtTime(60, audioCtx.currentTime + 0.25);
+      gain.gain.setValueAtTime(0.2, audioCtx.currentTime);
+      gain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + 0.25);
+      osc.connect(gain);
+      gain.connect(audioCtx.destination);
+      osc.start();
+      osc.stop(audioCtx.currentTime + 0.25);
+    }
+
+    // State
+    let isPlaying = false;
+    let score = 0;
+    let combo = 0;
+    let best = parseInt(localStorage.getItem('orb_burst_best') || '0', 10);
+    bestVal.textContent = best;
+
+    let orbs = [];
+    let particles = [];
+    let floatingTexts = [];
+    let shakeDuration = 0;
+    let shakeIntensity = 0;
+    let spawnTimer = 0;
+
+    const COLORS = [
+      { main: '#ec4899', glow: 'rgba(236,72,153,0.5)' },
+      { main: '#8b5cf6', glow: 'rgba(139,92,246,0.5)' },
+      { main: '#06b6d4', glow: 'rgba(6,182,212,0.5)' },
+      { main: '#10b981', glow: 'rgba(16,185,129,0.5)' },
+      { main: '#f59e0b', glow: 'rgba(245,158,11,0.5)' }
+    ];
+
+    class Orb {
+      constructor() {
+        const edgePadding = 70;
+        this.x = edgePadding + Math.random() * (width - edgePadding * 2);
+        this.y = edgePadding + 80 + Math.random() * (height - edgePadding * 2 - 80);
+        this.baseRadius = 38 + Math.random() * 16;
+        this.color = COLORS[Math.floor(Math.random() * COLORS.length)];
+        this.maxLifespan = Math.max(120, 220 - Math.min(score * 0.4, 100)); // Gets faster
+        this.life = this.maxLifespan;
+        this.radius = 0;
+      }
+
+      update() {
+        this.life--;
+        // Pop-in then steady shrink
+        const progress = this.life / this.maxLifespan;
+        if (progress > 0.85) {
+          const t = (1 - progress) / 0.15;
+          this.radius = this.baseRadius * t;
+        } else {
+          this.radius = this.baseRadius * (progress / 0.85);
+        }
+        return this.life <= 0;
+      }
+
+      draw(c) {
+        c.save();
+        c.beginPath();
+        c.arc(this.x, this.y, Math.max(0, this.radius), 0, Math.PI * 2);
+        c.fillStyle = this.color.main;
+        c.shadowColor = this.color.glow;
+        c.shadowBlur = 24;
+        c.fill();
+
+        // Shiny center pip
+        c.beginPath();
+        c.arc(this.x - this.radius * 0.25, this.y - this.radius * 0.25, Math.max(0, this.radius * 0.28), 0, Math.PI * 2);
+        c.fillStyle = 'rgba(255, 255, 255, 0.7)';
+        c.shadowBlur = 0;
+        c.fill();
+        c.restore();
+      }
+    }
+
+    class Particle {
+      constructor(x, y, color) {
+        this.x = x;
+        this.y = y;
+        const angle = Math.random() * Math.PI * 2;
+        const speed = 3 + Math.random() * 9;
+        this.vx = Math.cos(angle) * speed;
+        this.vy = Math.sin(angle) * speed;
+        this.color = color;
+        this.size = 3 + Math.random() * 4;
+        this.alpha = 1;
+        this.decay = 0.02 + Math.random() * 0.025;
+      }
+
+      update() {
+        this.x += this.vx;
+        this.y += this.vy;
+        this.vx *= 0.94;
+        this.vy *= 0.94;
+        this.alpha -= this.decay;
+        return this.alpha <= 0;
+      }
+
+      draw(c) {
+        c.save();
+        c.globalAlpha = Math.max(0, this.alpha);
+        c.beginPath();
+        c.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+        c.fillStyle = this.color;
+        c.shadowColor = this.color;
+        c.shadowBlur = 8;
+        c.fill();
+        c.restore();
+      }
+    }
+
+    class FloatingText {
+      constructor(text, x, y, color) {
+        this.text = text;
+        this.x = x;
+        this.y = y;
+        this.color = color;
+        this.alpha = 1;
+      }
+
+      update() {
+        this.y -= 1.6;
+        this.alpha -= 0.025;
+        return this.alpha <= 0;
+      }
+
+      draw(c) {
+        c.save();
+        c.globalAlpha = Math.max(0, this.alpha);
+        c.font = '800 20px -apple-system, sans-serif';
+        c.fillStyle = this.color;
+        c.shadowColor = this.color;
+        c.shadowBlur = 10;
+        c.textAlign = 'center';
+        c.fillText(this.text, this.x, this.y);
+        c.restore();
+      }
+    }
+
+    function triggerScreenShake(magnitude, frames) {
+      shakeIntensity = magnitude;
+      shakeDuration = frames;
+    }
+
+    function spawnExplosion(x, y, colorHex) {
+      const count = 18 + Math.min(combo, 25);
+      for (let i = 0; i < count; i++) {
+        particles.push(new Particle(x, y, colorHex));
+      }
+    }
+
+    function hitOrb(index) {
+      const orb = orbs[index];
+      combo++;
+      const multiplier = Math.min(Math.floor(combo / 3) + 1, 10);
+      const points = 10 * multiplier;
+      score += points;
+
+      scoreVal.textContent = score;
+      comboVal.textContent = multiplier + 'x';
+      comboVal.style.transform = 'scale(1.35)';
+      setTimeout(() => (comboVal.style.transform = 'scale(1)'), 120);
+
+      playPopSound(combo);
+      spawnExplosion(orb.x, orb.y, orb.color.main);
+      triggerScreenShake(2 + Math.min(multiplier * 1.2, 10), 8);
+
+      floatingTexts.push(new FloatingText(`+${points}`, orb.x, orb.y - 10, orb.color.main));
+      orbs.splice(index, 1);
+    }
+
+    function missOrb(orb) {
+      playMissSound();
+      triggerScreenShake(8, 14);
+      floatingTexts.push(new FloatingText('MISS', orb.x, orb.y, '#ef4444'));
+      endGame();
+    }
+
+    function endGame() {
+      isPlaying = false;
+      if (score > best) {
+        best = score;
+        localStorage.setItem('orb_burst_best', best);
+        bestVal.textContent = best;
+      }
+      titleText.textContent = 'BURST OVER';
+      descText.textContent = `You scored ${score} with a top streak of ${combo}!`;
+      startBtn.textContent = 'PLAY AGAIN';
+      overlay.style.display = 'flex';
+    }
+
+    function startGame() {
+      initAudio();
+      score = 0;
+      combo = 0;
+      orbs = [];
+      particles = [];
+      floatingTexts = [];
+      spawnTimer = 0;
+      scoreVal.textContent = '0';
+      comboVal.textContent = '1x';
+      overlay.style.display = 'none';
+      isPlaying = true;
+    }
+
+    function handlePointer(clientX, clientY) {
+      if (!isPlaying) return;
+      let hit = false;
+      // Hit detection back-to-front (top-most first)
+      for (let i = orbs.length - 1; i >= 0; i--) {
+        const o = orbs[i];
+        const dist = Math.hypot(clientX - o.x, clientY - o.y);
+        if (dist <= o.radius + 12) { // Generous hit window
+          hitOrb(i);
+          hit = true;
+          break;
+        }
+      }
+      if (!hit && combo > 0) {
+        // Punish misses by dropping multiplier streak
+        combo = 0;
+        comboVal.textContent = '1x';
+      }
+    }
+
+    canvas.addEventListener('pointerdown', (e) => {
+      handlePointer(e.clientX, e.clientY);
+    });
+
+    startBtn.addEventListener('click', startGame);
+
+    // Main Engine Loop
+    function loop() {
+      ctx.save();
+
+      // Screen shake translation
+      if (shakeDuration > 0) {
+        const dx = (Math.random() - 0.5) * shakeIntensity * 2;
+        const dy = (Math.random() - 0.5) * shakeIntensity * 2;
+        ctx.translate(dx, dy);
+        shakeDuration--;
+      }
+
+      ctx.clearRect(0, 0, width, height);
+
+      if (isPlaying) {
+        // Spawn pacing
+        spawnTimer++;
+        const spawnInterval = Math.max(28, 55 - Math.floor(score / 80));
+        const maxOrbs = Math.min(6, 3 + Math.floor(score / 150));
+
+        if (spawnTimer >= spawnInterval && orbs.length < maxOrbs) {
+          orbs.push(new Orb());
+          spawnTimer = 0;
+        }
+
+        // Update Orbs
+        for (let i = orbs.length - 1; i >= 0; i--) {
+          const expired = orbs[i].update();
+          if (expired) {
+            missOrb(orbs[i]);
+            orbs.splice(i, 1);
+            break;
+          }
+        }
+      }
+
+      // Draw Orbs
+      for (let orb of orbs) orb.draw(ctx);
+
+      // Update & Draw Particles
+      for (let i = particles.length - 1; i >= 0; i--) {
+        if (particles[i].update()) particles.splice(i, 1);
+        else particles[i].draw(ctx);
+      }
+
+      // Update & Draw Popups
+      for (let i = floatingTexts.length - 1; i >= 0; i--) {
+        if (floatingTexts[i].update()) floatingTexts.splice(i, 1);
+        else floatingTexts[i].draw(ctx);
+      }
+
+      ctx.restore();
+      requestAnimationFrame(loop);
+    }
+
+    loop();
+  </script>
+</body>
+</html>
 
