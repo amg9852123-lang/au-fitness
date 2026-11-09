@@ -1,1403 +1,270 @@
-```html
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Car Craft Studio (CCS) | Delhi • Noida • Dehradun | Premium Car Detailing & PPF</title>
-  
-  <!-- Google Fonts & Tailwind CDN -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800;900&family=Teko:wght@600;700&display=swap" rel="stylesheet">
+  <title>Car Craft Studio | Detailing & Paint Protection | Delhi · Noida · Dehradun</title>
   <script src="https://cdn.tailwindcss.com"></script>
-  
-  <!-- Lucide Icons -->
-  <script src="https://unpkg.com/lucide@latest"></script>
-
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            dark: {
-              950: '#06080D',
-              900: '#0B0F17',
-              850: '#101622',
-              800: '#151C2B',
-              700: '#1F2A3F',
-            },
-            brand: {
-              400: '#60A5FA',
-              500: '#3B82F6',
-              600: '#2563EB', // Royal Electric Blue
-              700: '#1D4ED8',
-            },
-            crimson: {
-              400: '#F87171',
-              500: '#EF4444',
-              600: '#DC2626', // Racing Red Accent
-              700: '#B91C1C',
-            }
-          },
-          fontFamily: {
-            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
-            heading: ['"Teko"', 'sans-serif'],
-          },
-          boxShadow: {
-            'glow-blue': '0 0 25px -4px rgba(37, 99, 235, 0.45)',
-            'glow-crimson': '0 0 25px -4px rgba(220, 38, 38, 0.45)',
-            'card-dark': '0 10px 30px -10px rgba(0, 0, 0, 0.8)',
-          }
-        }
-      }
-    }
-  </script>
-
+  <link href="https://fonts.googleapis.com/css2?family=Cabinet+Grotesk:wght@700;800;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
-    /* Custom Scrollbar */
-    ::-webkit-scrollbar {
-      width: 7px;
+    body {
+      background-color: #0A0A0B;
+      color: #E4E4E7;
+      font-family: 'Inter', sans-serif;
+      -webkit-font-smoothing: antialiased;
     }
-    ::-webkit-scrollbar-track {
-      background: #0B0F17;
+    .heading-heavy {
+      font-family: 'Cabinet Grotesk', sans-serif;
+      letter-spacing: -0.04em;
     }
-    ::-webkit-scrollbar-thumb {
-      background: #2563EB;
-      border-radius: 9999px;
-    }
-    ::-webkit-scrollbar-thumb:hover {
-      background: #DC2626;
-    }
-
-    /* Brotomotiv-style glow card with 3D tilt & dynamic spotlight */
-    .brot-card {
-      background: #111723;
-      border: 1px solid rgba(37, 99, 235, 0.22);
-      transition: transform 0.18s cubic-bezier(0.2, 0.8, 0.2, 1), border-color 0.3s ease, box-shadow 0.3s ease;
-      position: relative;
-      overflow: hidden;
-      transform-style: preserve-3d;
-      perspective: 1000px;
-    }
-    .brot-card:hover {
-      border-color: rgba(37, 99, 235, 0.85);
-      box-shadow: 0 20px 40px -10px rgba(37, 99, 235, 0.35);
-    }
-    /* Dynamic cursor spotlight glow inside cards */
-    .brot-card::before {
-      content: '';
-      position: absolute;
-      top: var(--mouse-y, -150px);
-      left: var(--mouse-x, -150px);
-      width: 260px;
-      height: 260px;
-      background: radial-gradient(circle, rgba(59, 130, 246, 0.25) 0%, transparent 70%);
-      transform: translate(-50%, -50%);
-      pointer-events: none;
-      opacity: 0;
-      transition: opacity 0.3s ease;
-      z-index: 10;
-    }
-    .brot-card:hover::before {
-      opacity: 1;
-    }
-
-    /* Ambient Pulsating Background Orbs */
-    @keyframes floatOrb1 {
-      0%, 100% { transform: translate(0, 0) scale(1); }
-      50% { transform: translate(50px, 30px) scale(1.15); }
-    }
-    @keyframes floatOrb2 {
-      0%, 100% { transform: translate(0, 0) scale(1); }
-      50% { transform: translate(-40px, -25px) scale(1.2); }
-    }
-    .animate-orb-blue {
-      animation: floatOrb1 10s ease-in-out infinite;
-    }
-    .animate-orb-red {
-      animation: floatOrb2 12s ease-in-out infinite;
-    }
-
-    /* Shimmer Sweep Animation on Primary CTAs */
-    .shimmer-btn {
-      position: relative;
-      overflow: hidden;
-    }
-    .shimmer-btn::after {
-      content: '';
-      position: absolute;
-      top: -50%;
-      left: -100%;
-      width: 50%;
-      height: 200%;
-      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
-      transform: rotate(25deg);
-      animation: sweepShimmer 4s infinite;
-    }
-    @keyframes sweepShimmer {
-      0% { left: -100%; }
-      30% { left: 200%; }
-      100% { left: 200%; }
-    }
-
-    /* Infinite Marquee Ticker for Brand Partners */
-    @keyframes marqueeScroll {
-      0% { transform: translateX(0%); }
-      100% { transform: translateX(-50%); }
-    }
-    .animate-marquee {
-      display: flex;
-      width: 200%;
-      animation: marqueeScroll 22s linear infinite;
-    }
-    .animate-marquee:hover {
-      animation-play-state: paused;
-    }
-
-    /* Scroll Reveal Classes (Intersection Observer) */
-    .reveal-elem {
-      opacity: 0;
-      transform: translateY(32px);
-      transition: opacity 0.75s cubic-bezier(0.16, 1, 0.3, 1), transform 0.75s cubic-bezier(0.16, 1, 0.3, 1);
-      will-change: opacity, transform;
-    }
-    .reveal-elem.revealed {
-      opacity: 1;
-      transform: translateY(0);
+    .grid-line {
+      border-color: rgba(255, 255, 255, 0.08);
     }
   </style>
 </head>
+<body class="selection:bg-blue-600 selection:text-white">
 
-<body class="bg-dark-950 text-slate-300 font-sans antialiased selection:bg-brand-600 selection:text-white relative overflow-x-hidden">
-
-  <!-- BACKGROUND AMBIENT PARTICLES / GLOW ORBS -->
-  <div class="fixed inset-0 pointer-events-none -z-10 overflow-hidden">
-    <div class="absolute -top-32 -left-32 w-96 h-96 bg-brand-600/15 rounded-full blur-[140px] animate-orb-blue"></div>
-    <div class="absolute top-1/3 -right-24 w-80 h-80 bg-crimson-600/10 rounded-full blur-[130px] animate-orb-red"></div>
-    <div class="absolute bottom-1/4 left-1/4 w-[420px] h-[420px] bg-brand-700/10 rounded-full blur-[160px] animate-orb-blue"></div>
-  </div>
-
-  <!-- TOP STRIP -->
-  <div class="bg-dark-900 border-b border-dark-700/60 text-xs py-2 px-4 text-center">
-    <div class="max-w-7xl mx-auto flex items-center justify-between sm:justify-center gap-3">
-      <div class="flex items-center gap-2">
-        <span class="inline-flex w-2 h-2 rounded-full bg-crimson-500 animate-pulse"></span>
-        <span class="font-extrabold text-white uppercase tracking-wider text-[11px] bg-crimson-600/30 text-crimson-400 px-2 py-0.5 rounded border border-crimson-500/30">Official Studio</span>
-        <span class="text-slate-300 hidden sm:inline">Authorized Avery Dennison & Garware Hi-Tech Partner Bay</span>
-        <span class="text-brand-400 font-bold">• Delhi • Noida • Dehradun</span>
+  <!-- TOP BAR -->
+  <header class="border-b grid-line sticky top-0 bg-[#0A0A0B]/90 backdrop-blur-md z-50">
+    <div class="max-w-7xl mx-auto px-5 h-16 flex items-center justify-between">
+      <div class="flex items-center gap-3">
+        <span class="bg-blue-600 text-white font-black text-xs px-2 py-1 tracking-widest uppercase">CCS</span>
+        <span class="heading-heavy font-black text-lg tracking-wider text-white uppercase">Car Craft Studio</span>
       </div>
-      <a href="tel:+919876543210" class="hidden md:inline-flex items-center gap-1 text-white bg-brand-600 hover:bg-brand-700 px-2.5 py-0.5 rounded text-[11px] font-bold uppercase transition-colors">
-        <i data-lucide="phone-call" class="w-3 h-3"></i> Hotline
+      <div class="hidden md:flex items-center gap-8 text-xs font-semibold tracking-widest text-zinc-400 uppercase">
+        <a href="#services" class="hover:text-white transition">Services</a>
+        <a href="#rates" class="hover:text-white transition">Pricing</a>
+        <a href="#studios" class="hover:text-white transition">Locations</a>
+      </div>
+      <a href="https://wa.me/91XXXXXXXXXX" class="bg-white text-black font-semibold text-xs px-4 py-2 uppercase tracking-wider hover:bg-zinc-200 transition">
+        Book Bay Slot
       </a>
-    </div>
-  </div>
-
-  <!-- NAVBAR -->
-  <header class="sticky top-0 z-50 bg-dark-950/90 backdrop-blur-md border-b border-dark-700/70 shadow-lg">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
-      
-      <!-- LOGO: Wings Emblem with CCS in Red -->
-      <a href="#" class="flex items-center gap-3 group">
-        <div class="relative w-12 h-12 rounded-full bg-gradient-to-tr from-brand-700 via-brand-600 to-dark-800 p-0.5 shadow-glow-blue group-hover:scale-105 transition-transform">
-          <div class="w-full h-full rounded-full border border-brand-400/50 flex flex-col items-center justify-center bg-dark-900">
-            <svg class="w-8 h-5 text-white" viewBox="0 0 64 36" fill="none">
-              <!-- Wings -->
-              <path d="M4 14L22 14L28 10L36 10L42 14L60 14L46 24L32 28L18 24L4 14Z" stroke="#60A5FA" stroke-width="2.2" fill="none"/>
-              <!-- Car outline -->
-              <path d="M22 13C25 8 39 8 42 13" stroke="#FFFFFF" stroke-width="2.5" stroke-linecap="round"/>
-              <text x="32" y="24" font-family="'Plus Jakarta Sans', sans-serif" font-weight="900" font-size="10" fill="#EF4444" text-anchor="middle">CCS</text>
-            </svg>
-          </div>
-        </div>
-
-        <div>
-          <div class="flex items-center gap-1.5 leading-none">
-            <span class="font-heading text-3xl font-bold tracking-wider text-white">CAR CRAFT</span>
-            <span class="font-heading text-3xl font-bold tracking-wider text-brand-500">STUDIO</span>
-          </div>
-          <div class="flex items-center gap-1.5 -mt-1">
-            <span class="inline-block w-1.5 h-1.5 rounded-full bg-crimson-500"></span>
-            <span class="text-[9px] font-black text-slate-400 uppercase tracking-widest">DELHI • DEHRADUN • NOIDA</span>
-          </div>
-        </div>
-      </a>
-
-      <!-- Desktop Nav -->
-      <nav class="hidden lg:flex items-center gap-7 text-xs font-bold tracking-wider uppercase text-slate-300">
-        <a href="#services" class="hover:text-brand-400 transition-colors">Services</a>
-        <a href="#brands" class="hover:text-brand-400 transition-colors">Brands</a>
-        <a href="#pricing-calculator" class="text-crimson-400 font-extrabold hover:text-crimson-300 transition-colors">Cost Estimator</a>
-        <a href="#process" class="hover:text-brand-400 transition-colors">Process</a>
-        <a href="#branches" class="hover:text-brand-400 transition-colors">Studios</a>
-        <a href="#reviews" class="hover:text-brand-400 transition-colors">Reviews</a>
-      </nav>
-
-      <!-- Desktop CTA -->
-      <div class="hidden sm:flex items-center gap-3">
-        <a href="https://wa.me/919876543210?text=Hi%20Car%20Craft%20Studio!%20I%20want%20to%20book%20a%20slot" target="_blank" class="shimmer-btn px-5 py-2.5 rounded-xl bg-brand-600 hover:bg-brand-500 text-white font-extrabold text-xs uppercase tracking-wider shadow-glow-blue transition-all hover:scale-105 flex items-center gap-2">
-          <i data-lucide="message-square" class="w-4 h-4"></i>
-          <span>Book Inspection</span>
-        </a>
-      </div>
-
-      <!-- Mobile Menu Button -->
-      <button id="mobile-toggle" class="lg:hidden p-2.5 rounded-xl bg-dark-900 border border-dark-700 text-slate-300 hover:text-white">
-        <i data-lucide="menu" class="w-6 h-6"></i>
-      </button>
-    </div>
-
-    <!-- Mobile Menu Drawer -->
-    <div id="mobile-menu" class="hidden lg:hidden bg-dark-900 border-b border-dark-700 px-6 py-6 space-y-4 shadow-2xl">
-      <div class="flex flex-col space-y-3 font-extrabold text-xs tracking-wider uppercase text-slate-300">
-        <a href="#services" class="mobile-nav-link py-1 hover:text-brand-400">All Treatments & PPF</a>
-        <a href="#brands" class="mobile-nav-link py-1 hover:text-brand-400">Certified Brands</a>
-        <a href="#pricing-calculator" class="mobile-nav-link py-1 text-crimson-400 font-black">Price Calculator</a>
-        <a href="#process" class="mobile-nav-link py-1 hover:text-brand-400">4-Step Detailing Process</a>
-        <a href="#branches" class="mobile-nav-link py-1 hover:text-brand-400">Delhi, Noida & Dehradun Bays</a>
-        <a href="#reviews" class="mobile-nav-link py-1 hover:text-brand-400">Verified Client Reviews</a>
-      </div>
-      <div class="pt-4 border-t border-dark-700/80 flex flex-col gap-2.5">
-        <a href="tel:+919876543210" class="w-full text-center py-3 rounded-xl bg-dark-800 text-white font-bold text-xs flex items-center justify-center gap-2 border border-dark-700">
-          <i data-lucide="phone" class="w-4 h-4 text-brand-400"></i> Call Studio Hotline
-        </a>
-        <a href="#pricing-calculator" class="w-full text-center py-3 rounded-xl bg-brand-600 text-white font-black text-xs uppercase tracking-wider shadow-glow-blue">
-          Get Instant PPF Quote
-        </a>
-      </div>
     </div>
   </header>
 
-  <main>
-    <!-- HERO SECTION (Brotomotiv Visual Structure) -->
-    <section class="relative pt-10 pb-16 md:pt-20 md:pb-24 overflow-hidden">
-      <!-- Glow Gradients -->
-      <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[700px] h-[350px] bg-brand-600/15 rounded-full blur-[120px] pointer-events-none -z-10"></div>
-      <div class="absolute top-20 right-10 w-60 h-60 bg-crimson-600/10 rounded-full blur-[90px] pointer-events-none -z-10"></div>
-
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        
-        <!-- Center Header Box -->
-        <div class="text-center max-w-4xl mx-auto space-y-4 reveal-elem">
-          
-          <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-dark-900 border border-brand-500/30 text-brand-400 text-xs font-black uppercase tracking-widest shadow-sm">
-            <span class="w-2 h-2 rounded-full bg-crimson-500 animate-ping"></span>
-            Avery Dennison • Garware PPF • Sonax Certified
-          </div>
-
-          <!-- Brotomotiv Inspired Taglines -->
-          <h1 class="text-4xl sm:text-6xl md:text-7xl font-heading font-bold uppercase tracking-tight text-white leading-none">
-            YOU'RE AT THE <span class="text-brand-500">RIGHT PLACE</span>
-          </h1>
-
-          <p class="text-xl sm:text-3xl font-heading font-semibold uppercase tracking-wider text-slate-200">
-            EXPERIENCE THE ART OF <span class="text-crimson-500 font-bold border-b-2 border-crimson-500">DETAILING</span>
-          </p>
-
-          <p class="text-xs sm:text-sm text-slate-400 max-w-2xl mx-auto font-normal leading-relaxed">
-            Northern India's specialized studio for high-gloss instant self-healing TPU Paint Protection Films (PPF), German 9H ceramic matrix coatings, and custom SUV body modifications.
-          </p>
-
-          <!-- Branch Indicators -->
-          <div class="flex items-center justify-center gap-2 flex-wrap pt-2">
-            <span class="inline-flex items-center gap-1 px-3 py-1 rounded-md bg-dark-900 border border-dark-700 text-[11px] font-bold text-slate-300">
-              <i data-lucide="map-pin" class="w-3 h-3 text-brand-400"></i> Delhi Bay
-            </span>
-            <span class="inline-flex items-center gap-1 px-3 py-1 rounded-md bg-dark-900 border border-dark-700 text-[11px] font-bold text-slate-300">
-              <i data-lucide="map-pin" class="w-3 h-3 text-brand-400"></i> Noida Bay
-            </span>
-            <span class="inline-flex items-center gap-1 px-3 py-1 rounded-md bg-dark-900 border border-dark-700 text-[11px] font-bold text-slate-300">
-              <i data-lucide="map-pin" class="w-3 h-3 text-brand-400"></i> Dehradun Bay
-            </span>
-          </div>
-
-          <!-- CTAs -->
-          <div class="flex flex-col sm:flex-row items-center justify-center gap-3.5 pt-4">
-            <a href="#pricing-calculator" class="shimmer-btn w-full sm:w-auto px-8 py-4 rounded-xl bg-brand-600 hover:bg-brand-500 text-white font-black text-xs uppercase tracking-wider shadow-glow-blue transition-all hover:scale-105 flex items-center justify-center gap-2">
-              <i data-lucide="calculator" class="w-4 h-4"></i>
-              <span>Instant Cost Estimator</span>
-            </a>
-            <a href="https://wa.me/919876543210?text=Hi%20Car%20Craft%20Studio!%20I%20want%20to%20consult%20for%20my%20car" target="_blank" class="w-full sm:w-auto px-7 py-4 rounded-xl bg-dark-900 hover:bg-dark-850 border border-dark-700 hover:border-brand-500 text-white font-bold text-xs uppercase tracking-wider transition-all flex items-center justify-center gap-2">
-              <i data-lucide="message-circle" class="w-4 h-4 text-emerald-400"></i>
-              <span>WhatsApp Consultation</span>
-            </a>
-          </div>
-
+  <!-- HERO SECTION: RAW & INDUSTRIAL -->
+  <section class="border-b grid-line">
+    <div class="max-w-7xl mx-auto px-5 py-20 lg:py-28">
+      <div class="max-w-4xl">
+        <div class="flex items-center gap-2 mb-6">
+          <span class="w-2 h-2 bg-blue-600"></span>
+          <p class="text-xs font-mono uppercase tracking-widest text-zinc-400">Delhi · Noida · Dehradun Studios</p>
         </div>
-
-        <!-- Hero Detailing Studio Visual Frame -->
-        <div class="mt-12 max-w-5xl mx-auto rounded-3xl p-1 bg-gradient-to-b from-brand-600/40 via-dark-800 to-dark-900 shadow-2xl reveal-elem">
-          <div class="relative w-full aspect-[16/9] sm:aspect-[21/9] rounded-[22px] overflow-hidden bg-dark-950 group">
-            <img 
-              src="https://images.unsplash.com/photo-1617788138017-80ad40651399?q=80&w=1400&auto=format&fit=crop" 
-              alt="Car Craft Studio Detailing Booth" 
-              class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 opacity-80"
-              onerror="this.src='https://placehold.co/1200x500/0B0F17/3B82F6?text=Car+Craft+Studio+Bays'"
-            />
-            <div class="absolute inset-0 bg-gradient-to-t from-dark-950 via-dark-950/40 to-transparent"></div>
-
-            <!-- Overlays -->
-            <div class="absolute top-4 left-4 flex gap-2">
-              <span class="px-3 py-1 rounded bg-crimson-600 text-white text-[10px] font-black uppercase tracking-wider shadow">
-                Thar Roxx & Fortuner Specialists
-              </span>
-              <span class="px-3 py-1 rounded bg-dark-900/90 border border-brand-500/40 text-brand-300 text-[10px] font-black uppercase tracking-wider backdrop-blur-sm">
-                10-Year Warranty Film
-              </span>
-            </div>
-
-            <div class="absolute bottom-5 left-5 right-5 flex flex-col sm:flex-row sm:items-end justify-between gap-3 text-white">
-              <div>
-                <h3 class="text-xl sm:text-2xl font-heading uppercase tracking-wide">Avery Dennison Supreme PPF & Sonax 9H Matrix Bay</h3>
-                <p class="text-xs text-slate-300">Negative-pressure dust isolation booths with 6500K color-corrected inspection array</p>
-              </div>
-              <a href="#services" class="inline-flex items-center gap-1.5 px-4 py-2 rounded-lg bg-brand-600 hover:bg-brand-500 text-white text-xs font-black uppercase tracking-wider">
-                <span>Explore Packages</span>
-                <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
-              </a>
-            </div>
-          </div>
-        </div>
-
-      </div>
-    </section>
-
-    <!-- BRAND PARTNERS ANIMATED MARQUEE / TICKER -->
-    <section id="brands" class="py-7 bg-dark-900/80 border-y border-dark-700/60 overflow-hidden relative">
-      <div class="max-w-7xl mx-auto px-4 mb-3 text-center">
-        <p class="text-[10px] font-black uppercase tracking-widest text-slate-400">
-          AUTHORIZED APPLICATORS & CERTIFIED MATERIAL PARTNERS
+        <h1 class="heading-heavy text-4xl sm:text-6xl lg:text-7xl font-black text-white uppercase leading-[0.95] mb-8">
+          Self-healing PPF.<br>
+          Dust-free paint booths.<br>
+          <span class="text-zinc-600">No shortcuts.</span>
+        </h1>
+        <p class="text-zinc-400 text-base sm:text-lg max-w-2xl leading-relaxed mb-10">
+          We don't do quick surface polish. We execute full-body disassembly for zero-edge PPF wraps, Sonax 9H ceramic coating, and precision paint restoration inside pressurized bays.
         </p>
-      </div>
-
-      <div class="relative overflow-hidden w-full flex items-center">
-        <!-- Edge Fades -->
-        <div class="absolute left-0 inset-y-0 w-20 bg-gradient-to-r from-dark-900 to-transparent z-10 pointer-events-none"></div>
-        <div class="absolute right-0 inset-y-0 w-20 bg-gradient-to-l from-dark-900 to-transparent z-10 pointer-events-none"></div>
-
-        <!-- Marquee Track -->
-        <div class="animate-marquee flex gap-4 items-center">
-          <!-- Item Group A -->
-          <div class="flex items-center gap-4 flex-shrink-0">
-            <div class="py-2.5 px-6 rounded-xl bg-dark-850 border border-dark-700 font-bold text-slate-200 text-xs hover:border-brand-500 flex items-center gap-2 whitespace-nowrap shadow">
-              <span class="text-brand-400 font-black">AVERY</span> DENNISON
-            </div>
-            <div class="py-2.5 px-6 rounded-xl bg-dark-850 border border-dark-700 font-bold text-slate-200 text-xs hover:border-brand-500 flex items-center gap-2 whitespace-nowrap shadow">
-              GARWARE <span class="text-crimson-500 font-black">PPF</span>
-            </div>
-            <div class="py-2.5 px-6 rounded-xl bg-dark-850 border border-dark-700 font-bold text-slate-200 text-xs hover:border-brand-500 flex items-center gap-2 whitespace-nowrap shadow">
-              <span class="text-crimson-500 font-black">SONAX</span> GERMANY
-            </div>
-            <div class="py-2.5 px-6 rounded-xl bg-dark-850 border border-dark-700 font-bold text-slate-200 text-xs hover:border-brand-500 flex items-center gap-2 whitespace-nowrap shadow">
-              3M <span class="text-slate-400 font-normal">AUTO CARE</span>
-            </div>
-            <div class="py-2.5 px-6 rounded-xl bg-dark-850 border border-dark-700 font-bold text-slate-200 text-xs hover:border-brand-500 flex items-center gap-2 whitespace-nowrap shadow">
-              RUPES <span class="text-brand-400 font-normal">BIGFOOT</span>
-            </div>
-            <div class="py-2.5 px-6 rounded-xl bg-dark-850 border border-dark-700 font-bold text-slate-200 text-xs hover:border-brand-500 flex items-center gap-2 whitespace-nowrap shadow">
-              KOCH-CHEMIE <span class="text-slate-400 font-normal">1K-NANO</span>
-            </div>
-          </div>
-
-          <!-- Item Group B (Duplicate for continuous loop) -->
-          <div class="flex items-center gap-4 flex-shrink-0">
-            <div class="py-2.5 px-6 rounded-xl bg-dark-850 border border-dark-700 font-bold text-slate-200 text-xs hover:border-brand-500 flex items-center gap-2 whitespace-nowrap shadow">
-              <span class="text-brand-400 font-black">AVERY</span> DENNISON
-            </div>
-            <div class="py-2.5 px-6 rounded-xl bg-dark-850 border border-dark-700 font-bold text-slate-200 text-xs hover:border-brand-500 flex items-center gap-2 whitespace-nowrap shadow">
-              GARWARE <span class="text-crimson-500 font-black">PPF</span>
-            </div>
-            <div class="py-2.5 px-6 rounded-xl bg-dark-850 border border-dark-700 font-bold text-slate-200 text-xs hover:border-brand-500 flex items-center gap-2 whitespace-nowrap shadow">
-              <span class="text-crimson-500 font-black">SONAX</span> GERMANY
-            </div>
-            <div class="py-2.5 px-6 rounded-xl bg-dark-850 border border-dark-700 font-bold text-slate-200 text-xs hover:border-brand-500 flex items-center gap-2 whitespace-nowrap shadow">
-              3M <span class="text-slate-400 font-normal">AUTO CARE</span>
-            </div>
-            <div class="py-2.5 px-6 rounded-xl bg-dark-850 border border-dark-700 font-bold text-slate-200 text-xs hover:border-brand-500 flex items-center gap-2 whitespace-nowrap shadow">
-              RUPES <span class="text-brand-400 font-normal">BIGFOOT</span>
-            </div>
-            <div class="py-2.5 px-6 rounded-xl bg-dark-850 border border-dark-700 font-bold text-slate-200 text-xs hover:border-brand-500 flex items-center gap-2 whitespace-nowrap shadow">
-              KOCH-CHEMIE <span class="text-slate-400 font-normal">1K-NANO</span>
-            </div>
-          </div>
+        <div class="flex flex-wrap gap-4">
+          <a href="#rates" class="bg-blue-600 hover:bg-blue-700 text-white font-bold text-xs px-6 py-4 uppercase tracking-widest transition">
+            Calculate Package Cost
+          </a>
+          <a href="https://wa.me/91XXXXXXXXXX?text=Inspection%20Request" class="border border-zinc-700 hover:border-zinc-500 text-zinc-300 font-semibold text-xs px-6 py-4 uppercase tracking-widest transition">
+            Book Paint Thickness Meter Test (Free)
+          </a>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- CORE SERVICES (Brotomotiv 2-Column Mobile, 4-Column Desktop Cards) -->
-    <section id="services" class="py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      
-      <!-- Section Title -->
-      <div class="text-center max-w-3xl mx-auto mb-14 space-y-2 reveal-elem">
-        <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-brand-600/10 border border-brand-500/30 text-brand-400 text-xs font-black uppercase tracking-wider">
-          <i data-lucide="sparkles" class="w-3.5 h-3.5"></i>
-          CCS Detailing Portfolio
-        </div>
-        <h2 class="text-4xl sm:text-6xl font-heading font-bold text-white uppercase tracking-wider">
-          CHOOSE FROM A RANGE OF <span class="text-brand-500">PREMIUM SERVICES</span>
-        </h2>
-        <p class="text-slate-400 text-xs sm:text-sm font-medium">
-          Tap any card to view detailed package specifications, material grades, warranty duration, and real-time cost.
-        </p>
+  <!-- WORKSHOP REALITY STATS -->
+  <section class="border-b grid-line">
+    <div class="max-w-7xl mx-auto grid grid-cols-2 lg:grid-cols-4 divide-y lg:divide-y-0 lg:divide-x divide-zinc-800">
+      <div class="p-8">
+        <div class="text-3xl lg:text-4xl font-black text-white font-mono">180 µm</div>
+        <div class="text-xs uppercase tracking-widest text-zinc-500 mt-1">Garware & Avery TPU Thickness</div>
       </div>
-
-      <!-- Brotomotiv 8-Card Grid with 3D Tilt Effect -->
-      <div class="grid grid-cols-2 md:grid-cols-4 gap-3.5 sm:gap-6 reveal-elem">
-          <div>
-            <div class="aspect-[4/3] rounded-xl overflow-hidden bg-dark-950 relative mb-3">
-              <img 
-                src="https://images.unsplash.com/photo-1520340356584-f9917d1eea6f?q=80&w=700&auto=format&fit=crop" 
-                alt="Ceramic Coating Finish" 
-                class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-                onerror="this.src='https://placehold.co/400x300/111723/3B82F6?text=Ceramic+Coating'"
-              />
-              <span class="absolute top-2 left-2 px-2 py-0.5 rounded bg-crimson-600 text-[9px] font-black text-white uppercase tracking-wider">
-                9H German Hardness
-              </span>
-            </div>
-            <h3 class="text-sm sm:text-base font-bold text-white group-hover:text-brand-400 transition-colors leading-snug">
-              Ceramic & Graphene Coating
-            </h3>
-            <p class="text-[11px] text-slate-400 mt-1 line-clamp-2">
-              Deep wet candy gloss, hydrophobic slickness and swirl resistance.
-            </p>
-          </div>
-          <div class="mt-3 pt-2.5 border-t border-dark-700/60 flex items-center justify-between">
-            <span class="text-[11px] font-black text-brand-400">From ₹12,000*</span>
-            <div class="w-7 h-7 rounded-full bg-dark-800 border border-brand-500/30 group-hover:bg-brand-600 flex items-center justify-center transition-colors">
-              <i data-lucide="arrow-up-right" class="w-3.5 h-3.5 text-brand-400 group-hover:text-white transition-colors"></i>
-            </div>
-          </div>
-        </div>
-
-        <!-- Card 3: Custom Wraps & Modifications -->
-        <div class="brot-card rounded-2xl p-3 sm:p-4 flex flex-col justify-between cursor-pointer group" onclick="openModal('Custom Vinyl Wraps & SUV Styling', 'Full body color transformations, satin matte blackouts, dual-tone roof wraps, and piano black de-chroming. Specialists in Mahindra Thar Roxx, Fortuner, Scorpio-N, Defender, and BMWs.', 'Avery Dennison SW900 & 3M 2080', '₹45,000 - ₹1,15,000', '3 to 5 Years Peeling Warranty')">
-          <div>
-            <div class="aspect-[4/3] rounded-xl overflow-hidden bg-dark-950 relative mb-3">
-              <img 
-                src="https://images.unsplash.com/photo-1542282088-72c9c27ed0cd?q=80&w=700&auto=format&fit=crop" 
-                alt="Custom Car Wrap" 
-                class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-                onerror="this.src='https://placehold.co/400x300/111723/3B82F6?text=Vinyl+Wrap'"
-              />
-              <span class="absolute top-2 left-2 px-2 py-0.5 rounded bg-brand-700 text-[9px] font-black text-white uppercase tracking-wider">
-                Thar Roxx Builds
-              </span>
-            </div>
-            <h3 class="text-sm sm:text-base font-bold text-white group-hover:text-brand-400 transition-colors leading-snug">
-              Custom Wraps & Modifications
-            </h3>
-            <p class="text-[11px] text-slate-400 mt-1 line-clamp-2">
-              Color changes & de-chroming without altering original factory paint.
-            </p>
-          </div>
-          <div class="mt-3 pt-2.5 border-t border-dark-700/60 flex items-center justify-between">
-            <span class="text-[11px] font-black text-brand-400">From ₹45,000*</span>
-            <div class="w-7 h-7 rounded-full bg-dark-800 border border-brand-500/30 group-hover:bg-brand-600 flex items-center justify-center transition-colors">
-              <i data-lucide="arrow-up-right" class="w-3.5 h-3.5 text-brand-400 group-hover:text-white transition-colors"></i>
-            </div>
-          </div>
-        </div>
-
-        <!-- Card 4: Accidental & Panel Painting -->
-        <div class="brot-card rounded-2xl p-3 sm:p-4 flex flex-col justify-between cursor-pointer group" onclick="openModal('Oven-Baked Panel & Accidental Painting', 'Computerized color spectrophotometer matching, negative-pressure heated spray booth, Glasurit/Nippon premium clear coats, and paintless dent repair (PDR).', 'Computerized OEM Paint & Clear Coat', '₹2,500 / panel', 'Lifetime Color Matching Guarantee')">
-          <div>
-            <div class="aspect-[4/3] rounded-xl overflow-hidden bg-dark-950 relative mb-3">
-              <img 
-                src="https://images.unsplash.com/photo-1619642751034-765dfdf7c58e?q=80&w=700&auto=format&fit=crop" 
-                alt="Panel Painting" 
-                class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-                onerror="this.src='https://placehold.co/400x300/111723/3B82F6?text=Panel+Paint'"
-              />
-            </div>
-            <h3 class="text-sm sm:text-base font-bold text-white group-hover:text-brand-400 transition-colors leading-snug">
-              Accidental & Panel Painting
-            </h3>
-            <p class="text-[11px] text-slate-400 mt-1 line-clamp-2">
-              Computerized color matching and heated spray booth refinishing.
-            </p>
-          </div>
-          <div class="mt-3 pt-2.5 border-t border-dark-700/60 flex items-center justify-between">
-            <span class="text-[11px] font-black text-brand-400">From ₹2,500/pnl</span>
-            <div class="w-7 h-7 rounded-full bg-dark-800 border border-brand-500/30 group-hover:bg-brand-600 flex items-center justify-center transition-colors">
-              <i data-lucide="arrow-up-right" class="w-3.5 h-3.5 text-brand-400 group-hover:text-white transition-colors"></i>
-            </div>
-          </div>
-        </div>
-
-        <!-- Card 5: Deep Detailing & Steam Wash -->
-        <div class="brot-card rounded-2xl p-3 sm:p-4 flex flex-col justify-between cursor-pointer group" onclick="openModal('Deep Detailing & Steam Wash', '140°C medical steam extraction of carpets and fabric seats, pH-neutral Sonax leather conditioning, dashboard UV coat, engine bay degreasing, and ozone air sterilization.', 'German Sonax Profiline Chemistry', '₹3,500 - ₹6,500', 'Same Day Delivery')">
-          <div>
-            <div class="aspect-[4/3] rounded-xl overflow-hidden bg-dark-950 relative mb-3">
-              <img 
-                src="https://images.unsplash.com/photo-1583121274602-3e2820c69888?q=80&w=700&auto=format&fit=crop" 
-                alt="Interior Deep Cleaning" 
-                class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-                onerror="this.src='https://placehold.co/400x300/111723/3B82F6?text=Deep+Interior'"
-              />
-            </div>
-            <h3 class="text-sm sm:text-base font-bold text-white group-hover:text-brand-400 transition-colors leading-snug">
-              Deep Detailing & Steam Spa
-            </h3>
-            <p class="text-[11px] text-slate-400 mt-1 line-clamp-2">
-              High-temp steam sterilization and German leather rejuvenation.
-            </p>
-          </div>
-          <div class="mt-3 pt-2.5 border-t border-dark-700/60 flex items-center justify-between">
-            <span class="text-[11px] font-black text-brand-400">From ₹3,500*</span>
-            <div class="w-7 h-7 rounded-full bg-dark-800 border border-brand-500/30 group-hover:bg-brand-600 flex items-center justify-center transition-colors">
-              <i data-lucide="arrow-up-right" class="w-3.5 h-3.5 text-brand-400 group-hover:text-white transition-colors"></i>
-            </div>
-          </div>
-        </div>
-
-        <!-- Card 6: Sound Damping & Insulation -->
-        <div class="brot-card rounded-2xl p-3 sm:p-4 flex flex-col justify-between cursor-pointer group" onclick="openModal('Acoustic Sound Damping & Insulation', 'Multi-layer butyl rubber and acoustic foam damping applied to 4 doors, roof, floorboard, boot and firewall. Drastically cuts road hum, tire noise, and boosts audio acoustics.', 'Barricade & StP Acoustic Sheets', '₹9,500 - ₹24,000', '3-Year Installation Warranty')">
-          <div>
-            <div class="aspect-[4/3] rounded-xl overflow-hidden bg-dark-950 relative mb-3">
-              <img 
-                src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?q=80&w=700&auto=format&fit=crop" 
-                alt="Sound Damping" 
-                class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-                onerror="this.src='https://placehold.co/400x300/111723/3B82F6?text=Sound+Damping'"
-              />
-              <span class="absolute top-2 left-2 px-2 py-0.5 rounded bg-brand-800 text-[9px] font-black text-white uppercase tracking-wider">
-                Barricade Material
-              </span>
-            </div>
-            <h3 class="text-sm sm:text-base font-bold text-white group-hover:text-brand-400 transition-colors leading-snug">
-              Sound Damping & Insulation
-            </h3>
-            <p class="text-[11px] text-slate-400 mt-1 line-clamp-2">
-              Eliminate road hum, engine vibrations, and upgrade cabin audio.
-            </p>
-          </div>
-          <div class="mt-3 pt-2.5 border-t border-dark-700/60 flex items-center justify-between">
-            <span class="text-[11px] font-black text-brand-400">From ₹9,500*</span>
-            <div class="w-7 h-7 rounded-full bg-dark-800 border border-brand-500/30 group-hover:bg-brand-600 flex items-center justify-center transition-colors">
-              <i data-lucide="arrow-up-right" class="w-3.5 h-3.5 text-brand-400 group-hover:text-white transition-colors"></i>
-            </div>
-          </div>
-        </div>
-
-        <!-- Card 7: Sunroof & Safety Glazing -->
-        <div class="brot-card rounded-2xl p-3 sm:p-4 flex flex-col justify-between cursor-pointer group" onclick="openModal('Sunroof Protection Film & Safety Glazing', 'Specially engineered high-heat rejection ceramic film for massive panoramic sunroofs (Creta, XUV700, Thar Roxx, Safari, BMW). Rejects up to 99% UV rays and reduces cabin temperature by 8°C - 14°C.', 'Ceramic Nano-Shield Layer', '₹6,500 - ₹16,000', '5-Year Anti-Bubbling Warranty')">
-          <div>
-            <div class="aspect-[4/3] rounded-xl overflow-hidden bg-dark-950 relative mb-3">
-              <img 
-                src="https://images.unsplash.com/photo-1541348263662-e0c8de4259ba?q=80&w=700&auto=format&fit=crop" 
-                alt="Sunroof Glazing" 
-                class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-                onerror="this.src='https://placehold.co/400x300/111723/3B82F6?text=Sunroof+Glaze'"
-              />
-            </div>
-            <h3 class="text-sm sm:text-base font-bold text-white group-hover:text-brand-400 transition-colors leading-snug">
-              Sunroof Film & Safety Glazing
-            </h3>
-            <p class="text-[11px] text-slate-400 mt-1 line-clamp-2">
-              Infrared heat block and anti-shatter defense for panoramic roofs.
-            </p>
-          </div>
-          <div class="mt-3 pt-2.5 border-t border-dark-700/60 flex items-center justify-between">
-            <span class="text-[11px] font-black text-brand-400">From ₹6,500*</span>
-            <div class="w-7 h-7 rounded-full bg-dark-800 border border-brand-500/30 group-hover:bg-brand-600 flex items-center justify-center transition-colors">
-              <i data-lucide="arrow-up-right" class="w-3.5 h-3.5 text-brand-400 group-hover:text-white transition-colors"></i>
-            </div>
-          </div>
-        </div>
-
-        <!-- Card 8: Headlight Restoration & Alloys -->
-        <div class="brot-card rounded-2xl p-3 sm:p-4 flex flex-col justify-between cursor-pointer group" onclick="openModal('Headlight Restoration & Caliper Coating', 'Wet sanding and UV clear coat restoration for yellowish, oxidized headlights plus high-temperature ceramic spray coating for brake calipers in Brembo Red, Racing Blue, or Acid Green.', 'High Heat Ceramic Enamel & UV Coat', '₹3,000 - ₹8,500', '2-Year Anti-Oxidation Warranty')">
-          <div>
-            <div class="aspect-[4/3] rounded-xl overflow-hidden bg-dark-950 relative mb-3">
-              <img 
-                src="https://images.unsplash.com/photo-1552519507-da3b142c6e3d?q=80&w=700&auto=format&fit=crop" 
-                alt="Headlight Restoration" 
-                class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-                onerror="this.src='https://placehold.co/400x300/111723/3B82F6?text=Alloy+Restoration'"
-              />
-            </div>
-            <h3 class="text-sm sm:text-base font-bold text-white group-hover:text-brand-400 transition-colors leading-snug">
-              Headlights & Caliper Coat
-            </h3>
-            <p class="text-[11px] text-slate-400 mt-1 line-clamp-2">
-              Clear lens UV restoration & high-temp brake caliper styling.
-            </p>
-          </div>
-          <div class="mt-3 pt-2.5 border-t border-dark-700/60 flex items-center justify-between">
-            <span class="text-[11px] font-black text-brand-400">From ₹3,000*</span>
-            <div class="w-7 h-7 rounded-full bg-dark-800 border border-brand-500/30 group-hover:bg-brand-600 flex items-center justify-center transition-colors">
-              <i data-lucide="arrow-up-right" class="w-3.5 h-3.5 text-brand-400 group-hover:text-white transition-colors"></i>
-            </div>
-          </div>
-        </div>
-
+      <div class="p-8">
+        <div class="text-3xl lg:text-4xl font-black text-white font-mono">9H Pro</div>
+        <div class="text-xs uppercase tracking-widest text-zinc-500 mt-1">Sonax Germany Certified Bond</div>
       </div>
-    </section>
-
-    <!-- INTERACTIVE PRICING ESTIMATOR (Dark Brotomotiv Style with Blue Glow) -->
-    <section id="pricing-calculator" class="py-20 bg-dark-900 border-y border-dark-700/70 relative">
-      <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-        
-        <div class="text-center max-w-2xl mx-auto mb-12 space-y-2 reveal-elem">
-          <span class="px-3 py-1 rounded-full bg-brand-600/20 text-brand-400 text-xs font-black uppercase tracking-wider border border-brand-500/30">
-            Real-Time Transparent Estimator
-          </span>
-          <h2 class="text-3xl sm:text-5xl font-heading font-bold text-white uppercase tracking-wider">
-            CALCULATE YOUR <span class="text-brand-500">DETAILING ESTIMATE</span>
-          </h2>
-          <p class="text-xs sm:text-sm text-slate-400">
-            Select your car segment and package to preview digital pricing for Delhi, Noida & Dehradun bays.
-          </p>
-        </div>
-
-        <div class="bg-dark-950 rounded-3xl border border-brand-500/30 p-6 sm:p-10 shadow-glow-blue relative reveal-elem">
-          
-          <!-- Step 1: Car Category -->
-          <div class="mb-8">
-            <div class="flex items-center justify-between mb-3">
-              <label class="text-xs font-black uppercase text-slate-300 tracking-wider">1. Select Your Vehicle Category</label>
-              <span id="selected-car-label" class="text-xs font-bold text-brand-400">Selected: Hatchback</span>
-            </div>
-
-            <div class="grid grid-cols-2 sm:grid-cols-4 gap-3" id="car-type-buttons">
-              <button onclick="setVehicle('hatchback', this)" class="car-pill active-car p-3.5 rounded-xl border-2 border-brand-600 bg-brand-600/10 text-white text-left transition-all">
-                <i data-lucide="car" class="w-5 h-5 text-brand-400 mb-1"></i>
-                <div class="text-xs font-black">Hatchback</div>
-                <div class="text-[10px] text-slate-400">i20 / Swift / Baleno / Polo</div>
-              </button>
-
-              <button onclick="setVehicle('compact-suv', this)" class="car-pill p-3.5 rounded-xl border border-dark-700 bg-dark-900 hover:border-brand-500/50 text-white text-left transition-all">
-                <i data-lucide="car-front" class="w-5 h-5 text-slate-400 mb-1"></i>
-                <div class="text-xs font-black">Compact SUV</div>
-                <div class="text-[10px] text-slate-400">Brezza / Nexon / Venue</div>
-              </button>
-
-              <button onclick="setVehicle('suv', this)" class="car-pill p-3.5 rounded-xl border border-dark-700 bg-dark-900 hover:border-brand-500/50 text-white text-left transition-all">
-                <i data-lucide="truck" class="w-5 h-5 text-slate-400 mb-1"></i>
-                <div class="text-xs font-black">Mid & Offroad SUV</div>
-                <div class="text-[10px] text-slate-400">Thar Roxx / Creta / Scorpio-N</div>
-              </button>
-
-              <button onclick="setVehicle('luxury', this)" class="car-pill p-3.5 rounded-xl border border-dark-700 bg-dark-900 hover:border-brand-500/50 text-white text-left transition-all">
-                <i data-lucide="shield" class="w-5 h-5 text-slate-400 mb-1"></i>
-                <div class="text-xs font-black">Full SUV & Luxury</div>
-                <div class="text-[10px] text-slate-400">Fortuner / BMW / Audi / Merc</div>
-              </button>
-            </div>
-          </div>
-
-          <!-- Step 2: Package Selection -->
-          <div class="mb-8">
-            <div class="flex items-center justify-between mb-3">
-              <label class="text-xs font-black uppercase text-slate-300 tracking-wider">2. Choose Protection Package</label>
-            </div>
-
-            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3" id="package-buttons">
-              <!-- Garware TPU -->
-              <div onclick="setPackage('garware', this)" class="pkg-card active-pkg p-4 rounded-xl border-2 border-brand-600 bg-brand-600/10 cursor-pointer transition-all">
-                <div class="flex items-center justify-between mb-1">
-                  <span class="font-bold text-sm text-white">Garware Plus TPU PPF</span>
-                  <span class="text-[10px] px-2 py-0.5 rounded font-black bg-brand-600 text-white">5 YR WARRANTY</span>
-                </div>
-                <p class="text-xs text-slate-400 leading-relaxed">
-                  185-Micron thermoplastic polyurethane, instant swirl heal, non-yellowing.
-                </p>
-              </div>
-
-              <!-- Avery Dennison Supreme -->
-              <div onclick="setPackage('avery', this)" class="pkg-card p-4 rounded-xl border border-dark-700 bg-dark-900 hover:border-brand-500/50 cursor-pointer transition-all">
-                <div class="flex items-center justify-between mb-1">
-                  <span class="font-bold text-sm text-white">Avery Dennison Supreme PPF</span>
-                  <span class="text-[10px] px-2 py-0.5 rounded font-black bg-crimson-600 text-white">10 YR WARRANTY</span>
-                </div>
-                <p class="text-xs text-slate-400 leading-relaxed">
-                  US-imported aliphatic TPU with instant scratch heal & mirror optical clarity.
-                </p>
-              </div>
-
-              <!-- Sonax 9H Ceramic -->
-              <div onclick="setPackage('ceramic', this)" class="pkg-card p-4 rounded-xl border border-dark-700 bg-dark-900 hover:border-brand-500/50 cursor-pointer transition-all">
-                <div class="flex items-center justify-between mb-1">
-                  <span class="font-bold text-sm text-white">Sonax 9H Matrix Ceramic Lab</span>
-                  <span class="text-[10px] px-2 py-0.5 rounded font-black bg-slate-800 text-slate-200">3 YR WARRANTY</span>
-                </div>
-                <p class="text-xs text-slate-400 leading-relaxed">
-                  Double-coat ceramic shield with 3-stage rotary compounding & swirl removal.
-                </p>
-              </div>
-
-              <!-- Full Exterior Wrap -->
-              <div onclick="setPackage('wrap', this)" class="pkg-card p-4 rounded-xl border border-dark-700 bg-dark-900 hover:border-brand-500/50 cursor-pointer transition-all">
-                <div class="flex items-center justify-between mb-1">
-                  <span class="font-bold text-sm text-white">Avery Custom Vinyl Body Wrap</span>
-                  <span class="text-[10px] px-2 py-0.5 rounded font-black bg-emerald-600 text-white">3 YR WARRANTY</span>
-                </div>
-                <p class="text-xs text-slate-400 leading-relaxed">
-                  Satin, matte, or gloss complete color transformation with tucked edges.
-                </p>
-              </div>
-            </div>
-          </div>
-
-          <!-- Step 3: Estimated Output Bar -->
-          <div class="p-6 rounded-2xl bg-dark-900 border border-brand-500/40 text-white flex flex-col md:flex-row items-center justify-between gap-6 shadow-2xl">
-            <div class="space-y-1 text-center md:text-left">
-              <span class="text-xs font-bold text-brand-400 uppercase tracking-widest">Official CCS Studio Estimate</span>
-              <div class="flex items-baseline justify-center md:justify-start gap-2">
-                <span id="price-output" class="text-3xl sm:text-4xl font-heading font-bold text-white tracking-wider">₹38,000 - ₹44,000</span>
-                <span class="text-xs text-slate-400 font-medium">+ GST</span>
-              </div>
-              <p id="warranty-output" class="text-xs text-slate-300">Includes 5-Year Garware digital warranty card & free 30-day inspection.</p>
-            </div>
-
-            <!-- WhatsApp Action -->
-            <button onclick="bookWhatsAppQuote()" class="shimmer-btn w-full md:w-auto px-6 py-4 rounded-xl bg-crimson-600 hover:bg-crimson-500 text-white font-black text-xs uppercase tracking-wider flex items-center justify-center gap-2 shadow-glow-crimson transition-transform hover:scale-105">
-              <i data-lucide="message-square" class="w-4 h-4"></i>
-              <span>Lock This Price On WhatsApp</span>
-            </button>
-          </div>
-
-        </div>
-
+      <div class="p-8">
+        <div class="text-3xl lg:text-4xl font-black text-white font-mono">7 Days</div>
+        <div class="text-xs uppercase tracking-widest text-zinc-500 mt-1">Full Car Teardown Turnaround</div>
       </div>
-    </section>
-
-    <!-- TRUST STATS & METRICS (Animated Scroll Counters) -->
-    <section class="py-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      
-      <!-- Four Metric Tiles with Animated Count-Up -->
-      <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8 reveal-elem">
-        
-        <div class="p-6 rounded-2xl bg-dark-900 border border-dark-700/80 text-center hover:border-brand-500 transition-colors">
-          <div class="text-3xl sm:text-5xl font-heading font-bold text-brand-400">
-            <span class="stat-counter" data-target="10000">0</span>+
-          </div>
-          <div class="text-xs font-black uppercase text-white mt-1">Happy Customers</div>
-          <div class="text-[10px] text-slate-500">Across NCR & Uttarakhand</div>
-        </div>
-
-        <div class="p-6 rounded-2xl bg-dark-900 border border-dark-700/80 text-center hover:border-brand-500 transition-colors">
-          <div class="text-3xl sm:text-5xl font-heading font-bold text-white">
-            <span class="stat-counter" data-target="4000">0</span>+
-          </div>
-          <div class="text-xs font-black uppercase text-white mt-1">Projects Handled</div>
-          <div class="text-[10px] text-slate-500">PPF & Ceramic Coatings</div>
-        </div>
-
-        <div class="p-6 rounded-2xl bg-dark-900 border border-dark-700/80 text-center hover:border-brand-500 transition-colors">
-          <div class="text-3xl sm:text-5xl font-heading font-bold text-brand-400">
-            <span class="stat-counter" data-target="30000">0</span>+
-          </div>
-          <div class="text-xs font-black uppercase text-white mt-1">Hours of Work</div>
-          <div class="text-[10px] text-slate-500">Handcrafted Precision</div>
-        </div>
-
-        <div class="p-6 rounded-2xl bg-dark-900 border border-dark-700/80 text-center hover:border-crimson-500 transition-colors">
-          <div class="text-3xl sm:text-5xl font-heading font-bold text-crimson-500">
-            <span class="stat-counter" data-target="8">0</span>+
-          </div>
-          <div class="text-xs font-black uppercase text-white mt-1">Years Experience</div>
-          <div class="text-[10px] text-slate-500">Master Applicators</div>
-        </div>
-
+      <div class="p-8">
+        <div class="text-3xl lg:text-4xl font-black text-white font-mono">5-8 Yrs</div>
+        <div class="text-xs uppercase tracking-widest text-zinc-500 mt-1">Official Anti-Yellowing Warranty</div>
       </div>
+    </div>
+  </section>
 
-      <!-- Social Media Proof Bar -->
-      <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 reveal-elem">
-              <div class="text-[10px] text-slate-400">Daily transformation reels</div>
-            </div>
-          </div>
-          <span class="text-xs font-bold text-pink-400">Follow →</span>
-        </a>
-
-        <div class="p-4 rounded-xl bg-red-600/10 border border-red-500/30 flex items-center justify-between">
-          <div class="flex items-center gap-3">
-            <div class="w-10 h-10 rounded-lg bg-red-600 flex items-center justify-center text-white">
-              <i data-lucide="youtube" class="w-5 h-5"></i>
-            </div>
-            <div>
-              <div class="text-sm font-black text-white">Car Craft Studio TV</div>
-              <div class="text-[10px] text-slate-400">Transformation Guides</div>
-            </div>
-          </div>
-          <span class="text-xs font-bold text-red-400">Subscribe →</span>
-        </div>
-
-        <div class="p-4 rounded-xl bg-blue-600/10 border border-blue-500/30 flex items-center justify-between">
-          <div class="flex items-center gap-3">
-            <div class="w-10 h-10 rounded-lg bg-blue-600 flex items-center justify-center text-white">
-              <i data-lucide="star" class="w-5 h-5"></i>
-            </div>
-            <div>
-              <div class="text-sm font-black text-white">4.9 / 5.0 Rating</div>
-              <div class="text-[10px] text-slate-400">Google Verified Reviews</div>
-            </div>
-          </div>
-          <span class="text-xs font-bold text-blue-400">Reviews →</span>
-        </div>
-
-      </div>
-
-    </section>
-
-    <!-- 4-STEP BROTOMOTIV WORKFLOW -->
-    <section id="process" class="py-20 bg-dark-900/60 border-y border-dark-700/60">
-      <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-        
-        <div class="text-center mb-16 space-y-2 reveal-elem">
-          <span class="px-3 py-1 rounded-full bg-brand-600/20 text-brand-400 text-xs font-black uppercase tracking-wider border border-brand-500/30">
-            Transparent Workflow
-          </span>
-          <h2 class="text-3xl sm:text-5xl font-heading font-bold text-white uppercase tracking-wider">
-            OUR 4-STEP <span class="text-brand-500">STUDIO PROCESS</span>
-          </h2>
-          <p class="text-slate-400 text-xs sm:text-sm max-w-md mx-auto">
-            Clean and documented workflow from arrival to digital warranty generation.
-          </p>
-        </div>
-
-        <div class="grid grid-cols-1 md:grid-cols-4 gap-6 reveal-elem">
-          
-          <div class="bg-dark-950 rounded-2xl border border-dark-700 p-6 text-center space-y-3 relative">
-            <div class="w-14 h-14 rounded-2xl bg-dark-900 border-2 border-brand-500 text-brand-400 mx-auto flex items-center justify-center">
-              <i data-lucide="headphones" class="w-7 h-7"></i>
-            </div>
-            <span class="inline-block px-2 py-0.5 rounded bg-brand-600/20 text-brand-300 text-[10px] font-black uppercase">Step 01</span>
-            <h3 class="text-sm font-black text-white">Share Requirements</h3>
-            <p class="text-xs text-slate-400 leading-relaxed">
-              Reach us via WhatsApp or form to discuss your vehicle model and required package.
-            </p>
-          </div>
-
-          <div class="bg-dark-950 rounded-2xl border border-dark-700 p-6 text-center space-y-3 relative">
-            <div class="w-14 h-14 rounded-2xl bg-dark-900 border-2 border-brand-500 text-brand-400 mx-auto flex items-center justify-center">
-              <i data-lucide="calendar" class="w-7 h-7"></i>
-            </div>
-            <span class="inline-block px-2 py-0.5 rounded bg-brand-600/20 text-brand-300 text-[10px] font-black uppercase">Step 02</span>
-            <h3 class="text-sm font-black text-white">Schedule Inspection</h3>
-            <p class="text-xs text-slate-400 leading-relaxed">
-              Bring your car into our Delhi, Noida, or Dehradun bay for digital paint thickness measurement.
-            </p>
-          </div>
-
-          <div class="bg-dark-950 rounded-2xl border border-dark-700 p-6 text-center space-y-3 relative">
-            <div class="w-14 h-14 rounded-2xl bg-dark-900 border-2 border-crimson-500 text-crimson-400 mx-auto flex items-center justify-center">
-              <i data-lucide="credit-card" class="w-7 h-7"></i>
-            </div>
-            <span class="inline-block px-2 py-0.5 rounded bg-crimson-600/20 text-crimson-400 text-[10px] font-black uppercase">Step 03</span>
-            <h3 class="text-sm font-black text-white">Lock Token & Slot</h3>
-            <p class="text-xs text-slate-400 leading-relaxed">
-              Pay a small refundable token to lock your bay slot. We operate strictly on appointment.
-            </p>
-          </div>
-
-          <div class="bg-dark-950 rounded-2xl border border-dark-700 p-6 text-center space-y-3 relative">
-            <div class="w-14 h-14 rounded-2xl bg-dark-900 border-2 border-emerald-500 text-emerald-400 mx-auto flex items-center justify-center">
-              <i data-lucide="check-circle" class="w-7 h-7"></i>
-            </div>
-            <span class="inline-block px-2 py-0.5 rounded bg-emerald-600/20 text-emerald-400 text-[10px] font-black uppercase">Step 04</span>
-            <h3 class="text-sm font-black text-white">Delivery & Warranty</h3>
-            <p class="text-xs text-slate-400 leading-relaxed">
-              Detailed inspection under 6500K LED array and generation of manufacturer digital warranty.
-            </p>
-          </div>
-
-        </div>
-
-      </div>
-    </section>
-
-    <!-- STUDIO BRANCHES SWITCHER (Delhi • Noida • Dehradun) -->
-    <section id="branches" class="py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      
-      <div class="text-center max-w-xl mx-auto mb-14 space-y-2 reveal-elem">
-        <span class="px-3 py-1 rounded-full bg-brand-600/20 text-brand-400 text-xs font-black uppercase tracking-wider border border-brand-500/30">
-          Studio Network
-        </span>
-        <h2 class="text-3xl sm:text-5xl font-heading font-bold text-white uppercase tracking-wider">
-          OUR THREE <span class="text-brand-500">STUDIO OUTLETS</span>
-        </h2>
-        <p class="text-xs sm:text-sm text-slate-400">
-          Dust-controlled negative-pressure detailing booths located conveniently in key hubs.
-        </p>
-      </div>
-
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 reveal-elem">
-        
-        <!-- Delhi Studio -->
-        <div class="bg-dark-900 rounded-2xl border-2 border-brand-600 p-6 flex flex-col justify-between shadow-glow-blue relative">
-          <div class="absolute top-0 right-0 bg-brand-600 text-white text-[9px] font-black px-3 py-1 rounded-bl-lg uppercase tracking-wider">
-            Flagship Hub
-          </div>
-          <div>
-            <span class="inline-block px-2.5 py-1 rounded bg-brand-600/20 text-brand-400 text-xs font-extrabold uppercase mb-3">
-              DELHI STUDIO
-            </span>
-            <h3 class="text-xl font-bold text-white mb-2">Car Craft Studio Delhi</h3>
-            <p class="text-xs text-slate-400 leading-relaxed mb-4">
-              Ring Road Industrial Area, Naraina / Rajouri Garden vicinity, New Delhi - 110028
-            </p>
-            <div class="space-y-1.5 text-xs text-slate-300">
-              <p><strong>Bays:</strong> 4 Simultaneous PPF Clean Enclosures</p>
-              <p><strong>Hours:</strong> 10:00 AM - 8:30 PM (Open 7 Days)</p>
-            </div>
-          </div>
-          <div class="mt-6 pt-4 border-t border-dark-700 flex gap-2">
-            <a href="https://maps.google.com/?q=Car+Craft+Studio+Delhi" target="_blank" class="flex-1 py-2.5 rounded-xl bg-brand-600 hover:bg-brand-500 text-white font-extrabold text-xs text-center flex items-center justify-center gap-1.5 transition-colors">
-              <i data-lucide="navigation" class="w-3.5 h-3.5"></i> Maps
-            </a>
-            <a href="tel:+919876543210" class="flex-1 py-2.5 rounded-xl bg-dark-800 hover:bg-dark-700 border border-dark-600 text-white font-extrabold text-xs text-center flex items-center justify-center gap-1.5 transition-colors">
-              <i data-lucide="phone" class="w-3.5 h-3.5 text-brand-400"></i> Call
-            </a>
-          </div>
-        </div>
-
-        <!-- Noida Studio -->
-        <div class="bg-dark-900 rounded-2xl border border-dark-700 hover:border-brand-500/50 p-6 flex flex-col justify-between transition-colors">
-          <div>
-            <span class="inline-block px-2.5 py-1 rounded bg-dark-800 text-slate-300 text-xs font-extrabold uppercase mb-3">
-              NOIDA STUDIO
-            </span>
-            <h3 class="text-xl font-bold text-white mb-2">Car Craft Studio Noida</h3>
-            <p class="text-xs text-slate-400 leading-relaxed mb-4">
-              Sector 63 / Near Noida Expressway & Advant IT Park, Gautam Buddha Nagar - 201301
-            </p>
-            <div class="space-y-1.5 text-xs text-slate-300">
-              <p><strong>Specialty:</strong> Thar & 4x4 Off-Road Armor Bay</p>
-              <p><strong>Hours:</strong> 10:00 AM - 8:00 PM</p>
-            </div>
-          </div>
-          <div class="mt-6 pt-4 border-t border-dark-700 flex gap-2">
-            <a href="https://maps.google.com/?q=Car+Craft+Studio+Noida" target="_blank" class="flex-1 py-2.5 rounded-xl bg-dark-800 hover:bg-brand-600 text-white font-extrabold text-xs text-center flex items-center justify-center gap-1.5 transition-colors">
-              <i data-lucide="navigation" class="w-3.5 h-3.5"></i> Maps
-            </a>
-            <a href="tel:+919876543210" class="flex-1 py-2.5 rounded-xl bg-dark-800 hover:bg-dark-700 border border-dark-600 text-white font-extrabold text-xs text-center flex items-center justify-center gap-1.5 transition-colors">
-              <i data-lucide="phone" class="w-3.5 h-3.5 text-brand-400"></i> Call
-            </a>
-          </div>
-        </div>
-
-        <!-- Dehradun Studio -->
-        <div class="bg-dark-900 rounded-2xl border border-dark-700 hover:border-brand-500/50 p-6 flex flex-col justify-between transition-colors">
-          <div>
-            <span class="inline-block px-2.5 py-1 rounded bg-dark-800 text-slate-300 text-xs font-extrabold uppercase mb-3">
-              DEHRADUN STUDIO
-            </span>
-            <h3 class="text-xl font-bold text-white mb-2">Car Craft Studio Dehradun</h3>
-            <p class="text-xs text-slate-400 leading-relaxed mb-4">
-              Rajpur Road / Near Saharanpur Road Bypass, Dehradun, Uttarakhand - 248001
-            </p>
-            <div class="space-y-1.5 text-xs text-slate-300">
-              <p><strong>Highlights:</strong> High Altitude UV Protection Lab</p>
-              <p><strong>Hours:</strong> 10:00 AM - 7:30 PM</p>
-            </div>
-          </div>
-          <div class="mt-6 pt-4 border-t border-dark-700 flex gap-2">
-            <a href="https://maps.google.com/?q=Car+Craft+Studio+Dehradun" target="_blank" class="flex-1 py-2.5 rounded-xl bg-dark-800 hover:bg-brand-600 text-white font-extrabold text-xs text-center flex items-center justify-center gap-1.5 transition-colors">
-              <i data-lucide="navigation" class="w-3.5 h-3.5"></i> Maps
-            </a>
-            <a href="tel:+919876543210" class="flex-1 py-2.5 rounded-xl bg-dark-800 hover:bg-dark-700 border border-dark-600 text-white font-extrabold text-xs text-center flex items-center justify-center gap-1.5 transition-colors">
-              <i data-lucide="phone" class="w-3.5 h-3.5 text-brand-400"></i> Call
-            </a>
-          </div>
-        </div>
-
-      </div>
-
-    </section>
-
-    <!-- VERIFIED REVIEWS -->
-    <section id="reviews" class="py-20 bg-dark-900 border-t border-dark-700/60">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        
-        <div class="text-center max-w-xl mx-auto mb-14 space-y-2 reveal-elem">
-          <span class="px-3 py-1 rounded-full bg-brand-600/20 text-brand-400 text-xs font-black uppercase tracking-wider border border-brand-500/30">
-            Enthusiast Feedback
-          </span>
-          <h2 class="text-3xl sm:text-5xl font-heading font-bold text-white uppercase tracking-wider">
-            CUSTOMER <span class="text-brand-500">REVIEWS</span>
-          </h2>
-          <p class="text-xs sm:text-sm text-slate-400">
-            Real feedback from owners who trusted Car Craft Studio with their off-roaders and luxury sedans.
-          </p>
-        </div>
-
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 reveal-elem">
-          
-          <div class="bg-dark-950 rounded-2xl border border-dark-700 p-6 flex flex-col justify-between">
-            <div>
-              <div class="flex text-amber-400 mb-3 text-sm">★★★★★</div>
-              <p class="text-xs sm:text-sm text-slate-300 leading-relaxed italic mb-4">
-                "Got full Avery Dennison TPU PPF on my new Mahindra Thar Roxx at Delhi Studio. The rolled tucked edges around flared wheel arches are completely invisible without a single knife mark on paint. Master craftsmanship!"
-              </p>
-            </div>
-            <div class="pt-4 border-t border-dark-800 flex items-center justify-between">
-              <div>
-                <h4 class="text-xs font-black text-white">Gaurav Sharma</h4>
-                <p class="text-[10px] text-slate-400">Mahindra Thar Roxx • Delhi Bay</p>
-              </div>
-              <span class="px-2 py-0.5 rounded bg-brand-600/20 text-brand-400 text-[10px] font-bold">Avery PPF</span>
-            </div>
-          </div>
-
-          <div class="bg-dark-950 rounded-2xl border border-dark-700 p-6 flex flex-col justify-between">
-            <div>
-              <div class="flex text-amber-400 mb-3 text-sm">★★★★★</div>
-              <p class="text-xs sm:text-sm text-slate-300 leading-relaxed italic mb-4">
-                "Brought my Toyota Fortuner for Sonax 9H Ceramic Matrix after driving from Mussoorie. The water beading and glossy mirror finish are unmatched. Dust washes off in seconds now. The Dehradun team is fantastic."
-              </p>
-            </div>
-            <div class="pt-4 border-t border-dark-800 flex items-center justify-between">
-              <div>
-                <h4 class="text-xs font-black text-white">Vikram Rawat</h4>
-                <p class="text-[10px] text-slate-400">Toyota Fortuner 4x4 • Dehradun</p>
-              </div>
-              <span class="px-2 py-0.5 rounded bg-brand-600/20 text-brand-400 text-[10px] font-bold">Sonax 9H</span>
-            </div>
-          </div>
-
-          <div class="bg-dark-950 rounded-2xl border border-dark-700 p-6 flex flex-col justify-between">
-            <div>
-              <div class="flex text-amber-400 mb-3 text-sm">★★★★★</div>
-              <p class="text-xs sm:text-sm text-slate-300 leading-relaxed italic mb-4">
-                "Had my BMW 3 Series de-chromed in piano black and Garware TPU PPF on bumper & hood at Noida. Top tier work! The staff sent me WhatsApp video progress updates every 3 hours."
-              </p>
-            </div>
-            <div class="pt-4 border-t border-dark-800 flex items-center justify-between">
-              <div>
-                <h4 class="text-xs font-black text-white">Aman Verma</h4>
-                <p class="text-[10px] text-slate-400">BMW 330i M Sport • Noida Bay</p>
-              </div>
-              <span class="px-2 py-0.5 rounded bg-crimson-600/20 text-crimson-400 text-[10px] font-bold">De-Chroming</span>
-            </div>
-          </div>
-
-        </div>
-
-      </div>
-    </section>
-  </main>
-
-  <!-- FOOTER (Dark Theme with CCS Badging) -->
-  <footer class="bg-dark-950 border-t border-dark-700/80 pt-16 pb-28 sm:pb-12 text-slate-400">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      
-      <div class="grid grid-cols-1 md:grid-cols-4 gap-10 mb-12">
-        
-        <div class="space-y-4 md:col-span-2">
-          <div class="flex items-center gap-3">
-            <div class="w-10 h-10 rounded-full bg-brand-600 flex items-center justify-center text-white font-black text-sm">
-              CCS
-            </div>
-            <div>
-              <span class="font-heading text-2xl font-bold tracking-wider text-white">CAR CRAFT STUDIO</span>
-              <span class="text-[10px] block text-crimson-500 font-black tracking-widest">DELHI • NOIDA • DEHRADUN</span>
-            </div>
-          </div>
-          <p class="text-xs text-slate-400 max-w-sm leading-relaxed">
-            Northern India's premier paint protection laboratory. Authorized applicators for Avery Dennison, Garware Hi-Tech Films, and Sonax German ceramic surface chemistry.
-          </p>
-          <div class="flex items-center gap-3 text-xs font-bold text-slate-300 pt-1">
-            <span class="flex items-center gap-1"><i data-lucide="check" class="w-4 h-4 text-brand-400"></i> Dust-Free Bay</span>
-            <span class="flex items-center gap-1"><i data-lucide="check" class="w-4 h-4 text-brand-400"></i> Digital Warranty</span>
-            <span class="flex items-center gap-1"><i data-lucide="check" class="w-4 h-4 text-crimson-500"></i> Certified Techs</span>
-          </div>
-        </div>
-
+  <!-- AUTHENTIC SERVICE TABLE (NO CLUTTERED CARDS) -->
+  <section id="services" class="border-b grid-line py-20">
+    <div class="max-w-7xl mx-auto px-5">
+      <div class="flex flex-col md:flex-row md:items-end justify-between mb-12">
         <div>
-          <h4 class="text-xs font-black text-white uppercase tracking-wider mb-4">Core Treatments</h4>
-          <ul class="space-y-2 text-xs">
-            <li><a href="#services" class="hover:text-brand-400 transition-colors">Garware Hi-Tech TPU PPF</a></li>
-            <li><a href="#services" class="hover:text-brand-400 transition-colors">Avery Dennison Supreme Armor</a></li>
-            <li><a href="#services" class="hover:text-brand-400 transition-colors">Sonax 9H Matrix Ceramic</a></li>
-            <li><a href="#services" class="hover:text-brand-400 transition-colors">Thar Roxx Offroad Wraps</a></li>
-            <li><a href="#services" class="hover:text-brand-400 transition-colors">Sunroof Heat Shield Film</a></li>
-          </ul>
+          <span class="text-xs font-mono uppercase tracking-widest text-blue-500">Core Bay Operations</span>
+          <h2 class="heading-heavy text-3xl sm:text-5xl font-black text-white uppercase mt-2">What We Deliver</h2>
+        </div>
+        <p class="text-xs font-mono text-zinc-500 mt-2 md:mt-0">All jobs include multi-stage rotary compounding & clay prep</p>
+      </div>
+
+      <div class="divide-y divide-zinc-800 border-t border-b divide-zinc-800">
+        
+        <!-- ROW 1 -->
+        <div class="py-8 grid grid-cols-1 lg:grid-cols-12 gap-6 items-start group">
+          <div class="lg:col-span-1 text-xs font-mono text-zinc-600">01</div>
+          <div class="lg:col-span-4">
+            <h3 class="text-xl font-bold text-white uppercase group-hover:text-blue-500 transition">Garware / Avery TPU PPF</h3>
+            <p class="text-xs font-mono text-zinc-500 mt-1">Self-Healing · Hydrophobic Top-Coat · Stone-Chip Proof</p>
+          </div>
+          <div class="lg:col-span-5 text-sm text-zinc-400 leading-relaxed">
+            Every edge tucked behind door panels, headlamps, and badges for a factory-invisible finish. Protects original paint from acid rain, rock hits, and swirl marks.
+          </div>
+          <div class="lg:col-span-2 lg:text-right">
+            <span class="inline-block text-xs font-mono border border-zinc-700 px-3 py-1 text-zinc-300">5-8 Yr Warranty</span>
+          </div>
         </div>
 
-        <div>
-          <h4 class="text-xs font-black text-white uppercase tracking-wider mb-4">Direct Contact</h4>
-          <div class="space-y-2 text-xs text-slate-300">
-            <p><strong>Hotline:</strong><br><a href="tel:+919876543210" class="text-brand-400 font-bold">+91 98765 43210</a></p>
-            <p><strong>Instagram:</strong><br><a href="https://instagram.com/carcraftstudio_delhi" target="_blank" class="hover:underline text-white font-medium">@carcraftstudio_delhi</a></p>
-            <p><strong>Email:</strong><br>contact@carcraftstudio.in</p>
+        <!-- ROW 2 -->
+        <div class="py-8 grid grid-cols-1 lg:grid-cols-12 gap-6 items-start group">
+          <div class="lg:col-span-1 text-xs font-mono text-zinc-600">02</div>
+          <div class="lg:col-span-4">
+            <h3 class="text-xl font-bold text-white uppercase group-hover:text-blue-500 transition">Sonax 9H Ceramic Coating</h3>
+            <p class="text-xs font-mono text-zinc-500 mt-1">Multi-Layer Quartz · Deep Mirror Wet Look · 110° Water Bead</p>
+          </div>
+          <div class="lg:col-span-5 text-sm text-zinc-400 leading-relaxed">
+            3-stage paint correction under LED inspection grids to eliminate 95% of micro-scratches before locking in the finish with Sonax CC One ceramic bond.
+          </div>
+          <div class="lg:col-span-2 lg:text-right">
+            <span class="inline-block text-xs font-mono border border-zinc-700 px-3 py-1 text-zinc-300">3-5 Yr Warranty</span>
+          </div>
+        </div>
+
+        <!-- ROW 3 -->
+        <div class="py-8 grid grid-cols-1 lg:grid-cols-12 gap-6 items-start group">
+          <div class="lg:col-span-1 text-xs font-mono text-zinc-600">03</div>
+          <div class="lg:col-span-4">
+            <h3 class="text-xl font-bold text-white uppercase group-hover:text-blue-500 transition">Custom Color Wrap</h3>
+            <p class="text-xs font-mono text-zinc-500 mt-1">Avery Dennison / 3M 2080 · Satin, Matte & Gloss</p>
+          </div>
+          <div class="lg:col-span-5 text-sm text-zinc-400 leading-relaxed">
+            Complete vehicle teardown and dry wrap application. Completely reversible without damage to OEM factory clear coat.
+          </div>
+          <div class="lg:col-span-2 lg:text-right">
+            <span class="inline-block text-xs font-mono border border-zinc-700 px-3 py-1 text-zinc-300">3 Yr Warranty</span>
           </div>
         </div>
 
       </div>
+    </div>
+  </section>
 
-      <div class="pt-8 border-t border-dark-800 text-center text-xs text-slate-500 flex flex-col sm:flex-row items-center justify-between gap-3">
-        <p>© 2026 Car Craft Studio (CCS). All rights reserved.</p>
-        <p class="text-[11px]">Authorized Applicator for Garware & Avery Dennison Films</p>
+  <!-- HONEST PRICING CALCULATOR -->
+  <section id="rates" class="py-20 border-b grid-line bg-[#0E0E11]">
+    <div class="max-w-4xl mx-auto px-5">
+      <div class="text-center mb-10">
+        <span class="text-xs font-mono uppercase tracking-widest text-blue-500">Transparent Estimates</span>
+        <h2 class="heading-heavy text-3xl sm:text-4xl font-black text-white uppercase mt-2">Vehicle Estimate</h2>
+        <p class="text-xs text-zinc-400 mt-2">Final quotation depends on paint thickness meter assessment</p>
       </div>
 
+      <div class="border border-zinc-800 bg-[#08080A] p-6 sm:p-10">
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-8">
+          <div>
+            <label class="block text-xs font-mono uppercase tracking-wider text-zinc-400 mb-2">Select Vehicle Type</label>
+            <select id="carType" onchange="calc()" class="w-full bg-[#141418] border border-zinc-700 text-white text-sm p-3 focus:border-blue-500 outline-none">
+              <option value="compact">Hatchback (Swift / i20 / Baleno)</option>
+              <option value="mid" selected>Mid SUV / Sedan (Creta / Seltos / Slavia)</option>
+              <option value="heavy">Rugged 4x4 (Thar Roxx / Scorpio-N)</option>
+              <option value="luxury">Full Size / Luxury (Fortuner / BMW / Audi)</option>
+            </select>
+          </div>
+          <div>
+            <label class="block text-xs font-mono uppercase tracking-wider text-zinc-400 mb-2">Select Treatment</label>
+            <select id="package" onchange="calc()" class="w-full bg-[#141418] border border-zinc-700 text-white text-sm p-3 focus:border-blue-500 outline-none">
+              <option value="ceramic">Sonax 9H Ceramic (3 Yr)</option>
+              <option value="garware" selected>Garware TPU PPF (5 Yr)</option>
+              <option value="avery">Avery Dennison Supreme PPF (8 Yr)</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="border-t border-zinc-800 pt-6 flex flex-col sm:flex-row items-center justify-between gap-6">
+          <div>
+            <div class="text-xs font-mono uppercase text-zinc-500">Estimated Studio Cost</div>
+            <div id="cost" class="text-4xl font-black font-mono text-white mt-1">₹68,000*</div>
+            <div class="text-[11px] text-zinc-500 mt-1">Includes 3-stage compound correction & full edge tuck</div>
+          </div>
+          <a id="waBtn" href="#" target="_blank" class="w-full sm:w-auto bg-blue-600 hover:bg-blue-700 text-white font-bold text-xs px-8 py-4 uppercase tracking-widest text-center transition">
+            Book Bay on WhatsApp
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- STUDIO LOCATIONS -->
+  <section id="studios" class="py-20 max-w-7xl mx-auto px-5">
+    <div class="mb-10">
+      <span class="text-xs font-mono uppercase tracking-widest text-blue-500">Physical Footprint</span>
+      <h2 class="heading-heavy text-3xl sm:text-4xl font-black text-white uppercase mt-2">Our Work Bays</h2>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      <div class="border border-zinc-800 p-6 bg-[#0E0E11]">
+        <div class="text-xs font-mono text-blue-500 mb-2">BAY 01</div>
+        <h3 class="text-lg font-bold text-white uppercase">Delhi Studio</h3>
+        <p class="text-xs text-zinc-400 mt-2 leading-relaxed">Dedicated dust-free clean room bay with dual infrared curing lamps.</p>
+        <div class="mt-6 pt-4 border-t border-zinc-800/80 text-xs font-mono text-zinc-400">
+          📍 West Delhi / Okhla Industrial Area
+        </div>
+      </div>
+
+      <div class="border border-zinc-800 p-6 bg-[#0E0E11]">
+        <div class="text-xs font-mono text-blue-500 mb-2">BAY 02</div>
+        <h3 class="text-lg font-bold text-white uppercase">Noida Studio</h3>
+        <p class="text-xs text-zinc-400 mt-2 leading-relaxed">Expanded commercial facility handling 4 full-body PPF jobs concurrently.</p>
+        <div class="mt-6 pt-4 border-t border-zinc-800/80 text-xs font-mono text-zinc-400">
+          📍 Sector 63, Noida
+        </div>
+      </div>
+
+      <div class="border border-zinc-800 p-6 bg-[#0E0E11]">
+        <div class="text-xs font-mono text-blue-500 mb-2">BAY 03</div>
+        <h3 class="text-lg font-bold text-white uppercase">Dehradun Studio</h3>
+        <p class="text-xs text-zinc-400 mt-2 leading-relaxed">Hill-station vehicle underbody stone-chip and anti-corrosion specialists.</p>
+        <div class="mt-6 pt-4 border-t border-zinc-800/80 text-xs font-mono text-zinc-400">
+          📍 Rajpur Road, Dehradun
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MINIMAL FOOTER -->
+  <footer class="border-t grid-line py-10 bg-black text-zinc-500 text-xs">
+    <div class="max-w-7xl mx-auto px-5 flex flex-col sm:flex-row items-center justify-between gap-4">
+      <p>© 2026 Car Craft Studio. Built for automotive purists.</p>
+      <div class="flex gap-6 uppercase font-mono">
+        <span>Delhi</span>
+        <span>Noida</span>
+        <span>Dehradun</span>
+      </div>
     </div>
   </footer>
 
-  <!-- MOBILE FLOATING STICKY ACTION BAR -->
-  <div class="fixed bottom-0 left-0 right-0 z-40 bg-dark-950/95 backdrop-blur-md border-t border-dark-700 p-2.5 flex items-center justify-between gap-2 sm:hidden shadow-2xl">
-    <a href="tel:+919876543210" class="flex-1 py-3 rounded-xl bg-dark-900 border border-dark-700 text-center text-xs font-black text-white flex items-center justify-center gap-1.5">
-      <i data-lucide="phone" class="w-4 h-4 text-brand-400"></i> Call Bay
-    </a>
-    <a href="#pricing-calculator" class="flex-1 py-3 rounded-xl bg-brand-600 text-center text-xs font-black text-white flex items-center justify-center gap-1.5 shadow-glow-blue">
-      <i data-lucide="calculator" class="w-4 h-4"></i> Cost Estimator
-    </a>
-    <a href="https://wa.me/919876543210?text=Hi%20Car%20Craft%20Studio!%20I%20want%20to%20book%20a%20slot" target="_blank" class="w-12 h-12 rounded-xl bg-emerald-600 text-white flex items-center justify-center shadow-lg">
-      <i data-lucide="message-circle" class="w-5 h-5"></i>
-    </a>
-  </div>
-
-  <!-- SERVICE DETAIL POPUP MODAL -->
-  <div id="service-modal" class="fixed inset-0 z-50 bg-black/80 backdrop-blur-md hidden items-center justify-center p-4">
-    <div class="bg-dark-900 rounded-3xl max-w-lg w-full p-6 sm:p-8 space-y-4 shadow-2xl relative border border-brand-500/40">
-      
-      <button onclick="closeModal()" class="absolute top-5 right-5 text-slate-400 hover:text-white p-1 rounded-full hover:bg-dark-800">
-        <i data-lucide="x" class="w-5 h-5"></i>
-      </button>
-
-      <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-brand-600/20 text-brand-400 text-xs font-extrabold uppercase border border-brand-500/30">
-        <i data-lucide="shield" class="w-3.5 h-3.5"></i>
-        <span>CCS Studio Treatment</span>
-      </div>
-
-      <h3 id="modal-title" class="text-2xl font-heading uppercase tracking-wide text-white">Service Name</h3>
-      
-      <p id="modal-desc" class="text-xs sm:text-sm text-slate-300 leading-relaxed">
-        Description
-      </p>
-
-      <div class="space-y-2 pt-2">
-        <div class="p-3 rounded-xl bg-dark-950 border border-dark-700 flex justify-between items-center text-xs">
-          <span class="text-slate-400">Materials Used:</span>
-          <span id="modal-materials" class="font-bold text-white">Garware / Avery</span>
-        </div>
-        <div class="p-3 rounded-xl bg-dark-950 border border-dark-700 flex justify-between items-center text-xs">
-          <span class="text-slate-400">Warranty Provided:</span>
-          <span id="modal-warranty" class="font-bold text-crimson-400">5 to 10 Years</span>
-        </div>
-        <div class="p-3 rounded-xl bg-brand-600/10 border border-brand-500/30 flex justify-between items-center text-xs">
-          <span class="text-brand-300 font-bold">Estimated Cost:</span>
-          <span id="modal-cost" class="font-bold text-white text-sm">₹38,000 - ₹95,000</span>
-        </div>
-      </div>
-
-      <div class="pt-3 flex gap-2">
-        <button onclick="bookModalToWhatsApp()" class="flex-1 py-3 rounded-xl bg-brand-600 hover:bg-brand-500 text-white font-extrabold text-xs uppercase tracking-wider flex items-center justify-center gap-1.5 shadow-glow-blue">
-          <i data-lucide="message-square" class="w-4 h-4"></i> Lock Slot On WhatsApp
-        </button>
-        <button onclick="closeModal()" class="px-5 py-3 rounded-xl border border-dark-700 text-slate-300 text-xs font-bold hover:bg-dark-800">
-          Close
-        </button>
-      </div>
-    </div>
-  </div>
-
-  <!-- LOGIC & SCRIPTS -->
   <script>
-    // Initialize Lucide Icons
-    lucide.createIcons();
-
-    // 1. Mobile Navbar Handler
-    const mobileBtn = document.getElementById('mobile-toggle');
-    const mobileDrawer = document.getElementById('mobile-menu');
-    mobileBtn.addEventListener('click', () => {
-      mobileDrawer.classList.toggle('hidden');
-    });
-
-    document.querySelectorAll('.mobile-nav-link').forEach(link => {
-      link.addEventListener('click', () => {
-        mobileDrawer.classList.add('hidden');
-      });
-    });
-
-    // 2. Intersection Observer for Scroll Reveals
-    const revealObserver = new IntersectionObserver((entries, observer) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('revealed');
-          observer.unobserve(entry.target);
-        }
-      });
-    }, {
-      root: null,
-      threshold: 0.12,
-      rootMargin: '0px 0px -40px 0px'
-    });
-
-    document.querySelectorAll('.reveal-elem').forEach(el => {
-      revealObserver.observe(el);
-    });
-
-    // 3. Animated Number Counter Effect
-    let counterFired = false;
-    const counterObserver = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting && !counterFired) {
-          counterFired = true;
-          document.querySelectorAll('.stat-counter').forEach(counter => {
-            const target = +counter.getAttribute('data-target');
-            const duration = 1800; // ms
-            const stepTime = 20;
-            const steps = duration / stepTime;
-            const increment = target / steps;
-            let current = 0;
-
-            const timer = setInterval(() => {
-              current += increment;
-              if (current >= target) {
-                counter.innerText = target.toLocaleString('en-IN');
-                clearInterval(timer);
-              } else {
-                counter.innerText = Math.floor(current).toLocaleString('en-IN');
-              }
-            }, stepTime);
-          });
-        }
-      });
-    }, { threshold: 0.2 });
-
-    const statsSection = document.querySelector('.stat-counter');
-    if (statsSection) {
-      counterObserver.observe(statsSection.closest('section'));
-    }
-
-    // 4. Interactive 3D Tilt & Dynamic Spotlight on Service Cards
-    document.querySelectorAll('.brot-card').forEach(card => {
-      card.addEventListener('mousemove', (e) => {
-        const rect = card.getBoundingClientRect();
-        const x = e.clientX - rect.left;
-        const y = e.clientY - rect.top;
-
-        // Set CSS variables for radial spotlight
-        card.style.setProperty('--mouse-x', `${x}px`);
-        card.style.setProperty('--mouse-y', `${y}px`);
-
-        // Compute 3D tilt angles
-        const centerX = rect.width / 2;
-        const centerY = rect.height / 2;
-        const rotateX = ((y - centerY) / centerY) * -8;
-        const rotateY = ((x - centerX) / centerX) * 8;
-
-        card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-4px)`;
-      });
-
-      card.addEventListener('mouseleave', () => {
-        card.style.transform = `perspective(1000px) rotateX(0deg) rotateY(0deg) translateY(0px)`;
-      });
-    });
-
-    // 5. Pricing Calculation Engine
-    let currentVehicle = 'hatchback';
-    let currentPackage = 'garware';
-
-    const pricingEngine = {
-      'hatchback': {
-        name: 'Hatchback (Swift / i20 / Baleno)',
-        'garware': { price: '₹38,000 - ₹44,000', warranty: 'Includes 5-Year Garware digital warranty card & free 30-day inspection.' },
-        'avery': { price: '₹62,000 - ₹70,000', warranty: 'Top-tier Avery Supreme 10-Year anti-yellowing & optical clarity warranty.' },
-        'ceramic': { price: '₹12,000 - ₹15,000', warranty: 'Sonax 9H Matrix dual-coat + 3-stage compound swirl mark elimination.' },
-        'wrap': { price: '₹45,000 - ₹55,000', warranty: 'Full exterior Avery cast vinyl wrap with 3-year edge warranty.' }
-      },
-      'compact-suv': {
-        name: 'Compact SUV (Brezza / Nexon / Venue)',
-        'garware': { price: '₹44,000 - ₹50,000', warranty: 'Includes 5-Year Garware digital warranty card & free 30-day inspection.' },
-        'avery': { price: '₹70,000 - ₹78,000', warranty: 'Top-tier Avery Supreme 10-Year anti-yellowing & optical clarity warranty.' },
-        'ceramic': { price: '₹14,000 - ₹17,000', warranty: 'Sonax 9H Matrix dual-coat + 3-stage compound swirl mark elimination.' },
-        'wrap': { price: '₹50,000 - ₹62,000', warranty: 'Full exterior Avery cast vinyl wrap with 3-year edge warranty.' }
-      },
-      'suv': {
-        name: 'Mid & Offroad SUV (Thar Roxx / Creta / Scorpio-N)',
-        'garware': { price: '₹52,000 - ₹64,000', warranty: 'Bumper, hood & flare protection specially fitted for Thar Roxx & Scorpio-N.' },
-        'avery': { price: '₹84,000 - ₹95,000', warranty: 'Heavy-duty Avery film resistant to off-road stone chips and scratches.' },
-        'ceramic': { price: '₹18,000 - ₹22,000', warranty: 'Sonax 9H Matrix dual-coat + 3-stage compound swirl mark elimination.' },
-        'wrap': { price: '₹65,000 - ₹80,000', warranty: 'Full exterior Avery cast vinyl wrap with 3-year edge warranty.' }
-      },
-      'luxury': {
-        name: 'Full SUV & Luxury (Fortuner / BMW / Audi)',
-        'garware': { price: '₹68,000 - ₹85,000', warranty: 'Complete wrapped-edge tuck coverage with zero knife cuts on bodywork.' },
-        'avery': { price: '₹1,05,000 - ₹1,25,000', warranty: '10-Year international showroom mirror guarantee with Avery Dennison.' },
-        'ceramic': { price: '₹24,000 - ₹30,000', warranty: 'German Sonax Profiline 9H nano ceramic 3-layer protection + glass seal.' },
-        'wrap': { price: '₹85,000 - ₹1,15,000', warranty: 'Full exterior Avery cast vinyl wrap with 3-year edge warranty.' }
-      }
+    const rates = {
+      compact: { ceramic: '₹18,000', garware: '₹55,000', avery: '₹80,000' },
+      mid:     { ceramic: '₹22,000', garware: '₹68,000', avery: '₹95,000' },
+      heavy:   { ceramic: '₹28,000', garware: '₹78,000', avery: '₹1,15,000' },
+      luxury:  { ceramic: '₹35,000', garware: '₹95,000', avery: '₹1,40,000' }
     };
 
-    function updatePrice() {
-      const current = pricingEngine[currentVehicle][currentPackage];
-      document.getElementById('price-output').innerText = current.price;
-      document.getElementById('warranty-output').innerText = current.warranty;
+    function calc() {
+      const c = document.getElementById('carType').value;
+      const p = document.getElementById('package').value;
+      const val = rates[c][p];
+      document.getElementById('cost').innerText = val + '*';
+
+      const text = encodeURIComponent(`Hi CCS, I want to book a slot for my vehicle. Category: ${c}, Package: ${p} (${val}). Please confirm bay availability.`);
+      document.getElementById('waBtn').href = `https://wa.me/91XXXXXXXXXX?text=${text}`;
     }
-
-    function setVehicle(vType, element) {
-      currentVehicle = vType;
-      document.querySelectorAll('.car-pill').forEach(btn => {
-        btn.classList.remove('active-car', 'border-2', 'border-brand-600', 'bg-brand-600/10');
-        btn.classList.add('border', 'border-dark-700', 'bg-dark-900');
-      });
-      element.classList.add('active-car', 'border-2', 'border-brand-600', 'bg-brand-600/10');
-      element.classList.remove('border-dark-700', 'bg-dark-900');
-      document.getElementById('selected-car-label').innerText = 'Selected: ' + pricingEngine[vType].name;
-      updatePrice();
-    }
-
-    function setPackage(pType, element) {
-      currentPackage = pType;
-      document.querySelectorAll('.pkg-card').forEach(btn => {
-        btn.classList.remove('active-pkg', 'border-2', 'border-brand-600', 'bg-brand-600/10');
-        btn.classList.add('border', 'border-dark-700', 'bg-dark-900');
-      });
-      element.classList.add('active-pkg', 'border-2', 'border-brand-600', 'bg-brand-600/10');
-      element.classList.remove('border-dark-700', 'bg-dark-900');
-      updatePrice();
-    }
-
-    function bookWhatsAppQuote() {
-      const titles = {
-        'garware': 'Garware Plus TPU PPF (5-Year)',
-        'avery': 'Avery Dennison Supreme PPF (10-Year)',
-        'ceramic': 'Sonax 9H Matrix Ceramic Lab (3-Year)',
-        'wrap': 'Avery Custom Vinyl Body Wrap'
-      };
-
-      const vehName = pricingEngine[currentVehicle].name;
-      const pkgName = titles[currentPackage];
-      const estimate = pricingEngine[currentVehicle][currentPackage].price;
-
-      const message = `Hello Car Craft Studio! 🚗✨%0A%0AI used your website calculator to configure my car:%0A- *Car:* ${vehName}%0A- *Package:* ${pkgName}%0A- *Estimate:* ${estimate}%0A%0AI would like to check appointment slot availability for your Delhi / Noida / Dehradun studio!`;
-      window.open(`https://wa.me/919876543210?text=${message}`, '_blank');
-    }
-
-    // Modal Handler
-    const modal = document.getElementById('service-modal');
-    let activeModalTitle = '';
-
-    function openModal(title, desc, materials, cost, warranty) {
-      activeModalTitle = title;
-      document.getElementById('modal-title').innerText = title;
-      document.getElementById('modal-desc').innerText = desc;
-      document.getElementById('modal-materials').innerText = materials;
-      document.getElementById('modal-cost').innerText = cost;
-      document.getElementById('modal-warranty').innerText = warranty;
-      modal.classList.remove('hidden');
-      modal.classList.add('flex');
-    }
-
-    function closeModal() {
-      modal.classList.add('hidden');
-      modal.classList.remove('flex');
-    }
-
-    function bookModalToWhatsApp() {
-      const msg = `Hi Car Craft Studio! I want to inquire about booking the *${activeModalTitle}* package at your studio.`;
-      window.open(`https://wa.me/919876543210?text=${encodeURIComponent(msg)}`, '_blank');
-      closeModal();
-    }
-
-    modal.addEventListener('click', (e) => {
-      if (e.target === modal) closeModal();
-    });
+    calc();
   </script>
-
 </body>
 </html>
-```
