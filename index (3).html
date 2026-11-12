@@ -1,0 +1,656 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Gloss Lab Nashik — TPU PPF, Graphene Coating & Paint Restoration Studio</title>
+<meta name="description" content="Gloss Lab Nashik: certified TPU paint protection film, 10H ceramic & graphene coatings, heated-booth paint restoration and acoustic sound damping in Nashik. Book a free inspection on WhatsApp.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+tailwind.config = {
+  theme: {
+    extend: {
+      colors: {
+        obsidian: '#08090C',
+        panel: '#12151E',
+        cobalt: '#2563EB',
+        racing: '#DC2626',
+        muted: '#A7B0C0'
+      },
+      fontFamily: {
+        heading: ['"Plus Jakarta Sans"', 'sans-serif'],
+        body: ['Inter', 'sans-serif']
+      }
+    }
+  }
+};
+</script>
+<style>
+  html { scroll-behavior: smooth; }
+  body { background: #08090C; }
+  ::selection { background: #2563EB; color: #fff; }
+
+  /* Visible keyboard focus on every interactive element */
+  :focus-visible { outline: 2px solid #2563EB; outline-offset: 3px; border-radius: 4px; }
+
+  /* Cobalt card glow */
+  .card-glow {
+    border: 1px solid rgba(37, 99, 235, 0.35);
+    box-shadow: 0 0 0 rgba(37, 99, 235, 0);
+    transition: box-shadow .3s ease, border-color .3s ease, transform .3s ease, opacity .3s ease;
+  }
+  .card-glow:hover, .card-glow:focus-within {
+    border-color: rgba(37, 99, 235, 0.7);
+    box-shadow: 0 0 24px rgba(37, 99, 235, 0.28), 0 0 60px rgba(37, 99, 235, 0.10);
+  }
+  .card-active {
+    border-color: rgba(37, 99, 235, 0.9) !important;
+    box-shadow: 0 0 28px rgba(37, 99, 235, 0.4), 0 0 70px rgba(37, 99, 235, 0.15) !important;
+  }
+  .card-dim { opacity: .55; }
+
+  /* Button lift + glow */
+  .btn-lift { transition: transform .25s ease, box-shadow .25s ease, background-color .25s ease; }
+  .btn-lift:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(37, 99, 235, 0.45); }
+  .btn-lift-green:hover { box-shadow: 0 8px 30px rgba(22, 163, 74, 0.5); }
+
+  /* Pulsing open dot */
+  @keyframes pulse-dot { 0%,100% { box-shadow: 0 0 0 0 rgba(34,197,94,.55);} 50% { box-shadow: 0 0 0 6px rgba(34,197,94,0);} }
+  .pulse-dot { animation: pulse-dot 2s ease-in-out infinite; }
+
+  /* WhatsApp pulsing ring */
+  @keyframes pulse-ring { 0% { box-shadow: 0 0 0 0 rgba(34,197,94,.5);} 70% { box-shadow: 0 0 0 12px rgba(34,197,94,0);} 100% { box-shadow: 0 0 0 0 rgba(34,197,94,0);} }
+  .pulse-ring { animation: pulse-ring 2.2s ease-out infinite; }
+
+  /* Hexagonal workshop ceiling lights behind hero */
+  .hex-lights {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='104' viewBox='0 0 120 104'%3E%3Cpath d='M30 2 L90 2 L120 52 L90 102 L30 102 L0 52 Z' fill='none' stroke='%232563EB' stroke-opacity='0.10'/%3E%3C/svg%3E");
+    background-size: 120px 104px;
+  }
+  .hero-glow {
+    background:
+      radial-gradient(600px 320px at 18% 0%, rgba(37,99,235,.22), transparent 65%),
+      radial-gradient(520px 300px at 85% 8%, rgba(255,255,255,.06), transparent 60%),
+      radial-gradient(700px 420px at 55% 110%, rgba(37,99,235,.10), transparent 70%);
+  }
+
+  /* Broken image fallback — dark gradient panel, never a gap */
+  .img-fallback { background: linear-gradient(135deg, #12151E 0%, #1a2030 55%, #0d1424 100%); position: relative; }
+  .img-fallback::after {
+    content: "GLOSS LAB NASHIK";
+    position: absolute; inset: 0; display: flex; align-items: center; justify-content: center;
+    font-family: "Plus Jakarta Sans", sans-serif; font-weight: 700; letter-spacing: .2em;
+    color: rgba(167,176,192,.35); font-size: .7rem; text-transform: uppercase;
+  }
+
+  /* Before / After slider */
+  #ba-slider { touch-action: pan-y; user-select: none; -webkit-user-select: none; }
+  #ba-before { clip-path: inset(0 calc(100% - var(--pos, 50%)) 0 0); }
+  #ba-handle { left: var(--pos, 50%); }
+
+  /* Tilt cards */
+  .tilt-card { transform-style: preserve-3d; will-change: transform; }
+  .spotlight::before {
+    content: ""; position: absolute; inset: 0; z-index: 1; pointer-events: none; border-radius: inherit;
+    background: radial-gradient(340px circle at var(--mx, 50%) var(--my, 50%), rgba(37,99,235,.16), transparent 65%);
+    opacity: 0; transition: opacity .3s ease;
+  }
+  .spotlight:hover::before { opacity: 1; }
+
+  /* Safe areas */
+  .pt-safe { padding-top: env(safe-area-inset-top); }
+  .pb-safe { padding-bottom: env(safe-area-inset-bottom); }
+
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    *, *::before, *::after { animation: none !important; transition: none !important; }
+    .tilt-card { transform: none !important; }
+  }
+</style>
+</head>
+<body class="bg-obsidian text-white font-body antialiased">
+
+<!-- ============ 1. STICKY HEADER ============ -->
+<header class="sticky top-0 z-50 bg-obsidian/85 backdrop-blur-md border-b border-cobalt/25 pt-safe">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between gap-3">
+    <a href="#top" data-testid="header-logo" class="font-heading font-800 tracking-tight text-base sm:text-lg uppercase whitespace-nowrap">
+      <span class="text-white" id="brand-name-1">Gloss Lab</span> <span class="text-cobalt" id="brand-name-2">Nashik</span>
+    </a>
+    <div class="flex items-center gap-3 sm:gap-5">
+      <span class="hidden sm:flex items-center gap-2 text-xs text-muted" data-testid="bays-open-status">
+        <span class="w-2 h-2 rounded-full bg-green-500 pulse-dot inline-block"></span>
+        Bays open today
+      </span>
+      <a id="header-wa-cta" data-testid="header-whatsapp-button" href="#" target="_blank" rel="noopener"
+         class="btn-lift btn-lift-green bg-green-600 hover:bg-green-500 text-white text-xs sm:text-sm font-semibold px-3 sm:px-5 py-2.5 rounded-md whitespace-nowrap">
+        <span class="hidden min-[420px]:inline">WhatsApp Bay Booking</span>
+        <span class="min-[420px]:hidden">Book</span>
+      </a>
+    </div>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- ============ 2. HERO ============ -->
+  <section class="relative hex-lights overflow-hidden">
+    <div class="absolute inset-0 hero-glow pointer-events-none"></div>
+    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 pt-16 pb-20 sm:pt-24 sm:pb-28">
+      <p class="inline-block text-[11px] sm:text-xs font-semibold tracking-[0.22em] text-cobalt border border-cobalt/40 rounded-full px-4 py-1.5 uppercase" data-testid="hero-badge">
+        Certified Automotive Protection &amp; Restoration
+      </p>
+      <h1 class="mt-6 font-heading font-800 uppercase leading-[0.95] tracking-tight text-4xl sm:text-5xl lg:text-6xl max-w-4xl">
+        Experience the Art<br class="hidden sm:block"> of Restoration
+      </h1>
+      <p class="mt-6 text-muted text-sm sm:text-base max-w-2xl leading-relaxed">
+        From self-healing TPU paint protection film and graphene coatings to heated-booth paint restoration and acoustic sound damping, we take on the high-ticket work most studios won't touch. Your car leaves with deeper gloss, a quieter cabin, and resale value protected for years.
+      </p>
+      <div class="mt-9 flex flex-col sm:flex-row gap-4">
+        <a href="#estimator" data-testid="hero-calculate-button"
+           class="btn-lift bg-cobalt hover:bg-blue-500 text-white font-semibold text-sm sm:text-base px-7 py-3.5 rounded-md text-center">
+          Calculate Package Price
+        </a>
+        <a id="hero-inspect-cta" data-testid="hero-inspection-button" href="#" target="_blank" rel="noopener"
+           class="btn-lift border border-cobalt/50 hover:border-cobalt text-white font-semibold text-sm sm:text-base px-7 py-3.5 rounded-md text-center">
+          Book Free Inspection
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 3. BEFORE / AFTER SLIDER ============ -->
+  <section class="max-w-7xl mx-auto px-4 sm:px-6 py-14 sm:py-20" aria-labelledby="ba-heading">
+    <h2 id="ba-heading" class="font-heading font-700 uppercase tracking-tight text-2xl sm:text-3xl">Proof, not promises</h2>
+    <p class="mt-2 text-muted text-sm sm:text-base">Real correction work. Drag the handle to see what our bay does to tired paint.</p>
+
+    <div id="ba-slider" data-testid="before-after-slider"
+         class="relative mt-8 w-full aspect-[4/3] md:aspect-video rounded-xl overflow-hidden card-glow bg-panel">
+      <!-- AFTER (base layer) -->
+      <div class="absolute inset-0">
+        <img src="https://images.unsplash.com/photo-1617814076367-b759c7d7e738?q=80&w=1000&auto=format&fit=crop"
+             alt="Glossy black car after 10H ceramic coating at Gloss Lab Nashik"
+             width="1000" height="750" draggable="false"
+             class="w-full h-full object-cover"
+             onerror="this.style.display='none';this.parentElement.classList.add('img-fallback')">
+      </div>
+      <span class="absolute top-4 right-4 z-20 bg-cobalt text-white text-[10px] sm:text-xs font-semibold uppercase tracking-wider px-3 py-1.5 rounded">After: 10H Ceramic Shield</span>
+
+      <!-- BEFORE (clipped layer) -->
+      <div id="ba-before" class="absolute inset-0 z-10">
+        <img src="https://images.unsplash.com/photo-1607860108855-64acf2078ed9?q=80&w=1000&auto=format&fit=crop"
+             alt="Car paint with severe swirl marks before paint correction"
+             width="1000" height="750" draggable="false"
+             class="w-full h-full object-cover"
+             onerror="this.style.display='none';this.parentElement.classList.add('img-fallback')">
+        <span class="absolute top-4 left-4 bg-racing text-white text-[10px] sm:text-xs font-semibold uppercase tracking-wider px-3 py-1.5 rounded">Before: Severe Swirl Marks</span>
+      </div>
+
+      <!-- Handle -->
+      <div id="ba-handle" data-testid="ba-slider-handle" role="slider" tabindex="0"
+           aria-label="Before and after comparison slider" aria-valuemin="5" aria-valuemax="95" aria-valuenow="50"
+           class="absolute top-0 bottom-0 z-30 -translate-x-1/2 flex items-center justify-center cursor-ew-resize">
+        <span class="absolute top-0 bottom-0 w-0.5 bg-white/80"></span>
+        <span class="relative w-11 h-11 rounded-full bg-white text-obsidian flex items-center justify-center shadow-lg shadow-black/50">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M8 7l-5 5 5 5M16 7l5 5-5 5"/>
+          </svg>
+        </span>
+      </div>
+    </div>
+    <p class="mt-4 text-xs sm:text-sm text-muted">Drag to compare. Ask to see real before and after cars from our bay.</p>
+  </section>
+
+  <!-- ============ 4. VEHICLE CONCERN SELECTOR ============ -->
+  <section class="max-w-7xl mx-auto px-4 sm:px-6 py-6 sm:py-10" aria-labelledby="concern-heading">
+    <h2 id="concern-heading" class="font-heading font-700 uppercase tracking-tight text-2xl sm:text-3xl">What does your car need?</h2>
+    <div class="mt-6 flex flex-wrap gap-3" role="group" aria-label="Select your car's main concern">
+      <button type="button" data-testid="concern-pill-delivery" data-concern="delivery" aria-pressed="false"
+              class="concern-pill text-xs sm:text-sm font-medium border border-cobalt/35 rounded-full px-4 sm:px-5 py-2.5 text-muted hover:text-white hover:border-cobalt transition-colors">New Showroom Delivery</button>
+      <button type="button" data-testid="concern-pill-swirls" data-concern="swirls" aria-pressed="false"
+              class="concern-pill text-xs sm:text-sm font-medium border border-cobalt/35 rounded-full px-4 sm:px-5 py-2.5 text-muted hover:text-white hover:border-cobalt transition-colors">Swirls &amp; Scratches</button>
+      <button type="button" data-testid="concern-pill-heat" data-concern="heat" aria-pressed="false"
+              class="concern-pill text-xs sm:text-sm font-medium border border-cobalt/35 rounded-full px-4 sm:px-5 py-2.5 text-muted hover:text-white hover:border-cobalt transition-colors">Cabin Heat &amp; Road Noise</button>
+      <button type="button" data-testid="concern-pill-color" data-concern="color" aria-pressed="false"
+              class="concern-pill text-xs sm:text-sm font-medium border border-cobalt/35 rounded-full px-4 sm:px-5 py-2.5 text-muted hover:text-white hover:border-cobalt transition-colors">Custom Color Change</button>
+    </div>
+    <p id="concern-recommendation" data-testid="concern-recommendation" class="mt-4 text-sm text-cobalt" aria-live="polite">Select a concern and we'll point you to the right bay.</p>
+  </section>
+
+  <!-- ============ 5. SERVICE MATRIX ============ -->
+  <section class="max-w-7xl mx-auto px-4 sm:px-6 py-14 sm:py-20" aria-labelledby="services-heading">
+    <h2 id="services-heading" class="font-heading font-700 uppercase tracking-tight text-2xl sm:text-3xl">The work we're known for</h2>
+    <div class="mt-8 grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6" style="perspective:800px">
+
+      <article data-testid="service-card-ppf" data-service="ppf" class="service-card tilt-card spotlight relative bg-panel rounded-xl overflow-hidden card-glow">
+        <div class="aspect-[16/10] overflow-hidden">
+          <img src="https://images.unsplash.com/photo-1619642751034-765dfdf7c58e?q=80&w=1000&auto=format&fit=crop"
+               alt="Technician applying self-healing TPU paint protection film" width="1000" height="625" loading="lazy" draggable="false"
+               class="w-full h-full object-cover"
+               onerror="this.style.display='none';this.parentElement.classList.add('img-fallback')">
+        </div>
+        <div class="p-4 sm:p-5 relative z-[2]">
+          <h3 class="font-heading font-700 text-sm sm:text-base uppercase tracking-tight">TPU Self-Healing PPF</h3>
+          <p class="mt-2 text-muted text-xs sm:text-sm leading-relaxed">Invisible film that absorbs stone chips and heals swirls with heat. Factory paint stays untouched underneath.</p>
+          <a href="#" data-testid="service-whatsapp-ppf" data-service-link="TPU Self-Healing PPF" target="_blank" rel="noopener" class="wa-service-link mt-3 inline-block text-cobalt text-xs sm:text-sm font-semibold hover:underline">Ask on WhatsApp</a>
+        </div>
+      </article>
+
+      <article data-testid="service-card-paint" data-service="paint" class="service-card tilt-card spotlight relative bg-panel rounded-xl overflow-hidden card-glow">
+        <div class="aspect-[16/10] overflow-hidden">
+          <img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?q=80&w=1000&auto=format&fit=crop"
+               alt="Sports car panel finished in a heated paint booth" width="1000" height="625" loading="lazy" draggable="false"
+               class="w-full h-full object-cover"
+               onerror="this.style.display='none';this.parentElement.classList.add('img-fallback')">
+        </div>
+        <div class="p-4 sm:p-5 relative z-[2]">
+          <h3 class="font-heading font-700 text-sm sm:text-base uppercase tracking-tight">Heated Booth Paint &amp; Restoration</h3>
+          <p class="mt-2 text-muted text-xs sm:text-sm leading-relaxed">Dust-free heated booth for panel paint, color changes and multi-stage correction that levels years of swirls.</p>
+          <a href="#" data-testid="service-whatsapp-paint" data-service-link="Heated Booth Paint & Restoration" target="_blank" rel="noopener" class="wa-service-link mt-3 inline-block text-cobalt text-xs sm:text-sm font-semibold hover:underline">Ask on WhatsApp</a>
+        </div>
+      </article>
+
+      <article data-testid="service-card-damping" data-service="damping" class="service-card tilt-card spotlight relative bg-panel rounded-xl overflow-hidden card-glow">
+        <div class="aspect-[16/10] overflow-hidden">
+          <img src="https://images.unsplash.com/photo-1520340356584-f9917d1eea6f?q=80&w=1000&auto=format&fit=crop"
+               alt="Car cabin fitted with acoustic sound damping sheets" width="1000" height="625" loading="lazy" draggable="false"
+               class="w-full h-full object-cover"
+               onerror="this.style.display='none';this.parentElement.classList.add('img-fallback')">
+        </div>
+        <div class="p-4 sm:p-5 relative z-[2]">
+          <h3 class="font-heading font-700 text-sm sm:text-base uppercase tracking-tight">Acoustic Cabin Sound Damping</h3>
+          <p class="mt-2 text-muted text-xs sm:text-sm leading-relaxed">Multi-layer damping in doors, floor and boot cuts road roar and heat, so the cabin stays quiet and cool.</p>
+          <a href="#" data-testid="service-whatsapp-damping" data-service-link="Acoustic Cabin Sound Damping" target="_blank" rel="noopener" class="wa-service-link mt-3 inline-block text-cobalt text-xs sm:text-sm font-semibold hover:underline">Ask on WhatsApp</a>
+        </div>
+      </article>
+
+      <article data-testid="service-card-interior" data-service="interior" class="service-card tilt-card spotlight relative bg-panel rounded-xl overflow-hidden card-glow">
+        <div class="aspect-[16/10] overflow-hidden">
+          <img src="https://images.unsplash.com/photo-1563720223185-11003d516935?q=80&w=1000&auto=format&fit=crop"
+               alt="Leather car seat cleaned and conditioned during an interior spa" width="1000" height="625" loading="lazy" draggable="false"
+               class="w-full h-full object-cover"
+               onerror="this.style.display='none';this.parentElement.classList.add('img-fallback')">
+        </div>
+        <div class="p-4 sm:p-5 relative z-[2]">
+          <h3 class="font-heading font-700 text-sm sm:text-base uppercase tracking-tight">Interior Steam &amp; Leather Spa</h3>
+          <p class="mt-2 text-muted text-xs sm:text-sm leading-relaxed">Deep steam extraction, leather cleaning and conditioning that removes stains and brings back the new-car smell.</p>
+          <a href="#" data-testid="service-whatsapp-interior" data-service-link="Interior Steam & Leather Spa" target="_blank" rel="noopener" class="wa-service-link mt-3 inline-block text-cobalt text-xs sm:text-sm font-semibold hover:underline">Ask on WhatsApp</a>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+  <!-- ============ 6. VEHICLE SEGMENT ESTIMATOR ============ -->
+  <section id="estimator" class="max-w-7xl mx-auto px-4 sm:px-6 py-14 sm:py-20" aria-labelledby="estimator-heading">
+    <h2 id="estimator-heading" class="font-heading font-700 uppercase tracking-tight text-2xl sm:text-3xl">Calculate your package price</h2>
+    <p class="mt-2 text-muted text-sm sm:text-base">Pick your segment and package. The estimate updates instantly.</p>
+
+    <!-- Segment tabs -->
+    <div class="mt-8 flex flex-wrap gap-2 sm:gap-3" role="tablist" aria-label="Vehicle segment" id="segment-tabs">
+      <button type="button" role="tab" id="tab-hatchback" aria-selected="true" data-testid="segment-tab-hatchback" data-segment="hatchback"
+              class="segment-tab text-xs sm:text-sm font-medium border rounded-md px-3 sm:px-4 py-2.5 transition-colors">Hatchback (i20, Polo)</button>
+      <button type="button" role="tab" id="tab-sedan" aria-selected="false" data-testid="segment-tab-sedan" data-segment="sedan"
+              class="segment-tab text-xs sm:text-sm font-medium border rounded-md px-3 sm:px-4 py-2.5 transition-colors">Sedan (City, Slavia, German Sedans)</button>
+      <button type="button" role="tab" id="tab-suv" aria-selected="false" data-testid="segment-tab-suv" data-segment="suv"
+              class="segment-tab text-xs sm:text-sm font-medium border rounded-md px-3 sm:px-4 py-2.5 transition-colors">Compact SUV (Thar Roxx, Creta, Scorpio-N)</button>
+      <button type="button" role="tab" id="tab-luxury" aria-selected="false" data-testid="segment-tab-luxury" data-segment="luxury"
+              class="segment-tab text-xs sm:text-sm font-medium border rounded-md px-3 sm:px-4 py-2.5 transition-colors">Full-Size 4x4 / Luxury (Fortuner, Defender, BMW)</button>
+    </div>
+
+    <!-- Package radio cards -->
+    <fieldset class="mt-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4" id="package-group">
+      <legend class="sr-only">Choose a package</legend>
+
+      <label data-testid="package-card-silver" class="package-card cursor-pointer">
+        <input type="radio" name="package" value="silver" class="sr-only peer" checked>
+        <div class="h-full bg-panel rounded-xl p-4 sm:p-5 card-glow peer-checked:border-cobalt peer-checked:shadow-[0_0_28px_rgba(37,99,235,0.4)]">
+          <span class="font-heading font-700 text-sm sm:text-base uppercase tracking-tight block">Silver Gloss</span>
+          <span class="mt-2 block text-muted text-xs sm:text-sm leading-relaxed">2-step machine polish, 10H ceramic coat and a full interior refresh.</span>
+        </div>
+      </label>
+
+      <label data-testid="package-card-ppf" class="package-card cursor-pointer">
+        <input type="radio" name="package" value="ppf" class="sr-only peer">
+        <div class="h-full bg-panel rounded-xl p-4 sm:p-5 card-glow peer-checked:border-cobalt peer-checked:shadow-[0_0_28px_rgba(37,99,235,0.4)]">
+          <span class="font-heading font-700 text-sm sm:text-base uppercase tracking-tight block">5-Year TPU PPF</span>
+          <span class="mt-2 block text-muted text-xs sm:text-sm leading-relaxed">Self-healing TPU film on all painted panels, backed by a 5-year e-warranty.</span>
+        </div>
+      </label>
+
+      <label data-testid="package-card-graphene" class="package-card cursor-pointer">
+        <input type="radio" name="package" value="graphene" class="sr-only peer">
+        <div class="h-full bg-panel rounded-xl p-4 sm:p-5 card-glow peer-checked:border-cobalt peer-checked:shadow-[0_0_28px_rgba(37,99,235,0.4)]">
+          <span class="font-heading font-700 text-sm sm:text-base uppercase tracking-tight block">Graphene Shield</span>
+          <span class="mt-2 block text-muted text-xs sm:text-sm leading-relaxed">Full paint correction plus graphene coating for deeper gloss and easier washes.</span>
+        </div>
+      </label>
+
+      <label data-testid="package-card-overhaul" class="package-card cursor-pointer">
+        <input type="radio" name="package" value="overhaul" class="sr-only peer">
+        <div class="h-full bg-panel rounded-xl p-4 sm:p-5 card-glow peer-checked:border-cobalt peer-checked:shadow-[0_0_28px_rgba(37,99,235,0.4)]">
+          <span class="font-heading font-700 text-sm sm:text-base uppercase tracking-tight block">Complete Studio Overhaul</span>
+          <span class="mt-2 block text-muted text-xs sm:text-sm leading-relaxed">PPF, graphene coat, booth paint touch-up, cabin damping and interior spa in one booking.</span>
+        </div>
+      </label>
+    </fieldset>
+
+    <!-- Price display -->
+    <div class="mt-8 bg-panel rounded-xl p-6 sm:p-8 card-glow">
+      <p class="text-muted text-xs sm:text-sm uppercase tracking-widest">Starting from</p>
+      <p class="mt-2 font-heading font-800 text-4xl sm:text-5xl tracking-tight" data-testid="price-display">₹<span id="price-value">12,000</span></p>
+      <p class="mt-3 text-muted text-xs sm:text-sm">Indicative starting price. Final quote after a free paint inspection.</p>
+      <a id="lock-package-cta" data-testid="lock-package-button" href="#" target="_blank" rel="noopener"
+         class="btn-lift btn-lift-green mt-6 inline-block bg-green-600 hover:bg-green-500 text-white font-semibold text-sm sm:text-base px-7 py-3.5 rounded-md">
+        Lock Package via WhatsApp
+      </a>
+    </div>
+  </section>
+
+  <!-- ============ 7. TRUST SECTION ============ -->
+  <section class="max-w-7xl mx-auto px-4 sm:px-6 py-14 sm:py-20" aria-labelledby="trust-heading">
+    <h2 id="trust-heading" class="font-heading font-700 uppercase tracking-tight text-2xl sm:text-3xl">Materials we work with</h2>
+    <div id="brands-row" data-testid="brands-row" class="mt-6 border border-cobalt/35 rounded-xl divide-y sm:divide-y-0 sm:divide-x divide-cobalt/20 grid grid-cols-1 sm:grid-cols-4"></div>
+
+    <div id="metrics-grid" data-testid="metrics-grid" class="mt-10 grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6"></div>
+
+    <!-- Replace the numbers above with your studio's real figures. -->
+    <p data-dev-note style="display:none">Replace the numbers above with your studio's real figures.</p>
+  </section>
+
+  <!-- ============ 8. CONTACT / FOOTER ============ -->
+  <footer class="border-t border-cobalt/25 mt-8">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 py-12 pb-32 md:pb-12">
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-8">
+        <div>
+          <p class="font-heading font-700 uppercase tracking-tight text-base" id="brand-name-3">Gloss Lab Nashik</p>
+          <p class="mt-3 text-muted text-sm leading-relaxed" id="footer-address" data-testid="footer-address"></p>
+          <a href="https://maps.google.com/?q=Nashik" data-testid="get-directions-link" target="_blank" rel="noopener"
+             class="mt-3 inline-block text-cobalt text-sm font-semibold hover:underline">Get directions</a>
+        </div>
+        <div>
+          <p class="text-white text-sm font-semibold uppercase tracking-widest">Hours</p>
+          <p class="mt-3 text-muted text-sm" id="footer-hours" data-testid="footer-hours"></p>
+        </div>
+        <div>
+          <p class="text-white text-sm font-semibold uppercase tracking-widest">Talk to the bay</p>
+          <a id="footer-phone" data-testid="footer-phone-link" href="#" class="mt-3 block text-muted text-sm hover:text-white transition-colors"></a>
+          <a id="footer-wa" data-testid="footer-whatsapp-link" href="#" target="_blank" rel="noopener" class="mt-2 block text-muted text-sm hover:text-white transition-colors">WhatsApp the studio</a>
+        </div>
+      </div>
+      <p class="mt-10 text-muted/60 text-xs">© 2026 <span id="brand-name-4">Gloss Lab Nashik</span>. All rights reserved.</p>
+    </div>
+  </footer>
+
+</main>
+
+<!-- ============ 9. FIXED MOBILE ACTION BAR ============ -->
+<div class="fixed bottom-0 inset-x-0 z-50 md:hidden bg-obsidian/95 backdrop-blur-md border-t border-cobalt/25 pb-safe" data-testid="mobile-action-bar">
+  <div class="flex items-center gap-3 px-4 py-3">
+    <a id="mobile-call-btn" data-testid="mobile-call-button" href="#"
+       class="btn-lift shrink-0 border border-cobalt/50 text-white font-semibold text-sm px-5 py-3 rounded-md">Call</a>
+    <a id="mobile-wa-btn" data-testid="mobile-whatsapp-button" href="#" target="_blank" rel="noopener"
+       class="btn-lift pulse-ring flex-1 bg-green-600 hover:bg-green-500 text-white font-semibold text-sm text-center px-5 py-3 rounded-md">WhatsApp the Studio</a>
+  </div>
+</div>
+
+<script>
+/* =========================================================
+   CONFIG — edit this one object to update the whole page.
+   ========================================================= */
+const CONFIG = {
+  studioName: "Gloss Lab Nashik",
+  whatsapp: "919999999999", // digits only, with country code
+  phone: "+919999999999",
+  address: "Gangapur Road, Near Navshya Ganpati, Nashik, Maharashtra 422013",
+  hours: "Monday to Sunday, 10:00 AM – 8:30 PM",
+  // Replace with the studio's real, verifiable numbers.
+  metrics: [
+    { value: "1,200+", label: "Cars delivered" },
+    { value: "100%", label: "Dust-free enclosed bay" },
+    { value: "5-Year", label: "E-warranty on PPF" },
+    { value: "4.9★", label: "Google rating" }
+  ],
+  // Keep only brands the studio actually installs.
+  brands: ["Garware Hi-Tech Films", "Avery Dennison", "3M", "Sonax"],
+  // Indicative starting prices in INR. Final quote always follows a free paint inspection.
+  prices: {
+    hatchback: { silver: 12000, graphene: 18000, ppf: 55000, overhaul: 95000 },
+    sedan:     { silver: 15000, graphene: 22000, ppf: 70000, overhaul: 115000 },
+    suv:       { silver: 18000, graphene: 26000, ppf: 85000, overhaul: 135000 },
+    luxury:    { silver: 25000, graphene: 36000, ppf: 120000, overhaul: 185000 }
+  },
+  segmentNames: { hatchback: "Hatchback", sedan: "Sedan", suv: "Compact SUV", luxury: "Full-Size 4x4 / Luxury" },
+  packageNames: { silver: "Silver Gloss", ppf: "5-Year TPU PPF", graphene: "Graphene Shield", overhaul: "Complete Studio Overhaul" }
+};
+
+const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+const isTouch = window.matchMedia("(hover: none)").matches;
+
+function waLink(message) {
+  return "https://wa.me/" + CONFIG.whatsapp + "?text=" + encodeURIComponent(message);
+}
+const GREETING = "Hi " + CONFIG.studioName + ", I'd like to book a bay.";
+
+/* ---------- Brand, contact & WhatsApp wiring ---------- */
+(function initIdentity() {
+  const parts = CONFIG.studioName.split(" ");
+  const last = parts.pop();
+  document.getElementById("brand-name-1").textContent = parts.join(" ");
+  document.getElementById("brand-name-2").textContent = last;
+  document.getElementById("brand-name-3").textContent = CONFIG.studioName;
+  document.getElementById("brand-name-4").textContent = CONFIG.studioName;
+
+  document.getElementById("footer-address").textContent = CONFIG.address;
+  document.getElementById("footer-hours").textContent = CONFIG.hours;
+
+  const tel = "tel:" + CONFIG.phone;
+  const footerPhone = document.getElementById("footer-phone");
+  footerPhone.href = tel;
+  footerPhone.textContent = CONFIG.phone;
+
+  document.getElementById("header-wa-cta").href = waLink(GREETING);
+  document.getElementById("hero-inspect-cta").href = waLink("Hi, I'd like to book a free inspection.");
+  document.getElementById("footer-wa").href = waLink(GREETING);
+  document.getElementById("mobile-call-btn").href = tel;
+  document.getElementById("mobile-wa-btn").href = waLink(GREETING);
+
+  document.querySelectorAll(".wa-service-link").forEach(function (a) {
+    a.href = waLink("Hi, I want to know more about " + a.dataset.serviceLink + " for my car.");
+  });
+})();
+
+/* ---------- Before / After slider ---------- */
+(function initSlider() {
+  const slider = document.getElementById("ba-slider");
+  const handle = document.getElementById("ba-handle");
+  let pos = 50;
+  let dragging = false;
+
+  function setPos(p) {
+    pos = Math.min(95, Math.max(5, p));
+    slider.style.setProperty("--pos", pos + "%");
+    handle.setAttribute("aria-valuenow", Math.round(pos));
+  }
+  function fromEvent(e) {
+    const r = slider.getBoundingClientRect();
+    setPos(((e.clientX - r.left) / r.width) * 100);
+  }
+
+  slider.addEventListener("pointerdown", function (e) {
+    dragging = true;
+    slider.setPointerCapture(e.pointerId);
+    fromEvent(e);
+  });
+  slider.addEventListener("pointermove", function (e) {
+    if (dragging) fromEvent(e);
+  });
+  ["pointerup", "pointercancel"].forEach(function (evt) {
+    slider.addEventListener(evt, function () { dragging = false; });
+  });
+  handle.addEventListener("keydown", function (e) {
+    if (e.key === "ArrowLeft") { e.preventDefault(); setPos(pos - 5); }
+    else if (e.key === "ArrowRight") { e.preventDefault(); setPos(pos + 5); }
+    else if (e.key === "Home") { e.preventDefault(); setPos(5); }
+    else if (e.key === "End") { e.preventDefault(); setPos(95); }
+  });
+  setPos(50);
+})();
+
+/* ---------- Concern selector ---------- */
+(function initConcerns() {
+  const map = {
+    delivery: { services: ["ppf"], text: "Recommended: 5-Year TPU PPF to lock in that factory paint from day one." },
+    swirls:   { services: ["paint"], text: "Recommended: heated-booth paint restoration to level swirls before any coating." },
+    heat:     { services: ["damping", "interior"], text: "Recommended: acoustic damping plus an interior spa for a cooler, quieter cabin." },
+    color:    { services: ["paint"], text: "Recommended: heated-booth respray and restoration for a factory-grade color change." }
+  };
+  const pills = document.querySelectorAll(".concern-pill");
+  const cards = document.querySelectorAll(".service-card");
+  const rec = document.getElementById("concern-recommendation");
+  let active = null;
+
+  pills.forEach(function (pill) {
+    pill.addEventListener("click", function () {
+      const key = pill.dataset.concern;
+      active = (active === key) ? null : key;
+
+      pills.forEach(function (p) {
+        const on = p.dataset.concern === active;
+        p.setAttribute("aria-pressed", on ? "true" : "false");
+        p.classList.toggle("bg-cobalt", on);
+        p.classList.toggle("text-white", on);
+        p.classList.toggle("border-cobalt", on);
+        p.classList.toggle("text-muted", !on);
+      });
+
+      cards.forEach(function (card) {
+        const match = active && map[active].services.indexOf(card.dataset.service) !== -1;
+        card.classList.toggle("card-active", !!match);
+        card.classList.toggle("card-dim", !!active && !match);
+      });
+
+      rec.textContent = active ? map[active].text : "Select a concern and we'll point you to the right bay.";
+    });
+  });
+})();
+
+/* ---------- Service card tilt + spotlight ---------- */
+(function initTilt() {
+  if (isTouch || reduceMotion) return;
+  document.querySelectorAll(".tilt-card").forEach(function (card) {
+    card.addEventListener("pointermove", function (e) {
+      const r = card.getBoundingClientRect();
+      const x = (e.clientX - r.left) / r.width;
+      const y = (e.clientY - r.top) / r.height;
+      card.style.setProperty("--mx", (x * 100) + "%");
+      card.style.setProperty("--my", (y * 100) + "%");
+      const ry = (x - 0.5) * 12;  // max ±6deg
+      const rx = (0.5 - y) * 12;
+      card.style.transform = "perspective(800px) rotateX(" + rx.toFixed(2) + "deg) rotateY(" + ry.toFixed(2) + "deg)";
+    });
+    card.addEventListener("pointerleave", function () {
+      card.style.transform = "perspective(800px) rotateX(0deg) rotateY(0deg)";
+    });
+  });
+})();
+
+/* ---------- Estimator ---------- */
+(function initEstimator() {
+  const tabs = document.querySelectorAll(".segment-tab");
+  const radios = document.querySelectorAll('input[name="package"]');
+  const priceEl = document.getElementById("price-value");
+  const cta = document.getElementById("lock-package-cta");
+  let segment = "hatchback";
+  let displayed = 0;
+
+  function currentPackage() {
+    return document.querySelector('input[name="package"]:checked').value;
+  }
+  function countUp(target) {
+    if (reduceMotion || displayed === 0) {
+      displayed = target;
+      priceEl.textContent = target.toLocaleString("en-IN");
+      return;
+    }
+    const start = displayed;
+    const diff = target - start;
+    const t0 = performance.now();
+    const dur = 500;
+    function frame(t) {
+      const k = Math.min(1, (t - t0) / dur);
+      const eased = 1 - Math.pow(1 - k, 3);
+      priceEl.textContent = Math.round(start + diff * eased).toLocaleString("en-IN");
+      if (k < 1) requestAnimationFrame(frame);
+      else displayed = target;
+    }
+    displayed = target;
+    requestAnimationFrame(frame);
+  }
+  function render() {
+    const pkg = currentPackage();
+    countUp(CONFIG.prices[segment][pkg]);
+    cta.href = waLink("Hi, I want a quote for my " + CONFIG.segmentNames[segment] + " for " + CONFIG.packageNames[pkg] + ".");
+  }
+
+  tabs.forEach(function (tab, i) {
+    function select() {
+      segment = tab.dataset.segment;
+      tabs.forEach(function (t) {
+        const on = t === tab;
+        t.setAttribute("aria-selected", on ? "true" : "false");
+        t.classList.toggle("bg-cobalt", on);
+        t.classList.toggle("border-cobalt", on);
+        t.classList.toggle("text-white", on);
+        t.classList.toggle("border-cobalt/35", !on);
+        t.classList.toggle("text-muted", !on);
+      });
+      render();
+    }
+    tab.addEventListener("click", select);
+    tab.addEventListener("keydown", function (e) {
+      let next = null;
+      if (e.key === "ArrowRight") next = tabs[(i + 1) % tabs.length];
+      else if (e.key === "ArrowLeft") next = tabs[(i - 1 + tabs.length) % tabs.length];
+      if (next) { e.preventDefault(); next.focus(); next.click(); }
+    });
+  });
+  // initial tab styling
+  tabs[0].classList.add("bg-cobalt", "border-cobalt", "text-white");
+  tabs.forEach(function (t, i) {
+    if (i !== 0) t.classList.add("border-cobalt/35", "text-muted");
+  });
+
+  radios.forEach(function (r) { r.addEventListener("change", render); });
+  render();
+})();
+
+/* ---------- Trust section (brands + metrics from CONFIG) ---------- */
+(function initTrust() {
+  const brandsRow = document.getElementById("brands-row");
+  CONFIG.brands.forEach(function (b) {
+    const div = document.createElement("div");
+    div.className = "px-5 py-4 text-center font-heading font-700 text-sm sm:text-base uppercase tracking-wide text-white";
+    div.textContent = b;
+    brandsRow.appendChild(div);
+  });
+  const grid = document.getElementById("metrics-grid");
+  CONFIG.metrics.forEach(function (m) {
+    const div = document.createElement("div");
+    div.className = "bg-panel rounded-xl p-5 sm:p-6 card-glow";
+    const v = document.createElement("p");
+    v.className = "font-heading font-800 text-3xl sm:text-4xl tracking-tight text-white";
+    v.textContent = m.value;
+    const l = document.createElement("p");
+    l.className = "mt-2 text-muted text-xs sm:text-sm";
+    l.textContent = m.label;
+    div.appendChild(v);
+    div.appendChild(l);
+    grid.appendChild(div);
+  });
+})();
+</script>
+</body>
+</html>
